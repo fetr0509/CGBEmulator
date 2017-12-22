@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		DB6060011FECD337007A94CA /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = DB6060001FECD337007A94CA /* main.c */; };
+		DB6060091FECD7C9007A94CA /* processor.c in Sources */ = {isa = PBXBuildFile; fileRef = DB6060071FECD7C9007A94CA /* processor.c */; };
+		DB60600C1FECD7E4007A94CA /* main_registers.c in Sources */ = {isa = PBXBuildFile; fileRef = DB60600A1FECD7E4007A94CA /* main_registers.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +27,10 @@
 /* Begin PBXFileReference section */
 		DB605FFD1FECD337007A94CA /* CGBEmulator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CGBEmulator; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB6060001FECD337007A94CA /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		DB6060071FECD7C9007A94CA /* processor.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = processor.c; sourceTree = "<group>"; };
+		DB6060081FECD7C9007A94CA /* processor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = processor.h; sourceTree = "<group>"; };
+		DB60600A1FECD7E4007A94CA /* main_registers.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main_registers.c; sourceTree = "<group>"; };
+		DB60600B1FECD7E4007A94CA /* main_registers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = main_registers.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,10 @@
 			isa = PBXGroup;
 			children = (
 				DB6060001FECD337007A94CA /* main.c */,
+				DB6060071FECD7C9007A94CA /* processor.c */,
+				DB6060081FECD7C9007A94CA /* processor.h */,
+				DB60600A1FECD7E4007A94CA /* main_registers.c */,
+				DB60600B1FECD7E4007A94CA /* main_registers.h */,
 			);
 			path = CGBEmulator;
 			sourceTree = "<group>";
@@ -119,7 +129,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB6060091FECD7C9007A94CA /* processor.c in Sources */,
 				DB6060011FECD337007A94CA /* main.c in Sources */,
+				DB60600C1FECD7E4007A94CA /* main_registers.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
