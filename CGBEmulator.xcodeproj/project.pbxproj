@@ -10,6 +10,8 @@
 		DB6060011FECD337007A94CA /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = DB6060001FECD337007A94CA /* main.c */; };
 		DB6060091FECD7C9007A94CA /* processor.c in Sources */ = {isa = PBXBuildFile; fileRef = DB6060071FECD7C9007A94CA /* processor.c */; };
 		DB60600C1FECD7E4007A94CA /* main_registers.c in Sources */ = {isa = PBXBuildFile; fileRef = DB60600A1FECD7E4007A94CA /* main_registers.c */; };
+		DB60600F1FECEEB6007A94CA /* decoder.c in Sources */ = {isa = PBXBuildFile; fileRef = DB60600D1FECEEB6007A94CA /* decoder.c */; };
+		DB6060121FECEF17007A94CA /* constants.c in Sources */ = {isa = PBXBuildFile; fileRef = DB6060101FECEF17007A94CA /* constants.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +33,9 @@
 		DB6060081FECD7C9007A94CA /* processor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = processor.h; sourceTree = "<group>"; };
 		DB60600A1FECD7E4007A94CA /* main_registers.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main_registers.c; sourceTree = "<group>"; };
 		DB60600B1FECD7E4007A94CA /* main_registers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = main_registers.h; sourceTree = "<group>"; };
+		DB60600D1FECEEB6007A94CA /* decoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = decoder.c; sourceTree = "<group>"; };
+		DB60600E1FECEEB6007A94CA /* decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = decoder.h; sourceTree = "<group>"; };
+		DB6060101FECEF17007A94CA /* constants.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = constants.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +73,9 @@
 				DB6060081FECD7C9007A94CA /* processor.h */,
 				DB60600A1FECD7E4007A94CA /* main_registers.c */,
 				DB60600B1FECD7E4007A94CA /* main_registers.h */,
+				DB60600D1FECEEB6007A94CA /* decoder.c */,
+				DB60600E1FECEEB6007A94CA /* decoder.h */,
+				DB6060101FECEF17007A94CA /* constants.c */,
 			);
 			path = CGBEmulator;
 			sourceTree = "<group>";
@@ -129,6 +137,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB6060121FECEF17007A94CA /* constants.c in Sources */,
+				DB60600F1FECEEB6007A94CA /* decoder.c in Sources */,
 				DB6060091FECD7C9007A94CA /* processor.c in Sources */,
 				DB6060011FECD337007A94CA /* main.c in Sources */,
 				DB60600C1FECD7E4007A94CA /* main_registers.c in Sources */,
