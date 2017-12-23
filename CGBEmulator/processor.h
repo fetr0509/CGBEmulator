@@ -10,5 +10,11 @@
 #define processor_h
 
 #include <stdio.h>
+#include "main_registers.h"
+
+typedef struct processor {
+    mainRegisters regs;
+    uint16_t currentInstruction;
+} processor;
 
 #endif /* processor_h */
