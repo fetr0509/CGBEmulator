@@ -6,6 +6,20 @@
 //  Copyright © 2017 Peter Fetros. All rights reserved.
 //
 
+#define NUMREGS 8
+
+enum REGISTER {
+    REG_B,
+    REG_C,
+    REG_D,
+    REG_E,
+    REG_H,
+    REG_L,
+    REG_HL,
+    REG_A,
+    NOREG
+};
+
 enum OPCODE_TYPE {
     NOP,    // no operation
     LD,     // load
