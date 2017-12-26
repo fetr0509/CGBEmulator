@@ -11,7 +11,6 @@
 		DB6060091FECD7C9007A94CA /* processor.c in Sources */ = {isa = PBXBuildFile; fileRef = DB6060071FECD7C9007A94CA /* processor.c */; };
 		DB60600C1FECD7E4007A94CA /* main_registers.c in Sources */ = {isa = PBXBuildFile; fileRef = DB60600A1FECD7E4007A94CA /* main_registers.c */; };
 		DB60600F1FECEEB6007A94CA /* decoder.c in Sources */ = {isa = PBXBuildFile; fileRef = DB60600D1FECEEB6007A94CA /* decoder.c */; };
-		DB6060121FECEF17007A94CA /* constants.c in Sources */ = {isa = PBXBuildFile; fileRef = DB6060101FECEF17007A94CA /* constants.c */; };
 		DB6060151FEDD8FB007A94CA /* instruction.c in Sources */ = {isa = PBXBuildFile; fileRef = DB6060131FEDD8FB007A94CA /* instruction.c */; };
 /* End PBXBuildFile section */
 
@@ -36,9 +35,9 @@
 		DB60600B1FECD7E4007A94CA /* main_registers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = main_registers.h; sourceTree = "<group>"; };
 		DB60600D1FECEEB6007A94CA /* decoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = decoder.c; sourceTree = "<group>"; };
 		DB60600E1FECEEB6007A94CA /* decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = decoder.h; sourceTree = "<group>"; };
-		DB6060101FECEF17007A94CA /* constants.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = constants.c; sourceTree = "<group>"; };
 		DB6060131FEDD8FB007A94CA /* instruction.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = instruction.c; sourceTree = "<group>"; };
 		DB6060141FEDD8FB007A94CA /* instruction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = instruction.h; sourceTree = "<group>"; };
+		DB6060161FEF1ACE007A94CA /* constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +77,7 @@
 				DB60600B1FECD7E4007A94CA /* main_registers.h */,
 				DB60600D1FECEEB6007A94CA /* decoder.c */,
 				DB60600E1FECEEB6007A94CA /* decoder.h */,
-				DB6060101FECEF17007A94CA /* constants.c */,
+				DB6060161FEF1ACE007A94CA /* constants.h */,
 				DB6060131FEDD8FB007A94CA /* instruction.c */,
 				DB6060141FEDD8FB007A94CA /* instruction.h */,
 			);
@@ -142,7 +141,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB6060121FECEF17007A94CA /* constants.c in Sources */,
 				DB60600F1FECEEB6007A94CA /* decoder.c in Sources */,
 				DB6060091FECD7C9007A94CA /* processor.c in Sources */,
 				DB6060011FECD337007A94CA /* main.c in Sources */,

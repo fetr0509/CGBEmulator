@@ -10,13 +10,13 @@
 #define instruction_h
 
 #include <stdio.h>
-#include "constants.c"
+#include "constants.h"
 
 typedef struct instruction {
     uint8_t opcode;
     enum OPCODE_TYPE opcodeType;
-    enum REGISTER sourceReg;
-    enum REGISTER destinationReg;
+    enum REGISTERTYPE sourceReg;
+    enum REGISTERTYPE destinationReg;
     uint8_t instructionLength;
     uint8_t cycleDuration;
 } instruction;

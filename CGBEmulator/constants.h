@@ -1,14 +1,17 @@
 //
-//  constants.c
+//  constants.h
 //  CGBEmulator
 //
-//  Created by Peter Fetros on 12/21/17.
+//  Created by Peter Fetros on 12/23/17.
 //  Copyright © 2017 Peter Fetros. All rights reserved.
 //
 
+#ifndef constants_h
+#define constants_h
+
 #define NUMREGS 8
 
-enum REGISTER {
+enum REGISTERTYPE {
     REG_B,
     REG_C,
     REG_D,
@@ -17,6 +20,17 @@ enum REGISTER {
     REG_L,
     REG_HL,
     REG_A,
+    
+    REG_BC,
+    REG_DE,
+    REG_AF,
+    
+    DATA_8,
+    DATA_16,
+    
+    STACK_POINTER,
+    PROGRAM_COUNTER,
+    
     NOREG
 };
 
@@ -70,3 +84,5 @@ enum OPCODE_TYPE {
     RET,    // pop 2 bytes and jump to that address
     RETI,   // return but then enable inturrupts
 };
+
+#endif /* constants_h */

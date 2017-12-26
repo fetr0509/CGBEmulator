@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 #include "instruction.h"
-#include "constants.c"
+#include "constants.h"
 
 void decodeInstruction(uint8_t opcode, instruction* instruction);
 #endif /* decoder_h */
