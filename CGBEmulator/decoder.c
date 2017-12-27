@@ -102,6 +102,8 @@ void decodeInstruction(uint8_t opcode, instruction* instruction) {
                 assignInstruction(instruction,opcode,LD,REG_B,DATA_8,2,8);
                 break;
             case 0x07:
+                assignInstruction(instruction,opcode,RLCA,NOREG,NOREG,2,8);
+                break;
             case 0x08:
                 assignInstruction(instruction,opcode,LD,DATA_16,STACK_POINTER,1,4);
                 break;
@@ -124,7 +126,11 @@ void decodeInstruction(uint8_t opcode, instruction* instruction) {
                 assignInstruction(instruction,opcode,LD,REG_C,DATA_8,2,8);
                 break;
             case 0x0F:
+                assignInstruction(instruction,opcode,RRCA,NOREG,NOREG,2,8);
+                break;
             case 0x10:
+                assignInstruction(instruction,opcode,STOP,NOREG,NOREG,2,8);
+                break;
             case 0x11:
                 assignInstruction(instruction,opcode,LD,REG_DE,DATA_16,1,4);
                 break;
@@ -144,7 +150,11 @@ void decodeInstruction(uint8_t opcode, instruction* instruction) {
                 assignInstruction(instruction,opcode,LD,REG_D,DATA_8,2,8);
                 break;
             case 0x17:
+                assignInstruction(instruction,opcode,RLA,NOREG,NOREG,2,8);
+                break;
             case 0x18:
+                assignInstruction(instruction,opcode,JR,NOREG,DATA_8,2,8);
+                break;
             case 0x19:
                 assignInstruction(instruction,opcode,ADD,REG_HL,REG_DE,2,8);
                 break;
@@ -164,7 +174,11 @@ void decodeInstruction(uint8_t opcode, instruction* instruction) {
                 assignInstruction(instruction,opcode,LD,REG_E,DATA_8,2,8);
                 break;
             case 0x1F:
+                assignInstruction(instruction,opcode,RRA,NOREG,NOREG,2,8);
+                break;
             case 0x20:
+                assignInstruction(instruction,opcode,JR,NOREG,DATA_8,2,8);
+                break;
             case 0x21:
                 assignInstruction(instruction,opcode,LD,REG_HL,DATA_16,1,4);
                 break;
@@ -184,7 +198,11 @@ void decodeInstruction(uint8_t opcode, instruction* instruction) {
                 assignInstruction(instruction,opcode,LD,REG_H,DATA_8,2,8);
                 break;
             case 0x27:
+                assignInstruction(instruction,opcode,DAA,NOREG,NOREG,2,8);
+                break;
             case 0x28:
+                assignInstruction(instruction,opcode,JR,NOREG,DATA_8,2,8);
+                break;
             case 0x29:
                 assignInstruction(instruction,opcode,ADD,REG_HL,REG_HL,2,8);
                 break;
@@ -204,12 +222,16 @@ void decodeInstruction(uint8_t opcode, instruction* instruction) {
                 assignInstruction(instruction,opcode,LD,REG_L,DATA_8,2,8);
                 break;
             case 0x2F:
+                assignInstruction(instruction,opcode,CPL,NOREG,NOREG,2,8);
+                break;
             case 0x30:
+                assignInstruction(instruction,opcode,JR,NOREG,DATA_8,2,8);
+                break;
             case 0x31:
                 assignInstruction(instruction,opcode,LD,STACK_POINTER,DATA_16,1,4);
                 break;
             case 0x32:
-                ssignInstruction(instruction,opcode,LDD,REG_HL,REG_A,1,8);
+                assignInstruction(instruction,opcode,LDD,REG_HL,REG_A,1,8);
                 break;
             case 0x33:
                 assignInstruction(instruction,opcode,INC,STACK_POINTER,STACK_POINTER,2,8);
@@ -221,8 +243,14 @@ void decodeInstruction(uint8_t opcode, instruction* instruction) {
                 assignInstruction(instruction,opcode,DEC,REG_HL,REG_HL,2,8);
                 break;
             case 0x36:
+                assignInstruction(instruction,opcode,LD,REG_HL,DATA_8,2,8);
+                break;
             case 0x37:
+                assignInstruction(instruction,opcode,SCF,NOREG,NOREG,2,8);
+                break;
             case 0x38:
+                assignInstruction(instruction,opcode,JR,NOREG,DATA_8,2,8);
+                break;
             case 0x39:
                 assignInstruction(instruction,opcode,ADD,REG_HL,STACK_POINTER,2,8);
                 break;
@@ -242,47 +270,106 @@ void decodeInstruction(uint8_t opcode, instruction* instruction) {
                 assignInstruction(instruction,opcode,LD,REG_A,DATA_8,1,8);
                 break;
             case 0x3F:
+                assignInstruction(instruction,opcode,CCF,NOREG,NOREG,2,8);
+                break;
             case 0x76: // HALT
+                assignInstruction(instruction,opcode,HALT,NOREG,NOREG,2,8);
+                break;
             case 0xC0:
+                assignInstruction(instruction,opcode,RET,NOREG,NOREG,2,8);
+                break;
             case 0xC1:
                 assignInstruction(instruction,opcode,POP,STACK_POINTER,REG_BC,2,8);
                 break;
             case 0xC2:
+                assignInstruction(instruction,opcode,JP,NOREG,DATA_16,2,8);
+                break;
             case 0xC3:
+                assignInstruction(instruction,opcode,JP,NOREG,DATA_16,2,8);
+                break;
             case 0xC4:
+                assignInstruction(instruction,opcode,CALL,NOREG,DATA_16,2,8);
+                break;
             case 0xC5:
                 assignInstruction(instruction,opcode,PUSH,STACK_POINTER,REG_BC,2,8);
                 break;
             case 0xC6:
+                assignInstruction(instruction,opcode,ADD,REG_A,DATA_8,2,8);
+                break;
             case 0xC7:
+                assignInstruction(instruction,opcode,RST,NOREG,NOREG,2,8);
+                break;
             case 0xC8:
+                assignInstruction(instruction,opcode,RET,NOREG,NOREG,2,8);
+                break;
             case 0xC9:
+                assignInstruction(instruction,opcode,RET,NOREG,NOREG,2,8);
+                break;
             case 0xCA:
-            case 0xCB:
+                assignInstruction(instruction,opcode,JP,NOREG,DATA_16,2,8);
+                break;
+            case 0xCB: // Prefix used fo CB table
+                break;
             case 0xCC:
+                assignInstruction(instruction,opcode,CALL,NOREG,DATA_16,2,8);
+                break;
             case 0xCD:
+                assignInstruction(instruction,opcode,CALL,NOREG,DATA_16,2,8);
+                break;
             case 0xCE:
+                assignInstruction(instruction,opcode,ADC,REG_A,DATA_8,2,8);
+                break;
             case 0xCF:
+                assignInstruction(instruction,opcode,RST,NOREG,NOREG,2,8);
+                break;
             case 0xD0:
+                assignInstruction(instruction,opcode,RET,NOREG,NOREG,2,8);
+                break;
             case 0xD1:
                 assignInstruction(instruction,opcode,POP,STACK_POINTER,REG_DE,2,8);
                 break;
             case 0xD2:
-            case 0xD3:
+                assignInstruction(instruction,opcode,JP,NOREG,DATA_16,2,8);
+                break;
+            case 0xD3: // NOT USED
+                instruction = NULL;
+                break;
             case 0xD4:
+                assignInstruction(instruction,opcode,CALL,NOREG,DATA_16,2,8);
+                break;
             case 0xD5:
                 assignInstruction(instruction,opcode,PUSH,STACK_POINTER,REG_DE,2,8);
                 break;
             case 0xD6:
+                assignInstruction(instruction,opcode,SUB,REG_A,DATA_8,2,8);
+                break;
             case 0xD7:
+                assignInstruction(instruction,opcode,RST,NOREG,NOREG,2,8);
+                break;
             case 0xD8:
+                assignInstruction(instruction,opcode,RET,NOREG,NOREG,2,8);
+                break;
             case 0xD9:
+                assignInstruction(instruction,opcode,RETI,NOREG,NOREG,2,8);
+                break;
             case 0xDA:
-            case 0xDB:
+                assignInstruction(instruction,opcode,JP,NOREG,DATA_16,2,8);
+                break;
+            case 0xDB: // NOT USED
+                instruction = NULL;
+                break;
             case 0xDC:
-            case 0xDD:
+                assignInstruction(instruction,opcode,CALL,REG_C,DATA_16,2,8);
+                break;
+            case 0xDD: // NOT USED
+                instruction = NULL;
+                break;
             case 0xDE:
+                assignInstruction(instruction,opcode,SBC,REG_A,DATA_8,2,8);
+                break;
             case 0xDF:
+                assignInstruction(instruction,opcode,RST,NOREG,NOREG,2,8);
+                break;
             case 0xE0:
                 ssignInstruction(instruction,opcode,LDH,DATA_8,REG_A,1,8);
                 break;
@@ -292,41 +379,69 @@ void decodeInstruction(uint8_t opcode, instruction* instruction) {
             case 0xE2:
                 assignInstruction(instruction,opcode,LD,REG_C,REG_A,1,8);
                 break;
-            case 0xE3:
-            case 0xE4:
+            case 0xE3: // NOT USED
+                instruction = NULL;
+                break;
+            case 0xE4: // NOT USED
+                instruction = NULL;
+                break;
             case 0xE5:
                 assignInstruction(instruction,opcode,PUSH,STACK_POINTER,REG_HL,2,8);
                 break;
             case 0xE6:
+                assignInstruction(instruction,opcode,AND,REG_A,DATA_8,2,8);
+                break;
             case 0xE7:
+                assignInstruction(instruction,opcode,RST,NOREG,NOREG,2,8);
+                break;
             case 0xE8:
                 assignInstruction(instruction,opcode,ADD,STACK_POINTER,DATA_8,2,8);
                 break;
             case 0xE9:
+                assignInstruction(instruction,opcode,JP,NOREG,REG_HL,2,8);
+                break;
             case 0xEA:
                 assignInstruction(instruction,opcode,LD,DATA_16,REG_A,1,8);
                 break;
-            case 0xEB:
-            case 0xEC:
-            case 0xED:
+            case 0xEB: // NOT USED
+                instruction = NULL;
+                break;
+            case 0xEC: // NOT USED
+                instruction = NULL;
+                break;
+            case 0xED: // NOT USED
+                instruction = NULL;
+                break;
             case 0xEE:
+                assignInstruction(instruction,opcode,XOR,REG_A,DATA_8,1,8);
+                break;
             case 0xEF:
+                assignInstruction(instruction,opcode,RST,NOREG,NOREG,1,8);
+                break;
             case 0xF0:
                 assignInstruction(instruction,opcode,LDH,REG_A,DATA_8,1,8);
                 break;
             case 0xF1:
-                assignInstruction(instruction,opcode,PUSH,STACK_POINTER,REG_AF,2,8);
+                assignInstruction(instruction,opcode,POP,STACK_POINTER,REG_AF,2,8);
                 break;
             case 0xF2:
                 assignInstruction(instruction,opcode,LD,REG_A,REG_C,1,8);
                 break;
             case 0xF3:
-            case 0xF4:
+                assignInstruction(instruction,opcode,DI,NOREG,NOREG,2,8);
+                break;
+            case 0xF4: // NOT USED
+                instruction = NULL;
+                break;
             case 0xF5:
                 assignInstruction(instruction,opcode,PUSH,STACK_POINTER,REG_AF,2,8);
                 break;
             case 0xF6:
+                ssignInstruction(instruction,opcode,OR,REG_A,DATA_8,2,8);
+                break;
             case 0xF7:
+                assignInstruction(instruction,opcode,RST,NOREG,NOREG,2,8);
+                break;
             case 0xF8:
                 assignInstruction(instruction,opcode,LDHL,STACK_POINTER,DATA_8,1,4);
                 break;
@@ -337,10 +452,22 @@ void decodeInstruction(uint8_t opcode, instruction* instruction) {
                 assignInstruction(instruction,opcode,LD,REG_A,DATA_16,1,8);
                 break;
             case 0xFB:
+                assignInstruction(instruction,opcode,EI,NOREG,NOREG,2,8);
+                break;
             case 0xFC:
+                // NOT USED
+                instruction = NULL;
+                break;
             case 0xFD:
+                // NOT USED
+                instruction = NULL;
+                break;
             case 0xFE:
+                ssignInstruction(instruction,opcode,CP,REG_A,DATA_8,2,8);
+                break;
             case 0xFF:
+                ssignInstruction(instruction,opcode,RST,NOREG,NOREG,2,8);
+                break;
             default:
                 instruction = NULL;
                 break;
