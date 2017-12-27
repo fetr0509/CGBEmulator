@@ -83,15 +83,21 @@ void decodeInstruction(uint8_t opcode, instruction* instruction) {
             case 0x00: // NOP
                 assignInstruction(instruction,opcode,NOP,NOREG,NOREG,1,4);
                 break;
-            case 0x01: // stop
+            case 0x01:
                 assignInstruction(instruction,opcode,LD,REG_BC,DATA_16,1,4);
                 break;
             case 0x02:
                 assignInstruction(instruction,opcode,LD,REG_BC,REG_A,1,8);
                 break;
             case 0x03:
+                assignInstruction(instruction,opcode,INC,REG_BC,REG_BC,2,8);
+                break;
             case 0x04:
+                assignInstruction(instruction,opcode,INC,REG_B,REG_B,2,8);
+                break;
             case 0x05:
+                assignInstruction(instruction,opcode,DEC,REG_B,REG_B,2,8);
+                break;
             case 0x06: // LD 8 bit val
                 assignInstruction(instruction,opcode,LD,REG_B,DATA_8,2,8);
                 break;
@@ -100,12 +106,20 @@ void decodeInstruction(uint8_t opcode, instruction* instruction) {
                 assignInstruction(instruction,opcode,LD,DATA_16,STACK_POINTER,1,4);
                 break;
             case 0x09:
+                assignInstruction(instruction,opcode,ADD,REG_HL,REG_BC,2,8);
+                break;
             case 0x0A:
                 assignInstruction(instruction,opcode,LD,REG_A,REG_BC,1,8);
                 break;
             case 0x0B:
+                assignInstruction(instruction,opcode,DEC,REG_BC,REG_BC,1,4);
+                break;
             case 0x0C:
+                assignInstruction(instruction,opcode,INC,REG_C,REG_C,2,8);
+                break;
             case 0x0D:
+                assignInstruction(instruction,opcode,DEC,REG_C,REG_C,2,8);
+                break;
             case 0x0E:
                 assignInstruction(instruction,opcode,LD,REG_C,DATA_8,2,8);
                 break;
@@ -118,20 +132,34 @@ void decodeInstruction(uint8_t opcode, instruction* instruction) {
                 assignInstruction(instruction,opcode,LD,REG_DE,REG_A,1,8);
                 break;
             case 0x13:
+                assignInstruction(instruction,opcode,INC,REG_DE,REG_DE,2,8);
+                break;
             case 0x14:
+                assignInstruction(instruction,opcode,INC,REG_D,REG_D,2,8);
+                break;
             case 0x15:
+                assignInstruction(instruction,opcode,DEC,REG_D,REG_D,2,8);
+                break;
             case 0x16:
                 assignInstruction(instruction,opcode,LD,REG_D,DATA_8,2,8);
                 break;
             case 0x17:
             case 0x18:
             case 0x19:
+                assignInstruction(instruction,opcode,ADD,REG_HL,REG_DE,2,8);
+                break;
             case 0x1A:
                 assignInstruction(instruction,opcode,LD,REG_A,REG_DE,1,8);
                 break;
             case 0x1B:
+                assignInstruction(instruction,opcode,DEC,REG_DE,REG_DE,1,4);
+                break;
             case 0x1C:
+                assignInstruction(instruction,opcode,INC,REG_E,REG_E,2,8);
+                break;
             case 0x1D:
+                assignInstruction(instruction,opcode,DEC,REG_E,REG_E,2,8);
+                break;
             case 0x1E:
                 assignInstruction(instruction,opcode,LD,REG_E,DATA_8,2,8);
                 break;
@@ -141,23 +169,37 @@ void decodeInstruction(uint8_t opcode, instruction* instruction) {
                 assignInstruction(instruction,opcode,LD,REG_HL,DATA_16,1,4);
                 break;
             case 0x22:
-                ssignInstruction(instruction,opcode,LDI,REG_HL,REG_A,1,8);
+                assignInstruction(instruction,opcode,LDI,REG_HL,REG_A,1,8);
                 break;
             case 0x23:
+                assignInstruction(instruction,opcode,INC,REG_HL,REG_HL,2,8);
+                break;
             case 0x24:
+                assignInstruction(instruction,opcode,INC,REG_H,REG_H,2,8);
+                break;
             case 0x25:
+                assignInstruction(instruction,opcode,DEC,REG_H,REG_H,2,8);
+                break;
             case 0x26:
                 assignInstruction(instruction,opcode,LD,REG_H,DATA_8,2,8);
                 break;
             case 0x27:
             case 0x28:
             case 0x29:
+                assignInstruction(instruction,opcode,ADD,REG_HL,REG_HL,2,8);
+                break;
             case 0x2A:
                 assignInstruction(instruction,opcode,LDI,REG_A,REG_HL,1,8);
                 break;
             case 0x2B:
+                assignInstruction(instruction,opcode,DEC,REG_HL,REG_HL,1,4);
+                break;
             case 0x2C:
+                assignInstruction(instruction,opcode,INC,REG_L,REG_L,2,8);
+                break;
             case 0x2D:
+                assignInstruction(instruction,opcode,DEC,REG_L,REG_L,2,8);
+                break;
             case 0x2E:
                 assignInstruction(instruction,opcode,LD,REG_L,DATA_8,2,8);
                 break;
@@ -170,18 +212,32 @@ void decodeInstruction(uint8_t opcode, instruction* instruction) {
                 ssignInstruction(instruction,opcode,LDD,REG_HL,REG_A,1,8);
                 break;
             case 0x33:
+                assignInstruction(instruction,opcode,INC,STACK_POINTER,STACK_POINTER,2,8);
+                break;
             case 0x34:
+                assignInstruction(instruction,opcode,INC,REG_HL,REG_HL,2,8);
+                break;
             case 0x35:
+                assignInstruction(instruction,opcode,DEC,REG_HL,REG_HL,2,8);
+                break;
             case 0x36:
             case 0x37:
             case 0x38:
             case 0x39:
+                assignInstruction(instruction,opcode,ADD,REG_HL,STACK_POINTER,2,8);
+                break;
             case 0x3A:
                 assignInstruction(instruction,opcode,LDD,REG_A,REG_HL,1,8);
                 break;
             case 0x3B:
+                assignInstruction(instruction,opcode,DEC,STACK_POINTER,STACK_POINTER,1,4);
+                break;
             case 0x3C:
+                assignInstruction(instruction,opcode,INC,REG_A,REG_A,2,8);
+                break;
             case 0x3D:
+                assignInstruction(instruction,opcode,DEC,REG_A,REG_A,2,8);
+                break;
             case 0x3E:
                 assignInstruction(instruction,opcode,LD,REG_A,DATA_8,1,8);
                 break;
@@ -189,10 +245,14 @@ void decodeInstruction(uint8_t opcode, instruction* instruction) {
             case 0x76: // HALT
             case 0xC0:
             case 0xC1:
+                assignInstruction(instruction,opcode,POP,STACK_POINTER,REG_BC,2,8);
+                break;
             case 0xC2:
             case 0xC3:
             case 0xC4:
             case 0xC5:
+                assignInstruction(instruction,opcode,PUSH,STACK_POINTER,REG_BC,2,8);
+                break;
             case 0xC6:
             case 0xC7:
             case 0xC8:
@@ -205,10 +265,14 @@ void decodeInstruction(uint8_t opcode, instruction* instruction) {
             case 0xCF:
             case 0xD0:
             case 0xD1:
+                assignInstruction(instruction,opcode,POP,STACK_POINTER,REG_DE,2,8);
+                break;
             case 0xD2:
             case 0xD3:
             case 0xD4:
             case 0xD5:
+                assignInstruction(instruction,opcode,PUSH,STACK_POINTER,REG_DE,2,8);
+                break;
             case 0xD6:
             case 0xD7:
             case 0xD8:
@@ -223,15 +287,21 @@ void decodeInstruction(uint8_t opcode, instruction* instruction) {
                 ssignInstruction(instruction,opcode,LDH,DATA_8,REG_A,1,8);
                 break;
             case 0xE1:
+                assignInstruction(instruction,opcode,POP,STACK_POINTER,REG_HL,2,8);
+                break;
             case 0xE2:
                 assignInstruction(instruction,opcode,LD,REG_C,REG_A,1,8);
                 break;
             case 0xE3:
             case 0xE4:
             case 0xE5:
+                assignInstruction(instruction,opcode,PUSH,STACK_POINTER,REG_HL,2,8);
+                break;
             case 0xE6:
             case 0xE7:
             case 0xE8:
+                assignInstruction(instruction,opcode,ADD,STACK_POINTER,DATA_8,2,8);
+                break;
             case 0xE9:
             case 0xEA:
                 assignInstruction(instruction,opcode,LD,DATA_16,REG_A,1,8);
@@ -242,15 +312,19 @@ void decodeInstruction(uint8_t opcode, instruction* instruction) {
             case 0xEE:
             case 0xEF:
             case 0xF0:
-                ssignInstruction(instruction,opcode,LDH,REG_A,DATA_8,1,8);
+                assignInstruction(instruction,opcode,LDH,REG_A,DATA_8,1,8);
                 break;
             case 0xF1:
+                assignInstruction(instruction,opcode,PUSH,STACK_POINTER,REG_AF,2,8);
+                break;
             case 0xF2:
                 assignInstruction(instruction,opcode,LD,REG_A,REG_C,1,8);
                 break;
             case 0xF3:
             case 0xF4:
             case 0xF5:
+                assignInstruction(instruction,opcode,PUSH,STACK_POINTER,REG_AF,2,8);
+                break;
             case 0xF6:
             case 0xF7:
             case 0xF8:
