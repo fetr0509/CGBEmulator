@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include "constants.h"
 
-typedef struct instruction {
+typedef struct Instruction {
     uint8_t opcode;
     enum OPCODE_TYPE opcodeType;
     enum REGISTERTYPE sourceReg;

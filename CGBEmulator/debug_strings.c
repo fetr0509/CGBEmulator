@@ -7,7 +7,6 @@
 //
 
 #include "debug_strings.h"
-#include "constants.h"
 
 char* getRegisterTypeDebugString(enum REGISTERTYPE regType) {
     switch (regType) {

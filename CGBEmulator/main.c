@@ -7,9 +7,15 @@
 //
 
 #include <stdio.h>
+#include "instruction.h"
+#include "decoder.h"
+#include "debug_functions.h"
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    printf("Hello, World!\n");
-    return 0;
+    struct Instruction instruction = {-1,-1,-1,-1,-1,-1};
+    
+    for (int i = 0; i <= 0xFF; ++i) {
+        decodeInstruction(i, &instruction);
+        printInstructionInformation(&instruction);
+    }
 }

@@ -9,5 +9,10 @@
 #ifndef debug_strings_h
 #define debug_strings_h
 
+#include "constants.h"
+
+char* getRegisterTypeDebugString(enum REGISTERTYPE regType);
+char* getConditionalsDebugString(enum CONDITIONALS conditionalType);
+char* getOpcodeDebugString(enum OPCODE_TYPE opcodeType);
 
 #endif /* debug_strings_h */

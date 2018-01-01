@@ -13,6 +13,7 @@
 		DB60600F1FECEEB6007A94CA /* decoder.c in Sources */ = {isa = PBXBuildFile; fileRef = DB60600D1FECEEB6007A94CA /* decoder.c */; };
 		DB6060151FEDD8FB007A94CA /* instruction.c in Sources */ = {isa = PBXBuildFile; fileRef = DB6060131FEDD8FB007A94CA /* instruction.c */; };
 		DBD078B21FFAEB72006B8D4E /* debug_strings.c in Sources */ = {isa = PBXBuildFile; fileRef = DBD078B11FFAEB72006B8D4E /* debug_strings.c */; };
+		DBD078B51FFAF381006B8D4E /* debug_functions.c in Sources */ = {isa = PBXBuildFile; fileRef = DBD078B41FFAF381006B8D4E /* debug_functions.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,6 +42,8 @@
 		DB6060161FEF1ACE007A94CA /* constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
 		DBD078B01FFAEB38006B8D4E /* debug_strings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = debug_strings.h; sourceTree = "<group>"; };
 		DBD078B11FFAEB72006B8D4E /* debug_strings.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = debug_strings.c; sourceTree = "<group>"; };
+		DBD078B31FFAF36F006B8D4E /* debug_functions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = debug_functions.h; sourceTree = "<group>"; };
+		DBD078B41FFAF381006B8D4E /* debug_functions.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = debug_functions.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +88,8 @@
 				DB6060141FEDD8FB007A94CA /* instruction.h */,
 				DBD078B01FFAEB38006B8D4E /* debug_strings.h */,
 				DBD078B11FFAEB72006B8D4E /* debug_strings.c */,
+				DBD078B31FFAF36F006B8D4E /* debug_functions.h */,
+				DBD078B41FFAF381006B8D4E /* debug_functions.c */,
 			);
 			path = CGBEmulator;
 			sourceTree = "<group>";
@@ -149,6 +154,7 @@
 				DBD078B21FFAEB72006B8D4E /* debug_strings.c in Sources */,
 				DB60600F1FECEEB6007A94CA /* decoder.c in Sources */,
 				DB6060091FECD7C9007A94CA /* processor.c in Sources */,
+				DBD078B51FFAF381006B8D4E /* debug_functions.c in Sources */,
 				DB6060011FECD337007A94CA /* main.c in Sources */,
 				DB6060151FEDD8FB007A94CA /* instruction.c in Sources */,
 				DB60600C1FECD7E4007A94CA /* main_registers.c in Sources */,
