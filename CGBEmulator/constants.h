@@ -18,20 +18,27 @@ enum REGISTERTYPE {
     REG_E,
     REG_H,
     REG_L,
-    REG_HL,
+    REG_ADDR_HL,
     REG_A,
-    
     REG_BC,
     REG_DE,
+    REG_HL,
+    REG_SP,
     REG_AF,
-    
+    NOREG,
     DATA_8,
-    DATA_16,
-    
-    STACK_POINTER,
-    PROGRAM_COUNTER,
-    
-    NOREG
+    DATA_16
+};
+
+enum CONDITIONALS {
+    NZ,
+    Z,
+    NC,
+    C,
+    PO,
+    PE,
+    P,
+    M
 };
 
 enum OPCODE_TYPE {
@@ -43,11 +50,11 @@ enum OPCODE_TYPE {
     LDHL,
     PUSH,   // push onto stack
     POP,    // pop from stack
-    ADD,    // add values
-    ADC,    // add values and set carry flag
+    ADD_A,    // add values
+    ADC_A,    // add values and set carry flag
     SUB,    // subtract values
     SUBC,   // subtract values and set carry flag,
-    SBC,    // subtract n + carry flag from register A
+    SBC_A,    // subtract n + carry flag from register A
     AND,    // logical AND values
     OR,     // logical OR values
     XOR,    // logical XOR values
@@ -71,6 +78,7 @@ enum OPCODE_TYPE {
     RL,     // rotate register left, no carry
     RRC,    // rotate register right, bit 7 goes to carry
     RR,     // rotate register right, no carry
+    SLL,
     SLA,    // left arithmetic shift
     SRL,    // right logical shift
     SRA,    // right arithmetic shift
@@ -83,6 +91,20 @@ enum OPCODE_TYPE {
     RST,    // push current address then jump to 0x0 + n
     RET,    // pop 2 bytes and jump to that address
     RETI,   // return but then enable inturrupts
+    INI,
+    OUTI,
+    CPI,
+    CPD,
+    OUTD,
+    IND,
+    LDIR,
+    CPIR,
+    INIR,
+    OTIR,
+    LDDR,
+    CPDR,
+    INDR,
+    OTDZ
 };
 
 #endif /* constants_h */
