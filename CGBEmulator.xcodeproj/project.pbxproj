@@ -12,6 +12,7 @@
 		DB60600C1FECD7E4007A94CA /* main_registers.c in Sources */ = {isa = PBXBuildFile; fileRef = DB60600A1FECD7E4007A94CA /* main_registers.c */; };
 		DB60600F1FECEEB6007A94CA /* decoder.c in Sources */ = {isa = PBXBuildFile; fileRef = DB60600D1FECEEB6007A94CA /* decoder.c */; };
 		DB6060151FEDD8FB007A94CA /* instruction.c in Sources */ = {isa = PBXBuildFile; fileRef = DB6060131FEDD8FB007A94CA /* instruction.c */; };
+		DBD078B21FFAEB72006B8D4E /* debug_strings.c in Sources */ = {isa = PBXBuildFile; fileRef = DBD078B11FFAEB72006B8D4E /* debug_strings.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -38,6 +39,8 @@
 		DB6060131FEDD8FB007A94CA /* instruction.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = instruction.c; sourceTree = "<group>"; };
 		DB6060141FEDD8FB007A94CA /* instruction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = instruction.h; sourceTree = "<group>"; };
 		DB6060161FEF1ACE007A94CA /* constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
+		DBD078B01FFAEB38006B8D4E /* debug_strings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = debug_strings.h; sourceTree = "<group>"; };
+		DBD078B11FFAEB72006B8D4E /* debug_strings.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = debug_strings.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +83,8 @@
 				DB6060161FEF1ACE007A94CA /* constants.h */,
 				DB6060131FEDD8FB007A94CA /* instruction.c */,
 				DB6060141FEDD8FB007A94CA /* instruction.h */,
+				DBD078B01FFAEB38006B8D4E /* debug_strings.h */,
+				DBD078B11FFAEB72006B8D4E /* debug_strings.c */,
 			);
 			path = CGBEmulator;
 			sourceTree = "<group>";
@@ -141,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBD078B21FFAEB72006B8D4E /* debug_strings.c in Sources */,
 				DB60600F1FECEEB6007A94CA /* decoder.c in Sources */,
 				DB6060091FECD7C9007A94CA /* processor.c in Sources */,
 				DB6060011FECD337007A94CA /* main.c in Sources */,
@@ -274,6 +280,7 @@
 				DB6060061FECD337007A94CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
