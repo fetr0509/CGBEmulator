@@ -7,15 +7,25 @@
 //
 
 #include <stdio.h>
-#include "instruction.h"
 #include "decoder.h"
-#include "debug_functions.h"
+
+struct test {
+    uint8_t test1;
+    uint8_t test2;
+};
+
+extern int CompileTimeAssert[ sizeof(struct test) == 2 * sizeof(uint8_t) ? 1 : -1];
 
 int main(int argc, const char * argv[]) {
-    struct Instruction instruction = {-1,-1,-1,-1,-1,-1};
+    struct test Test = {10,9};
     
-    for (int i = 0; i <= 0xFF; ++i) {
-        decodeInstruction(i, &instruction);
-        printInstructionInformation(&instruction);
-    }
+    printf("T1: %i\n",Test.test1);
+    printf("T1: %i\n\n",Test.test2);
+    
+    uint8_t *p = &Test;
+    //p =  ((uint8_t*) p + sizeof(uint8_t));
+    
+
+    printf("Size: %i\n", (uint8_t)(*p));
+    //printf("T1: %i",Test);
 }

@@ -19,7 +19,7 @@
 #define LOWERBITS (0x0F)
 
 
-typedef struct mainRegisters {
+typedef struct MainRegisters {
     uint8_t reg_A;
     uint8_t reg_F;
     
@@ -34,20 +34,22 @@ typedef struct mainRegisters {
     
     uint16_t programCounter;
     uint16_t stackPointer;
-} mainRegisters;
+    
+    
+} MainRegisters;
 
-void setRegA(mainRegisters regs, uint8_t value);
-void setRegF(mainRegisters regs, uint8_t value);
-void setRegB(mainRegisters regs, uint8_t value);
-void setRegC(mainRegisters regs, uint8_t value);
-void setRegD(mainRegisters regs, uint8_t value);
-void setRegE(mainRegisters regs, uint8_t value);
-void setRegH(mainRegisters regs, uint8_t value);
-void setRegL(mainRegisters regs, uint8_t value);
+void setRegA(MainRegisters regs, uint8_t value);
+void setRegF(MainRegisters regs, uint8_t value);
+void setRegB(MainRegisters regs, uint8_t value);
+void setRegC(MainRegisters regs, uint8_t value);
+void setRegD(MainRegisters regs, uint8_t value);
+void setRegE(MainRegisters regs, uint8_t value);
+void setRegH(MainRegisters regs, uint8_t value);
+void setRegL(MainRegisters regs, uint8_t value);
 
-void setRegAF(mainRegisters regs, uint16_t value);
-void setRegBC(mainRegisters regs, uint16_t value);
-void setRegDE(mainRegisters regs, uint16_t value);
-void setRegHL(mainRegisters regs, uint16_t value);
+void setRegAF(MainRegisters regs, uint16_t value);
+void setRegBC(MainRegisters regs, uint16_t value);
+void setRegDE(MainRegisters regs, uint16_t value);
+void setRegHL(MainRegisters regs, uint16_t value);
 
 #endif /* main_registers_h */

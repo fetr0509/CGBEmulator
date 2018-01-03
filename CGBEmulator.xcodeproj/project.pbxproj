@@ -8,12 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		DB6060011FECD337007A94CA /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = DB6060001FECD337007A94CA /* main.c */; };
-		DB6060091FECD7C9007A94CA /* processor.c in Sources */ = {isa = PBXBuildFile; fileRef = DB6060071FECD7C9007A94CA /* processor.c */; };
 		DB60600C1FECD7E4007A94CA /* main_registers.c in Sources */ = {isa = PBXBuildFile; fileRef = DB60600A1FECD7E4007A94CA /* main_registers.c */; };
 		DB60600F1FECEEB6007A94CA /* decoder.c in Sources */ = {isa = PBXBuildFile; fileRef = DB60600D1FECEEB6007A94CA /* decoder.c */; };
-		DB6060151FEDD8FB007A94CA /* instruction.c in Sources */ = {isa = PBXBuildFile; fileRef = DB6060131FEDD8FB007A94CA /* instruction.c */; };
-		DBD078B21FFAEB72006B8D4E /* debug_strings.c in Sources */ = {isa = PBXBuildFile; fileRef = DBD078B11FFAEB72006B8D4E /* debug_strings.c */; };
-		DBD078B51FFAF381006B8D4E /* debug_functions.c in Sources */ = {isa = PBXBuildFile; fileRef = DBD078B41FFAF381006B8D4E /* debug_functions.c */; };
+		DBD078BB1FFAFC35006B8D4E /* main_memory.c in Sources */ = {isa = PBXBuildFile; fileRef = DBD078B91FFAFC35006B8D4E /* main_memory.c */; };
+		DBD078C11FFC6A0E006B8D4E /* executor.c in Sources */ = {isa = PBXBuildFile; fileRef = DBD078BF1FFC6A0E006B8D4E /* executor.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,19 +29,15 @@
 /* Begin PBXFileReference section */
 		DB605FFD1FECD337007A94CA /* CGBEmulator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CGBEmulator; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB6060001FECD337007A94CA /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
-		DB6060071FECD7C9007A94CA /* processor.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = processor.c; sourceTree = "<group>"; };
-		DB6060081FECD7C9007A94CA /* processor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = processor.h; sourceTree = "<group>"; };
 		DB60600A1FECD7E4007A94CA /* main_registers.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main_registers.c; sourceTree = "<group>"; };
 		DB60600B1FECD7E4007A94CA /* main_registers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = main_registers.h; sourceTree = "<group>"; };
 		DB60600D1FECEEB6007A94CA /* decoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = decoder.c; sourceTree = "<group>"; };
 		DB60600E1FECEEB6007A94CA /* decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = decoder.h; sourceTree = "<group>"; };
-		DB6060131FEDD8FB007A94CA /* instruction.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = instruction.c; sourceTree = "<group>"; };
-		DB6060141FEDD8FB007A94CA /* instruction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = instruction.h; sourceTree = "<group>"; };
 		DB6060161FEF1ACE007A94CA /* constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
-		DBD078B01FFAEB38006B8D4E /* debug_strings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = debug_strings.h; sourceTree = "<group>"; };
-		DBD078B11FFAEB72006B8D4E /* debug_strings.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = debug_strings.c; sourceTree = "<group>"; };
-		DBD078B31FFAF36F006B8D4E /* debug_functions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = debug_functions.h; sourceTree = "<group>"; };
-		DBD078B41FFAF381006B8D4E /* debug_functions.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = debug_functions.c; sourceTree = "<group>"; };
+		DBD078B91FFAFC35006B8D4E /* main_memory.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main_memory.c; sourceTree = "<group>"; };
+		DBD078BA1FFAFC35006B8D4E /* main_memory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = main_memory.h; sourceTree = "<group>"; };
+		DBD078BF1FFC6A0E006B8D4E /* executor.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = executor.c; sourceTree = "<group>"; };
+		DBD078C01FFC6A0E006B8D4E /* executor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = executor.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,19 +71,15 @@
 			isa = PBXGroup;
 			children = (
 				DB6060001FECD337007A94CA /* main.c */,
-				DB6060071FECD7C9007A94CA /* processor.c */,
-				DB6060081FECD7C9007A94CA /* processor.h */,
 				DB60600A1FECD7E4007A94CA /* main_registers.c */,
 				DB60600B1FECD7E4007A94CA /* main_registers.h */,
 				DB60600D1FECEEB6007A94CA /* decoder.c */,
 				DB60600E1FECEEB6007A94CA /* decoder.h */,
 				DB6060161FEF1ACE007A94CA /* constants.h */,
-				DB6060131FEDD8FB007A94CA /* instruction.c */,
-				DB6060141FEDD8FB007A94CA /* instruction.h */,
-				DBD078B01FFAEB38006B8D4E /* debug_strings.h */,
-				DBD078B11FFAEB72006B8D4E /* debug_strings.c */,
-				DBD078B31FFAF36F006B8D4E /* debug_functions.h */,
-				DBD078B41FFAF381006B8D4E /* debug_functions.c */,
+				DBD078B91FFAFC35006B8D4E /* main_memory.c */,
+				DBD078BA1FFAFC35006B8D4E /* main_memory.h */,
+				DBD078BF1FFC6A0E006B8D4E /* executor.c */,
+				DBD078C01FFC6A0E006B8D4E /* executor.h */,
 			);
 			path = CGBEmulator;
 			sourceTree = "<group>";
@@ -151,13 +141,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DBD078B21FFAEB72006B8D4E /* debug_strings.c in Sources */,
 				DB60600F1FECEEB6007A94CA /* decoder.c in Sources */,
-				DB6060091FECD7C9007A94CA /* processor.c in Sources */,
-				DBD078B51FFAF381006B8D4E /* debug_functions.c in Sources */,
+				DBD078BB1FFAFC35006B8D4E /* main_memory.c in Sources */,
 				DB6060011FECD337007A94CA /* main.c in Sources */,
-				DB6060151FEDD8FB007A94CA /* instruction.c in Sources */,
 				DB60600C1FECD7E4007A94CA /* main_registers.c in Sources */,
+				DBD078C11FFC6A0E006B8D4E /* executor.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

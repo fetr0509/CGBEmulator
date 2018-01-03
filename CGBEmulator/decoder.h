@@ -10,8 +10,8 @@
 #define decoder_h
 
 #include <stdio.h>
-#include "instruction.h"
 #include "constants.h"
+#include "main_registers.h"
 
-void decodeInstruction(uint8_t opcode, instruction* instruction);
+void decodeInstruction(uint8_t opcode, MainRegisters mainRegs);
 #endif /* decoder_h */

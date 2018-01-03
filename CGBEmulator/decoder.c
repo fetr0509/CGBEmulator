@@ -7,17 +7,12 @@
 //
 
 #include "decoder.h"
+#include "executor.h"
 
-#define assignInstruction(instruction,op,opType,destReg,srcReg,instrLength,cycleDur) do {\
-    instruction->opcode = op; \
-    instruction->opcodeType = opType; \
-    instruction->sourceReg = srcReg; \
-    instruction->destinationReg = destReg; \
-    instruction->instructionLength = instrLength; \
-    instruction->cycleDuration = cycleDur; \
-    } while(0)
+/*
+static uint8_t *regs[8];
 
-void decodeInstruction(uint8_t opcode, instruction* instruction) {
+void decodeInstruction(uint8_t opcode, MainRegisters mainRegs) {
     uint8_t highNibble = opcode >> 4;
     uint8_t lowNibble = opcode & 0xF;
     
@@ -465,4 +460,4 @@ void decodeInstruction(uint8_t opcode, instruction* instruction) {
         }
     }
     return;
-}
+}*/
