@@ -12,6 +12,7 @@
 		DB60600F1FECEEB6007A94CA /* decoder.c in Sources */ = {isa = PBXBuildFile; fileRef = DB60600D1FECEEB6007A94CA /* decoder.c */; };
 		DBD078BB1FFAFC35006B8D4E /* main_memory.c in Sources */ = {isa = PBXBuildFile; fileRef = DBD078B91FFAFC35006B8D4E /* main_memory.c */; };
 		DBD078C11FFC6A0E006B8D4E /* executor.c in Sources */ = {isa = PBXBuildFile; fileRef = DBD078BF1FFC6A0E006B8D4E /* executor.c */; };
+		DBD078C41FFDA0EA006B8D4E /* flag_helpers.c in Sources */ = {isa = PBXBuildFile; fileRef = DBD078C21FFDA0EA006B8D4E /* flag_helpers.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -38,6 +39,8 @@
 		DBD078BA1FFAFC35006B8D4E /* main_memory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = main_memory.h; sourceTree = "<group>"; };
 		DBD078BF1FFC6A0E006B8D4E /* executor.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = executor.c; sourceTree = "<group>"; };
 		DBD078C01FFC6A0E006B8D4E /* executor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = executor.h; sourceTree = "<group>"; };
+		DBD078C21FFDA0EA006B8D4E /* flag_helpers.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = flag_helpers.c; sourceTree = "<group>"; };
+		DBD078C31FFDA0EA006B8D4E /* flag_helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flag_helpers.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +82,8 @@
 				DBD078B91FFAFC35006B8D4E /* main_memory.c */,
 				DBD078BA1FFAFC35006B8D4E /* main_memory.h */,
 				DBD078BF1FFC6A0E006B8D4E /* executor.c */,
+				DBD078C21FFDA0EA006B8D4E /* flag_helpers.c */,
+				DBD078C31FFDA0EA006B8D4E /* flag_helpers.h */,
 				DBD078C01FFC6A0E006B8D4E /* executor.h */,
 			);
 			path = CGBEmulator;
@@ -146,6 +151,7 @@
 				DB6060011FECD337007A94CA /* main.c in Sources */,
 				DB60600C1FECD7E4007A94CA /* main_registers.c in Sources */,
 				DBD078C11FFC6A0E006B8D4E /* executor.c in Sources */,
+				DBD078C41FFDA0EA006B8D4E /* flag_helpers.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
