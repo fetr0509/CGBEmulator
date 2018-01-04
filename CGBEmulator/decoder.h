@@ -13,5 +13,5 @@
 #include "constants.h"
 #include "main_registers.h"
 
-void decodeInstruction(uint8_t opcode, MainRegisters mainRegs);
+void decodeInstruction(uint8_t opcode, MainRegisters *mainRegs);
 #endif /* decoder_h */

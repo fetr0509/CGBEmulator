@@ -82,9 +82,9 @@
 				DBD078B91FFAFC35006B8D4E /* main_memory.c */,
 				DBD078BA1FFAFC35006B8D4E /* main_memory.h */,
 				DBD078BF1FFC6A0E006B8D4E /* executor.c */,
+				DBD078C01FFC6A0E006B8D4E /* executor.h */,
 				DBD078C21FFDA0EA006B8D4E /* flag_helpers.c */,
 				DBD078C31FFDA0EA006B8D4E /* flag_helpers.h */,
-				DBD078C01FFC6A0E006B8D4E /* executor.h */,
 			);
 			path = CGBEmulator;
 			sourceTree = "<group>";

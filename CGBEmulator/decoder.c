@@ -9,9 +9,69 @@
 #include "decoder.h"
 #include "executor.h"
 
-/*
-static uint8_t *regs[8];
+void decodeInstruction(uint8_t opcode, MainRegisters *mainRegs) {
+    
+    if (opcode >= 0x40 && opcode < 0x80 && opcode != 0x76) {
+        uint8_t lowNibble = opcode & LOWERBITS;
+        
+        void *source = &mainRegs;
+        void *destination = &mainRegs;
+        
+        if (lowNibble%8 == 6)
+            printf("load HL\t");
+        else
+            source = ((uint8_t*) source + (sizeof(uint8_t) * (lowNibble%8)));
+        
+        if ((opcode - 0x40)/8 == 7)
+            printf("load HL\t");
+        else
+            destination = ((uint8_t*) destination + (sizeof(uint8_t) * ((opcode - 0x40)/8)));
+        
+        load_8BitRegister_WithRegister((uint8_t*)destination, (uint8_t*)source);
+    }
+    else if (opcode >= 0x80 && opcode < 0xC0 && opcode != 0x76) {
+        uint8_t lowNibble = opcode & LOWERBITS;
+        void *source = &mainRegs;
+        enum ALUTYPE arithmeticType = (opcode - 0x80) / 8;
+        
+        if (lowNibble%8 == 6)
+            printf("load HL\t");
+        else
+            source = ((uint8_t*) source + (sizeof(uint8_t) * (lowNibble%8)));
+        
+        switch (arithmeticType) {
+            case ADD_T:
+                ADD_8BIT(&mainRegs->reg_A, source, &mainRegs->reg_F);
+                break;
+            case ADC_T:
+                ADC(&mainRegs->reg_A, source, &mainRegs->reg_F);
+                break;
+            case SUB_T:
+                SUB(&mainRegs->reg_A, source, &mainRegs->reg_F);
+                break;
+            case SBC_T:
+                SBC(&mainRegs->reg_A, source, &mainRegs->reg_F);
+                break;
+            case AND_T:
+                AND(&mainRegs->reg_A, source, &mainRegs->reg_F);
+                break;
+            case XOR_T:
+                XOR(&mainRegs->reg_A, source, &mainRegs->reg_F);
+                break;
+            case OR_T:
+                OR(&mainRegs->reg_A, source, &mainRegs->reg_F);
+                break;
+            case CP_T:
+                CP(&mainRegs->reg_A, source, &mainRegs->reg_F);
+                break;
+            default:
+                break;
+        }
+    }
+    
+}
 
+/*
 void decodeInstruction(uint8_t opcode, MainRegisters mainRegs) {
     uint8_t highNibble = opcode >> 4;
     uint8_t lowNibble = opcode & 0xF;

@@ -11,6 +11,26 @@
 
 #define NUMREGS 8
 
+#define BIT7 0x80
+#define BIT6 0x40
+#define BIT5 0x20
+#define BIT4 0x10
+#define BIT3 0x08
+#define BIT2 0x04
+#define BIT1 0x02
+#define BIT0 0x01
+
+enum ALUTYPE {
+    ADD_T,
+    ADC_T,
+    SUB_T,
+    SBC_T,
+    AND_T,
+    XOR_T,
+    OR_T,
+    CP_T
+};
+
 enum REGISTERTYPE {
     REG_B,
     REG_C,
@@ -40,57 +60,4 @@ enum CONDITIONALS {
     P,
     M
 };
-
-enum OPCODE_TYPE {
-    NOP,    // no operation
-    LD,     // load
-    LDD,    // load and decrement
-    LDI,    // load and increment
-    LDH,
-    LDHL,
-    PUSH,   // push onto stack
-    POP,    // pop from stack
-    ADD_A,  // add values
-    ADC_A,  // add values and set carry flag
-    SUB,    // subtract values
-    SUBC,   // subtract values and set carry flag,
-    SBC_A,  // subtract n + carry flag from register A
-    AND,    // logical AND values
-    OR,     // logical OR values
-    XOR,    // logical XOR values
-    CP,     // compare values
-    INC,    // increment register
-    DEC,    // decrement register
-    SWAP,   // swap nibbles of register
-    DAA,    // decimal adjust register A
-    CPL,    // complement register A
-    CCF,    // compliment carry flag (invert it)
-    SCF,    // set carry flag
-    HALT,   // power down CPU until inturrupt
-    STOP,   // pwer down CPU and turn off screen
-    DI,     // disable interupts
-    EI,     // enable interupts
-    RLCA,   // rotate register A left, bit 7 goes to carry
-    RLA,    // rotate register A left, no carry
-    RRCA,   // rotate register A right, bit 7 goes to carry
-    RRA,    // rotate register A right, no carry
-    RLC,    // rotate register left, bit 7 goes to carry
-    RL,     // rotate register left, no carry
-    RRC,    // rotate register right, bit 7 goes to carry
-    RR,     // rotate register right, no carry
-    SLL,
-    SLA,    // left arithmetic shift
-    SRL,    // right logical shift
-    SRA,    // right arithmetic shift
-    BIT,    // check bit and set Z flag
-    SET,    // set bit in register
-    RES,    // reset bit in register
-    JP,     // jump to register
-    JR,     // jump to current address plus offset
-    CALL,   // push next next address, then jump
-    RST,    // push current address then jump to 0x0 + n
-    RET,    // pop 2 bytes and jump to that address
-    RETI,   // return but then enable inturrupts
-};
-
 #endif /* constants_h */

@@ -20,8 +20,6 @@
 
 
 typedef struct MainRegisters {
-    uint8_t reg_A;
-    uint8_t reg_F;
     
     uint8_t reg_B;
     uint8_t reg_C;
@@ -31,6 +29,9 @@ typedef struct MainRegisters {
     
     uint8_t reg_H;
     uint8_t reg_L;
+    
+    uint8_t reg_F;
+    uint8_t reg_A;
     
     uint16_t programCounter;
     uint16_t stackPointer;
