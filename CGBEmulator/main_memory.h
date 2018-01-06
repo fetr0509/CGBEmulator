@@ -10,9 +10,10 @@
 #define main_memory_h
 
 #include <stdio.h>
+#include "constants.h"
 
 typedef struct MainMemory {
-    uint8_t memory[0xFFFF];
+    byte memory[0xFFFF];
 } MainMemory;
 
 void initializeMemory(MainMemory* memory);

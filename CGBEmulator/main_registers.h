@@ -10,6 +10,7 @@
 #define main_registers_h
 
 #include <stdio.h>
+#include "constants.h"
 
 #define zeroFlag(flagReg) ((flagReg >> 7) & 1)
 #define subtractFlag(flagReg) ((flagReg >> 6) & 1)
@@ -21,36 +22,36 @@
 
 typedef struct MainRegisters {
     
-    uint8_t reg_B;
-    uint8_t reg_C;
+    byte reg_B;
+    byte reg_C;
     
-    uint8_t reg_D;
-    uint8_t reg_E;
+    byte reg_D;
+    byte reg_E;
     
-    uint8_t reg_H;
-    uint8_t reg_L;
+    byte reg_H;
+    byte reg_L;
     
-    uint8_t reg_F;
-    uint8_t reg_A;
+    byte reg_F;
+    byte reg_A;
     
-    uint16_t programCounter;
-    uint16_t stackPointer;
+    word programCounter;
+    word stackPointer;
     
     
 } MainRegisters;
 
-void setRegA(MainRegisters regs, uint8_t value);
-void setRegF(MainRegisters regs, uint8_t value);
-void setRegB(MainRegisters regs, uint8_t value);
-void setRegC(MainRegisters regs, uint8_t value);
-void setRegD(MainRegisters regs, uint8_t value);
-void setRegE(MainRegisters regs, uint8_t value);
-void setRegH(MainRegisters regs, uint8_t value);
-void setRegL(MainRegisters regs, uint8_t value);
+void setRegA(MainRegisters regs, byte value);
+void setRegF(MainRegisters regs, byte value);
+void setRegB(MainRegisters regs, byte value);
+void setRegC(MainRegisters regs, byte value);
+void setRegD(MainRegisters regs, byte value);
+void setRegE(MainRegisters regs, byte value);
+void setRegH(MainRegisters regs, byte value);
+void setRegL(MainRegisters regs, byte value);
 
-void setRegAF(MainRegisters regs, uint16_t value);
-void setRegBC(MainRegisters regs, uint16_t value);
-void setRegDE(MainRegisters regs, uint16_t value);
-void setRegHL(MainRegisters regs, uint16_t value);
+void setRegAF(MainRegisters regs, word value);
+void setRegBC(MainRegisters regs, word value);
+void setRegDE(MainRegisters regs, word value);
+void setRegHL(MainRegisters regs, word value);
 
 #endif /* main_registers_h */

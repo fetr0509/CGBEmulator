@@ -10,6 +10,7 @@
 #define flag_helpers_h
 
 #include <stdio.h>
+#include "constants.h"
 
 #define setZeroFlag(flags) ({*flags = *flags | BIT7;})
 #define setSubtractionFlag(flags) ({*flags = *flags | BIT6;})
@@ -21,15 +22,15 @@
 #define clearHalfCarryFlag(flags) ({*flags = *flags & ~BIT5;})
 #define clearCarryFlag(flags) ({*flags = *flags & ~BIT4;})
 
-void setADDZeroFlag(uint8_t reg_1, uint8_t reg_2, uint8_t *flags);
-void setSUBZeroFlag(uint8_t reg_1, uint8_t reg_2, uint8_t *flags);
+void setADDZeroFlag(byte reg_1, byte reg_2, byte *flags);
+void setSUBZeroFlag(byte reg_1, byte reg_2, byte *flags);
 
-void setADD8BitHalfCarryFlag(uint8_t reg_1, uint8_t reg_2, uint8_t *flags);
-void setSUB8BitHalfCarryFlag(uint8_t reg_1, uint8_t reg_2, uint8_t *flags);
-void setADD16BitHalfCarryFlag(uint16_t reg_1, uint16_t reg_2, uint8_t *flags);
+void setADD8BitHalfCarryFlag(byte reg_1, byte reg_2, byte *flags);
+void setSUB8BitHalfCarryFlag(byte reg_1, byte reg_2, byte *flags);
+void setADD16BitHalfCarryFlag(word reg_1, word reg_2, byte *flags);
 
-void setADD8BitCarryFlag(uint8_t reg_1, uint8_t reg_2, uint8_t *flags);
-void setSUB8BitCarryFlag(uint8_t reg_1, uint8_t reg_2, uint8_t *flags);
-void setADD16BitCarryFlag(uint16_t reg_1, uint16_t reg_2, uint8_t *flags);
+void setADD8BitCarryFlag(byte reg_1, byte reg_2, byte *flags);
+void setSUB8BitCarryFlag(byte reg_1, byte reg_2, byte *flags);
+void setADD16BitCarryFlag(word reg_1, word reg_2, byte *flags);
 
 #endif /* flag_helpers_h */

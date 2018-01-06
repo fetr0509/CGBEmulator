@@ -9,10 +9,10 @@
 #include "decoder.h"
 #include "executor.h"
 
-void decodeInstruction(uint8_t opcode, MainRegisters *mainRegs) {
+void decodeInstruction(byte opcode, MainRegisters *mainRegs) {
     
     if (opcode >= 0x40 && opcode < 0x80 && opcode != 0x76) {
-        uint8_t lowNibble = opcode & LOWERBITS;
+        byte lowNibble = opcode & LOWERBITS;
         
         void *source = &mainRegs;
         void *destination = &mainRegs;
@@ -20,24 +20,24 @@ void decodeInstruction(uint8_t opcode, MainRegisters *mainRegs) {
         if (lowNibble%8 == 6)
             printf("load HL\t");
         else
-            source = ((uint8_t*) source + (sizeof(uint8_t) * (lowNibble%8)));
+            source = ((byte*) source + (sizeof(byte) * (lowNibble%8)));
         
         if ((opcode - 0x40)/8 == 7)
             printf("load HL\t");
         else
-            destination = ((uint8_t*) destination + (sizeof(uint8_t) * ((opcode - 0x40)/8)));
+            destination = ((byte*) destination + (sizeof(byte) * ((opcode - 0x40)/8)));
         
-        load_8BitRegister_WithRegister((uint8_t*)destination, (uint8_t*)source);
+        load_8BitRegister_WithRegister((byte*)destination, (byte*)source);
     }
     else if (opcode >= 0x80 && opcode < 0xC0 && opcode != 0x76) {
-        uint8_t lowNibble = opcode & LOWERBITS;
+        byte lowNibble = opcode & LOWERBITS;
         void *source = &mainRegs;
         enum ALUTYPE arithmeticType = (opcode - 0x80) / 8;
         
         if (lowNibble%8 == 6)
             printf("load HL\t");
         else
-            source = ((uint8_t*) source + (sizeof(uint8_t) * (lowNibble%8)));
+            source = ((byte*) source + (sizeof(byte) * (lowNibble%8)));
         
         switch (arithmeticType) {
             case ADD_T:
@@ -465,9 +465,9 @@ void decodeInstruction(uint8_t opcode, MainRegisters *mainRegs) {
 }
 
 /*
-void decodeInstruction(uint8_t opcode, MainRegisters mainRegs) {
-    uint8_t highNibble = opcode >> 4;
-    uint8_t lowNibble = opcode & 0xF;
+void decodeInstruction(byte opcode, MainRegisters mainRegs) {
+    byte highNibble = opcode >> 4;
+    byte lowNibble = opcode & 0xF;
     
     // instruction is either load or arithmetic, but not HALT
     if(0x3 < highNibble && highNibble < 0xC && opcode != 0x76) {
@@ -479,14 +479,14 @@ void decodeInstruction(uint8_t opcode, MainRegisters mainRegs) {
         if (0x3 < highNibble && highNibble < 0x8) {
             // calculate destination register based on different numerical pattern
             enum REGISTERTYPE destination = ((REG_B) + ((opcode - 0x40) / 8));
-            uint8_t cycleDur = (source == REG_HL || destination == REG_HL) ? 8 : 4;
+            byte cycleDur = (source == REG_HL || destination == REG_HL) ? 8 : 4;
             assignInstruction(instruction,opcode,LD,destination,source,1,cycleDur);
         }
         
         // instruction is arithmetic
         else {
-            uint8_t cycleDur = (source == REG_HL) ? 8 : 4;
-            uint8_t arithmeticType = (lowNibble - 0x80) / 8;
+            byte cycleDur = (source == REG_HL) ? 8 : 4;
+            byte arithmeticType = (lowNibble - 0x80) / 8;
             switch (arithmeticType) {
                 case 0:
                     assignInstruction(instruction,opcode,ADD_A,REG_A,source,1,cycleDur);

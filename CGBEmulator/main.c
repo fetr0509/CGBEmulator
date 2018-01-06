@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include "decoder.h"
+#include "constants.h"
 
 int main(int argc, const char * argv[]) {
     for(int i = 0; i < 8;i++) {

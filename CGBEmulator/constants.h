@@ -9,6 +9,9 @@
 #ifndef constants_h
 #define constants_h
 
+typedef unsigned char byte;
+typedef unsigned short word;
+
 #define NUMREGS 8
 
 #define BIT7 0x80
