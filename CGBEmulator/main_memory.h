@@ -16,7 +16,13 @@ typedef struct MainMemory {
     byte memory[0xFFFF];
 } MainMemory;
 
-void initializeMemory(MainMemory* memory);
-void loadROMFromFile(MainMemory* memory, char* filePath);
+void initializeMemory(MainMemory *memory);
+void loadROMFromFile(MainMemory *memory, char* filePath);
+
+byte fetchtByte(word *programCounter, MainMemory *mainMemory);
+word fetchWord(word *programCounter, MainMemory *mainMemory);
+
+byte readByteWithAddress(word address, MainMemory *mainMemory);
+byte readByteWithRegs(byte  *mostSigByte, byte  *leastSigByte, MainMemory *mainMemory);
 
 #endif /* main_memory_h */

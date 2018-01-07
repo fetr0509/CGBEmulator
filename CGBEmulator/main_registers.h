@@ -12,14 +12,6 @@
 #include <stdio.h>
 #include "constants.h"
 
-#define zeroFlag(flagReg) ((flagReg >> 7) & 1)
-#define subtractFlag(flagReg) ((flagReg >> 6) & 1)
-#define halfCarryFlag(flagReg) ((flagReg >> 5) & 1)
-#define carryFlag(flagReg) ((flagReg >> 4) & 1)
-
-#define LOWERBITS (0x0F)
-
-
 typedef struct MainRegisters {
     
     byte reg_B;
@@ -36,7 +28,8 @@ typedef struct MainRegisters {
     
     word programCounter;
     word stackPointer;
-    
+
+    word cycles;
     
 } MainRegisters;
 
