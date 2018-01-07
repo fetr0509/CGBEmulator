@@ -13,19 +13,19 @@
 #include "constants.h"
 
 typedef struct MainRegisters {
-    
+
     byte reg_B;
     byte reg_C;
-    
+
     byte reg_D;
     byte reg_E;
-    
+
     byte reg_H;
     byte reg_L;
-    
+
     byte reg_F;
     byte reg_A;
-    
+
     word programCounter;
     word stackPointer;
 

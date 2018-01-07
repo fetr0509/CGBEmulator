@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include "constants.h"
 #include "main_registers.h"
+#include "main_memory.h"
 
-void decodeInstruction(byte opcode, MainRegisters *mainRegs);
+void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMemory);
 #endif /* decoder_h */

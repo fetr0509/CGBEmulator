@@ -13,6 +13,7 @@ typedef unsigned char byte;
 typedef unsigned short word;
 
 #define NUMREGS 8
+#define LOWERBITS (0x0F)
 
 #define BIT7 0x80
 #define BIT6 0x40

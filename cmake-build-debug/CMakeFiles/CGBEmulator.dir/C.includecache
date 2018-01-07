@@ -21,6 +21,8 @@ constants.h
 C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/constants.h
 main_registers.h
 C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/main_registers.h
+main_memory.h
+C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/main_memory.h
 
 C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/executor.c
 executor.h
@@ -57,6 +59,8 @@ constants.h
 C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/constants.h
 
 C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/main_memory.c
+stdlib.h
+-
 main_memory.h
 C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/main_memory.h
 
