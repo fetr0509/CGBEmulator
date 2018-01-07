@@ -19,7 +19,7 @@ typedef struct MainMemory {
 void initializeMemory(MainMemory *memory);
 void loadROMFromFile(MainMemory *memory, char* filePath);
 
-byte fetchtByte(word *programCounter, MainMemory *mainMemory);
+byte fetchByte(word *programCounter, MainMemory *mainMemory);
 word fetchWord(word *programCounter, MainMemory *mainMemory);
 
 byte readByteWithAddress(word address, MainMemory *mainMemory);
