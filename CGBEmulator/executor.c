@@ -10,6 +10,41 @@
 #include "constants.h"
 #include "flag_helpers.h"
 
+void load_8BitRegister_With8BitData(byte *destination, byte data) {
+    *destination = data;
+}
+
+void load_16BitRegister_With16BitData(byte  *mostSigByte, byte  *leastSigByte, word data) {
+    *mostSigByte = (byte)(data >> 8);
+    *leastSigByte = (byte)(data & 0xFF);
+}
+
+void increment_Register(byte *reg) {
+    (*reg)++;
+}
+
+void increment_RegisterPair(byte  *mostSigByte, byte  *leastSigByte) {
+    if (*leastSigByte+1 < *leastSigByte) { // If there is a carry
+        (*leastSigByte)++;
+        (*mostSigByte)++;
+    } else {
+        (*leastSigByte)++;
+    }
+}
+
+void decrement_Register(byte *reg) {
+    (*reg)--;
+}
+
+void decrement_RegisterPair(byte  *mostSigByte, byte  *leastSigByte) {
+    if (*leastSigByte+1 < *leastSigByte) { // If there is a carry
+        (*leastSigByte)--;
+        (*mostSigByte)--;
+    } else {
+        (*leastSigByte)--;
+    }
+}
+
 void handleADDFlags(byte* regA, byte* sourceReg, byte *flags) {
     setADDZeroFlag(*regA, *sourceReg, flags);
     clearSubtractionFlag(flags);
