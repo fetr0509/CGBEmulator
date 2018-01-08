@@ -15,6 +15,11 @@ typedef unsigned short word;
 #define NUMREGS 8
 #define LOWERBITS (0x0F)
 
+#define ZeroFlag(flags) ({*flags & BIT7;})
+#define SubtractionFlag(flags) ({*flags & BIT6;})
+#define HalfCarryFlag(flags) ({*flags & BIT5;})
+#define CarryFlag(flags) ({*flags & BIT4;})
+
 #define BIT7 0x80
 #define BIT6 0x40
 #define BIT5 0x20

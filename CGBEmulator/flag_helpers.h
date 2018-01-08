@@ -12,11 +12,6 @@
 #include <stdio.h>
 #include "constants.h"
 
-#define getZeroFlag(flags) ({*flags & BIT7;})
-#define getSubtractionFlag(flags) ({*flags & BIT6;})
-#define getHalfCarryFlag(flags) ({*flags & BIT5;})
-#define getCarryFlag(flags) ({*flags & BIT4;})
-
 #define setZeroFlag(flags) ({*flags = *flags | BIT7;})
 #define setSubtractionFlag(flags) ({*flags = *flags | BIT6;})
 #define setHalfCarryFlag(flags) ({*flags = *flags | BIT5;})
