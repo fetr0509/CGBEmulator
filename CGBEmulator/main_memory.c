@@ -14,15 +14,15 @@ void initializeMemory(MainMemory *mainMemory) {
 
 byte fetchByte(word *programCounter, MainMemory *mainMemory) {
     byte newByte = mainMemory->memory[*programCounter];
-    *programCounter++;
+    (*programCounter)++;
     return newByte;
 }
 
 word fetchWord(word *programCounter, MainMemory *mainMemory) {
     word newByte = mainMemory->memory[*programCounter];
-    *programCounter++;
+    (*programCounter)++;
     newByte =  newByte | (mainMemory->memory[*programCounter] << 8);
-    *programCounter++;
+    (*programCounter)++;
     return newByte;
 }
 

@@ -173,8 +173,9 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 4;
                 break;
             case 0x18:
-                //assignInstruction(instruction,opcode,JR,NOREG,DATA_8,2,12);
-				mainRegs->cycles += 12;
+                data_byte = fetchByte(&(mainRegs->programCounter),mainMemory);
+                jump_address(&(mainRegs->programCounter),mainRegs->programCounter + data_byte);
+				mainRegs->cycles += 8;
                 break;
             case 0x19:
                 //assignInstruction(instruction,opcode,ADD_A,REG_HL,REG_DE,1,8);
@@ -206,7 +207,9 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 4;
                 break;
             case 0x20:
-                //assignInstruction(instruction,opcode,JR,NOREG,DATA_8,2,12);
+                data_byte = fetchByte(&(mainRegs->programCounter),mainMemory);
+                if(ZeroFlag(&(mainRegs->reg_F)) == 0)
+                    jump_address(&(mainRegs->programCounter),mainRegs->programCounter + data_byte);
 				mainRegs->cycles += 12;
                 break;
             case 0x21:
@@ -239,7 +242,9 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 4;
                 break;
             case 0x28:
-                //assignInstruction(instruction,opcode,JR,NOREG,DATA_8,2,12);
+                data_byte = fetchByte(&(mainRegs->programCounter),mainMemory);
+                if(ZeroFlag(&(mainRegs->reg_F)) != 0)
+                    jump_address(&(mainRegs->programCounter),mainRegs->programCounter + data_byte);
 				mainRegs->cycles += 12;
                 break;
             case 0x29:
@@ -272,7 +277,9 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 4;
                 break;
             case 0x30:
-                //assignInstruction(instruction,opcode,JR,NOREG,DATA_8,2,12);
+                data_byte = fetchByte(&(mainRegs->programCounter),mainMemory);
+                if(CarryFlag(&(mainRegs->reg_F)) == 0)
+                    jump_address(&(mainRegs->programCounter),mainRegs->programCounter + data_byte);
 				mainRegs->cycles += 12;
                 break;
             case 0x31:
@@ -304,7 +311,9 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 4;
                 break;
             case 0x38:
-                //assignInstruction(instruction,opcode,JR,NOREG,DATA_8,2,12);
+                data_byte = fetchByte(&(mainRegs->programCounter),mainMemory);
+                if(ZeroFlag(&(mainRegs->reg_F)) != 0)
+                    jump_address(&(mainRegs->programCounter),mainRegs->programCounter + data_byte);
 				mainRegs->cycles += 12;
                 break;
             case 0x39:
@@ -341,7 +350,7 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 4;
                 break;
             case 0xC0:
-                //assignInstruction(instruction,opcode,RET,NOREG,NOREG,1,20);
+                //assignInstruction(instruction,opcode,RET,NOREG,NOREG,1,20);wa
 				mainRegs->cycles += 20;
                 break;
             case 0xC1:
@@ -349,11 +358,14 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 12;
                 break;
             case 0xC2:
-                //assignInstruction(instruction,opcode,JP,NOREG,DATA_16,3,16);
+                data_word = fetchWord(&(mainRegs->programCounter),mainMemory);
+                if(ZeroFlag(&(mainRegs->reg_F)) == 0)
+                    jump_address(&(mainRegs->programCounter),data_word);
 				mainRegs->cycles += 16;
                 break;
             case 0xC3:
-                //assignInstruction(instruction,opcode,JP,NOREG,DATA_16,3,16);
+                data_word = fetchWord(&(mainRegs->programCounter),mainMemory);
+                jump_address(&(mainRegs->programCounter),data_word);
 				mainRegs->cycles += 16;
                 break;
             case 0xC4:
@@ -381,7 +393,9 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 16;
                 break;
             case 0xCA:
-                //assignInstruction(instruction,opcode,JP,NOREG,DATA_16,3,16);
+                data_word = fetchWord(&(mainRegs->programCounter),mainMemory);
+                if(ZeroFlag(&(mainRegs->reg_F)) != 0)
+                    jump_address(&(mainRegs->programCounter),data_word);
 				mainRegs->cycles += 16;
                 break;
             case 0xCB: // Prefix used fo CB table
@@ -411,7 +425,9 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 12;
                 break;
             case 0xD2:
-                //assignInstruction(instruction,opcode,JP,NOREG,DATA_16,3,16);
+                data_word = fetchWord(&(mainRegs->programCounter),mainMemory);
+                if(CarryFlag(&(mainRegs->reg_F)) == 0)
+                    jump_address(&(mainRegs->programCounter),data_word);
 				mainRegs->cycles += 16;
                 break;
             case 0xD3: // NOT USED
@@ -442,7 +458,9 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 16;
                 break;
             case 0xDA:
-                //assignInstruction(instruction,opcode,JP,NOREG,DATA_16,1,16);
+                data_word = fetchWord(&(mainRegs->programCounter),mainMemory);
+                if(CarryFlag(&(mainRegs->reg_F)) != 0)
+                    jump_address(&(mainRegs->programCounter),data_word);
 				mainRegs->cycles += 16;
                 break;
             case 0xDB: // NOT USED
@@ -498,7 +516,9 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 16;
                 break;
             case 0xE9:
-                //assignInstruction(instruction,opcode,JP,NOREG,REG_HL,1,4);
+                data_word = ((word)mainRegs->reg_H) << 8;
+                data_word = data_word & ((word)mainRegs->reg_L);
+                jump_address(&(mainRegs->programCounter),data_word);
 				mainRegs->cycles += 4;
                 break;
             case 0xEA:

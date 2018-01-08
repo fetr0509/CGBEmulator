@@ -17,6 +17,8 @@
 void load_8BitRegister_With8BitData(byte *destination, byte data);
 void load_16BitRegister_With16BitData(byte  *mostSigByte, byte  *leastSigByte, word data);
 
+void jump_address(word *programCounter, word data);
+
 void increment_Register(byte *reg);
 void increment_RegisterPair(byte  *mostSigByte, byte  *leastSigByte);
 void decrement_Register(byte *reg);
