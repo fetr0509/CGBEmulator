@@ -33,7 +33,7 @@ typedef struct MainRegisters {
     
 } MainRegisters;
 
-void initializeMemory(MainRegisters *mainRegisters)
+void initializeMainRegisters(MainRegisters *mainRegisters);
 
 
 #endif /* main_registers_h */

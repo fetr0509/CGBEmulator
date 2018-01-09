@@ -8,6 +8,6 @@
 
 #include "main_registers.h"
 
-void initializeMemory(MainRegisters *mainRegisters) {
+void initializeMainRegisters(MainRegisters *mainRegisters) {
     mainRegisters->stackPointer = 0xFFFE;
 }
