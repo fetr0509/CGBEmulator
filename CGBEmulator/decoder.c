@@ -325,7 +325,7 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 8;
                 break;
             case 0x3B:
-                //assignInstruction(instruction,opcode,DEC,REG_SP,REG_SP,1,8);
+                decrement_16BitRegister(&(mainRegs->stackPointer));
 				mainRegs->cycles += 8;
                 break;
             case 0x3C:

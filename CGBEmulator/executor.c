@@ -49,6 +49,10 @@ void decrement_RegisterPair(byte  *mostSigByte, byte  *leastSigByte) {
     }
 }
 
+void decrement_16BitRegister(word  *reg) {
+    (*reg)--;
+}
+
 void ADD_16BIT(byte  *mostSigByte_dest, byte  *leastSigByte_dest, byte  *mostSigByte_operand, byte  *leastSigByte_operand, byte *flags) {
     clearSubtractionFlag(flags);
     word destination = (((word)*mostSigByte_dest) << 8) | ((word)*leastSigByte_dest);
