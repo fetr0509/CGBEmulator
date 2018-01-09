@@ -37,4 +37,7 @@ void OR(byte* regA, byte* sourceReg, byte *flags);
 void XOR(byte* regA, byte* sourceReg, byte *flags);
 void CP(byte* regA, byte* sourceReg, byte *flags);
 
+void RLC(byte* regA, byte *flags);
+void RL(byte* regA, byte *flags);
+
 #endif /* executor_h */

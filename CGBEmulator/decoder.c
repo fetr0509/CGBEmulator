@@ -103,7 +103,7 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 8;
                 break;
             case 0x07:
-                //assignInstruction(instruction,opcode,RLCA,NOREG,NOREG,1,4);
+                RLC(&(mainRegs->reg_A),&(mainRegs->reg_F));
 				mainRegs->cycles += 4;
                 break;
             case 0x08:
@@ -169,7 +169,7 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 8;
                 break;
             case 0x17:
-                //assignInstruction(instruction,opcode,RLA,NOREG,NOREG,1,4);
+                RL(&(mainRegs->reg_A), &(mainRegs->reg_F));
 				mainRegs->cycles += 4;
                 break;
             case 0x18:

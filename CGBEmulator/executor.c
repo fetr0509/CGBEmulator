@@ -140,3 +140,39 @@ void XOR(byte* regA, byte* sourceReg, byte *flags) {
 void CP(byte* regA, byte* sourceReg, byte *flags) {
     handleSUBFlags(regA, sourceReg, flags);
 }
+
+void RLC(byte* regA, byte *flags) {
+    if((*regA & BIT7) != 0)
+        setCarryFlag(flags);
+    else
+        clearCarryFlag(flags);
+    
+    if (*regA == 0)
+        setZeroFlag(flags);
+    else
+        clearZeroFlag(flags);
+    
+    clearHalfCarryFlag(flags);
+    clearSubtractionFlag(flags);
+    
+    *regA = (*regA << 1) | (*regA >> 7);
+}
+
+void RL(byte* regA, byte *flags) {
+    int tempCarry = *flags & BIT4;
+    if((*regA & BIT7) != 0)
+        setCarryFlag(flags);
+    else
+        clearCarryFlag(flags);
+    
+    if (*regA == 0)
+        setZeroFlag(flags);
+    else
+        clearZeroFlag(flags);
+    
+    clearHalfCarryFlag(flags);
+    clearSubtractionFlag(flags);
+    
+    *regA = (*regA << 1) | (tempCarry >> 3);
+}
+
