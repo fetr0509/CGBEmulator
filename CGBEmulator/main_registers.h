@@ -33,18 +33,7 @@ typedef struct MainRegisters {
     
 } MainRegisters;
 
-void setRegA(MainRegisters regs, byte value);
-void setRegF(MainRegisters regs, byte value);
-void setRegB(MainRegisters regs, byte value);
-void setRegC(MainRegisters regs, byte value);
-void setRegD(MainRegisters regs, byte value);
-void setRegE(MainRegisters regs, byte value);
-void setRegH(MainRegisters regs, byte value);
-void setRegL(MainRegisters regs, byte value);
+void initializeMemory(MainRegisters *mainRegisters)
 
-void setRegAF(MainRegisters regs, word value);
-void setRegBC(MainRegisters regs, word value);
-void setRegDE(MainRegisters regs, word value);
-void setRegHL(MainRegisters regs, word value);
 
 #endif /* main_registers_h */
