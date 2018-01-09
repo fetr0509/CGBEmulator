@@ -35,3 +35,12 @@ byte readByteWithRegs(byte  *mostSigByte, byte  *leastSigByte, MainMemory *mainM
     address = (address << 8) | (word)(*leastSigByte);
     return mainMemory->memory[address];
 }
+
+void writeByte(word *address, byte *data, MainMemory *mainMemory) {
+    mainMemory->memory[*address] = *data;
+}
+
+void writeWord(word *address, word *data, MainMemory *mainMemory) {
+    mainMemory->memory[*address] = ((byte)*data);
+    mainMemory->memory[(*address)+1] = ((byte)((*data) >> 8));
+}
