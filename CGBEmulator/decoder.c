@@ -111,7 +111,7 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 20;
                 break;
             case 0x09:
-                //assignInstruction(instruction,opcode,ADD_A,REG_HL,REG_BC,1,8);
+                ADD_16BIT(&(mainRegs->reg_H), &(mainRegs->reg_L), &(mainRegs->reg_B), &(mainRegs->reg_C), &(mainRegs->reg_F));
 				mainRegs->cycles += 8;
                 break;
             case 0x0A:
@@ -178,7 +178,7 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 8;
                 break;
             case 0x19:
-                //assignInstruction(instruction,opcode,ADD_A,REG_HL,REG_DE,1,8);
+                ADD_16BIT(&(mainRegs->reg_H), &(mainRegs->reg_L), &(mainRegs->reg_D), &(mainRegs->reg_E), &(mainRegs->reg_F));
 				mainRegs->cycles += 8;
                 break;
             case 0x1A:
@@ -248,7 +248,7 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 12;
                 break;
             case 0x29:
-                //assignInstruction(instruction,opcode,ADD_A,REG_HL,REG_HL,1,8);
+                ADD_16BIT(&(mainRegs->reg_H), &(mainRegs->reg_L), &(mainRegs->reg_H), &(mainRegs->reg_L), &(mainRegs->reg_F));
 				mainRegs->cycles += 8;
                 break;
             case 0x2A:
@@ -317,7 +317,7 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 12;
                 break;
             case 0x39:
-                //assignInstruction(instruction,opcode,ADD_A,REG_HL,REG_SP,1,8);
+                ADD_16BIT_data(&(mainRegs->reg_H), &(mainRegs->reg_L), mainRegs->stackPointer, &(mainRegs->reg_F));
 				mainRegs->cycles += 8;
                 break;
             case 0x3A:

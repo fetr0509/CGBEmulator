@@ -24,6 +24,9 @@ void increment_RegisterPair(byte  *mostSigByte, byte  *leastSigByte);
 void decrement_Register(byte *reg);
 void decrement_RegisterPair(byte  *mostSigByte, byte  *leastSigByte);
 
+void ADD_16BIT(byte  *mostSigByte_dest, byte  *leastSigByte_dest, byte  *mostSigByte_operand, byte  *leastSigByte_operand, byte *flags);
+void ADD_16BIT_data(byte  *mostSigByte_dest, byte  *leastSigByte_dest, word data, byte *flags);
+
 void ADD_8BIT(byte* regA, byte* sourceReg, byte *flags);
 void ADC(byte* regA, byte* sourceReg, byte *flags);
 void SUB(byte* regA, byte* sourceReg, byte *flags);

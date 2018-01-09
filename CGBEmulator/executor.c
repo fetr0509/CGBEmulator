@@ -49,6 +49,27 @@ void decrement_RegisterPair(byte  *mostSigByte, byte  *leastSigByte) {
     }
 }
 
+void ADD_16BIT(byte  *mostSigByte_dest, byte  *leastSigByte_dest, byte  *mostSigByte_operand, byte  *leastSigByte_operand, byte *flags) {
+    clearSubtractionFlag(flags);
+    word destination = (((word)*mostSigByte_dest) << 8) | ((word)*leastSigByte_dest);
+    word source = (((word)*mostSigByte_operand) << 8) | ((word)*leastSigByte_operand);
+    setADD16BitHalfCarryFlag(destination, source, flags);
+    setADD16BitCarryFlag(destination, source, flags);
+    destination += source;
+    *mostSigByte_dest = destination >> 8;
+    *leastSigByte_dest = destination & 0xFF;
+}
+
+void ADD_16BIT_data(byte  *mostSigByte_dest, byte  *leastSigByte_dest, word data, byte *flags) {
+    clearSubtractionFlag(flags);
+    word destination = (((word)*mostSigByte_dest) << 8) | ((word)*leastSigByte_dest);
+    setADD16BitHalfCarryFlag(destination, data, flags);
+    setADD16BitCarryFlag(destination, data, flags);
+    destination += data;
+    *mostSigByte_dest = destination >> 8;
+    *leastSigByte_dest = destination & 0xFF;
+}
+
 void handleADDFlags(byte* regA, byte* sourceReg, byte *flags) {
     setADDZeroFlag(*regA, *sourceReg, flags);
     clearSubtractionFlag(flags);
