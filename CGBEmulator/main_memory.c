@@ -26,6 +26,18 @@ word fetchWord(word *programCounter, MainMemory *mainMemory) {
     return newByte;
 }
 
+void pop(byte  *mostSigByte, byte  *leastSigByte, word *stackPointer, MainMemory *mainMemory) {
+    *leastSigByte = mainMemory->memory[(*stackPointer)];
+    *mostSigByte = mainMemory->memory[(*stackPointer)+1];
+    (*stackPointer)+=2;
+}
+
+void push(byte  *mostSigByte, byte  *leastSigByte, word *stackPointer, MainMemory *mainMemory) {
+    *leastSigByte = mainMemory->memory[(*stackPointer)-2];
+    *mostSigByte = mainMemory->memory[(*stackPointer)-1];
+    (*stackPointer)-=2;
+}
+
 byte readByte(word address, MainMemory *mainMemory) {
     return mainMemory->memory[address];
 }

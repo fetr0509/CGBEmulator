@@ -22,6 +22,9 @@ void loadROMFromFile(MainMemory *memory, char* filePath);
 byte fetchByte(word *programCounter, MainMemory *mainMemory);
 word fetchWord(word *programCounter, MainMemory *mainMemory);
 
+void pop(byte  *mostSigByte, byte  *leastSigByte, word *stackPointer, MainMemory *mainMemory);
+void push(byte  *mostSigByte, byte  *leastSigByte, word *stackPointer, MainMemory *mainMemory);
+
 byte readByteWithAddress(word address, MainMemory *mainMemory);
 byte readByteWithRegs(byte  *mostSigByte, byte  *leastSigByte, MainMemory *mainMemory);
 
