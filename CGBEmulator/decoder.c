@@ -359,7 +359,7 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 20;
                 break;
             case 0xC1:
-                //assignInstruction(instruction,opcode,POP,REG_SP,REG_BC,1,12);
+                pop(&(mainRegs->reg_B), &(mainRegs->reg_C), &(mainRegs->stackPointer), mainMemory);
 				mainRegs->cycles += 12;
                 break;
             case 0xC2:
@@ -378,7 +378,7 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 24;
                 break;
             case 0xC5:
-                //assignInstruction(instruction,opcode,PUSH,REG_SP,REG_BC,1,16);
+                push(&(mainRegs->reg_B), &(mainRegs->reg_C), &(mainRegs->stackPointer), mainMemory);
 				mainRegs->cycles += 16;
                 break;
             case 0xC6:
@@ -426,7 +426,7 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 20;
                 break;
             case 0xD1:
-                //assignInstruction(instruction,opcode,POP,REG_SP,REG_DE,1,12);
+                pop(&(mainRegs->reg_D), &(mainRegs->reg_E), &(mainRegs->stackPointer), mainMemory);
 				mainRegs->cycles += 12;
                 break;
             case 0xD2:
@@ -443,7 +443,7 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 24;
                 break;
             case 0xD5:
-                //assignInstruction(instruction,opcode,PUSH,REG_SP,REG_DE,1,16);
+                push(&(mainRegs->reg_D), &(mainRegs->reg_E), &(mainRegs->stackPointer), mainMemory);
 				mainRegs->cycles += 16;
                 break;
             case 0xD6:
@@ -491,7 +491,7 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 12;
                 break;
             case 0xE1:
-                //assignInstruction(instruction,opcode,POP,REG_SP,REG_HL,1,12);
+                pop(&(mainRegs->reg_H), &(mainRegs->reg_L), &(mainRegs->stackPointer), mainMemory);
 				mainRegs->cycles += 12;
                 break;
             case 0xE2:
@@ -505,7 +505,7 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
                 // Do not Execute
                 break;
             case 0xE5:
-                //assignInstruction(instruction,opcode,PUSH,REG_SP,REG_HL,1,16);
+                push(&(mainRegs->reg_H), &(mainRegs->reg_L), &(mainRegs->stackPointer), mainMemory);
 				mainRegs->cycles += 16;
                 break;
             case 0xE6:
@@ -552,7 +552,7 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 12;
                 break;
             case 0xF1:
-                //assignInstruction(instruction,opcode,POP,REG_SP,REG_AF,1,12);
+                pop(&(mainRegs->reg_A), &(mainRegs->reg_F), &(mainRegs->stackPointer), mainMemory);
 				mainRegs->cycles += 12;
                 break;
             case 0xF2:
@@ -567,7 +567,7 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
                 // Do not Execute
                 break;
             case 0xF5:
-                //assignInstruction(instruction,opcode,PUSH,REG_SP,REG_AF,1,16);
+                push(&(mainRegs->reg_A), &(mainRegs->reg_F), &(mainRegs->stackPointer), mainMemory);
 				mainRegs->cycles += 16;
                 break;
             case 0xF6:
