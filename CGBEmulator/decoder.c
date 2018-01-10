@@ -107,7 +107,8 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 4;
                 break;
             case 0x08:
-                //assignInstruction(instruction,opcode,LD,DATA_16,REG_SP,3,20);
+                data_word = fetchWord(&(mainRegs->programCounter),mainMemory);
+                writeWord(&data_word,(mainRegs->stackPointer), mainMemory);
 				mainRegs->cycles += 20;
                 break;
             case 0x09:
@@ -115,7 +116,8 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 8;
                 break;
             case 0x0A:
-                //assignInstruction(instruction,opcode,LD,REG_A,REG_BC,1,8);
+                data_byte = readByteWithRegs(&(mainRegs->reg_B), &(mainRegs->reg_C), mainMemory);
+                load_8BitRegister_With8BitData(&(mainRegs->reg_A), data_byte);
 				mainRegs->cycles += 8;
                 break;
             case 0x0B:
@@ -144,7 +146,8 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 4;
                 break;
             case 0x11:
-                //assignInstruction(instruction,opcode,LD,REG_DE,DATA_16,3,12);
+                data_word = fetchWord(&(mainRegs->programCounter),mainMemory);
+                load_16BitRegister_With16BitData(&(mainRegs->reg_D), &(mainRegs->reg_E), data_word);
 				mainRegs->cycles += 12;
                 break;
             case 0x12:
@@ -182,7 +185,8 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 8;
                 break;
             case 0x1A:
-                //assignInstruction(instruction,opcode,LD,REG_A,REG_DE,1,8);
+                data_byte = readByteWithRegs(&(mainRegs->reg_D), &(mainRegs->reg_E), mainMemory);
+                load_8BitRegister_With8BitData(&(mainRegs->reg_A), data_byte);
 				mainRegs->cycles += 8;
                 break;
             case 0x1B:
@@ -213,7 +217,8 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 12;
                 break;
             case 0x21:
-                //assignInstruction(instruction,opcode,LD,REG_HL,DATA_16,3,12);
+                data_word = fetchWord(&(mainRegs->programCounter),mainMemory);
+                load_16BitRegister_With16BitData(&(mainRegs->reg_H), &(mainRegs->reg_L), data_word);
 				mainRegs->cycles += 12;
                 break;
             case 0x22:
@@ -582,7 +587,9 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 4;
                 break;
             case 0xFA:
-                //assignInstruction(instruction,opcode,LD,REG_A,DATA_16,3,16);
+                data_word = fetchWord(&(mainRegs->programCounter), mainMemory);
+                data_byte = readByteWithAddress(data_word, mainMemory);
+                load_8BitRegister_With8BitData(&(mainRegs->reg_A), data_byte);
 				mainRegs->cycles += 16;
                 break;
             case 0xFB:
