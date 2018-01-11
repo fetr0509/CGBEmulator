@@ -9,3 +9,5 @@ Below is a list of resources that were/are being referenced during the design an
 *  [Gameboy Manual](http://marc.rawer.de/Gameboy/Docs/GBCPUman.pdf)
 *  [Gameboy CPU (LR35902) instruction set](http://www.pastraiser.com/cpu/gameboy/gameboy_opcodes.html)
 *  [Misc info](http://bgb.bircd.org/pandocs.htm#gameboytechnicaldata)
+*  [Z80 Reference **(SIMILAR PROCESSOR, NOT IDENTICAL)**](http://www.z80.info/z80syntx.htm#RET)
+*  [Opcode Summary](http://www.devrs.com/gb/files/opcodes.html)
