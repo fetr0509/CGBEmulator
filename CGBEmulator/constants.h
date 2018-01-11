@@ -20,6 +20,8 @@ typedef unsigned short word;
 #define HalfCarryFlag(flags) ({*flags & BIT5;})
 #define CarryFlag(flags) ({*flags & BIT4;})
 
+#define RegisterPair(reg1,reg2) ({ (word) ( (((word)reg1) << 8) | ((word)reg2)) ;})
+
 #define BIT7 0x80
 #define BIT6 0x40
 #define BIT5 0x20
