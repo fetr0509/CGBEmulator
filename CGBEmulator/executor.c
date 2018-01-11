@@ -159,7 +159,7 @@ void RLC(byte* regA, byte *flags) {
 }
 
 void RL(byte* regA, byte *flags) {
-    int tempCarry = *flags & BIT4;
+    byte tempCarry = CarryFlag(flags);
     if((*regA & BIT7) != 0)
         setCarryFlag(flags);
     else
@@ -173,6 +173,41 @@ void RL(byte* regA, byte *flags) {
     clearHalfCarryFlag(flags);
     clearSubtractionFlag(flags);
     
-    *regA = (*regA << 1) | (tempCarry >> 3);
+    *regA = (*regA << 1) | (tempCarry >> 4);
+}
+
+void RRC(byte* regA, byte *flags) {
+    if((*regA & BIT0) != 0)
+        setCarryFlag(flags);
+    else
+        clearCarryFlag(flags);
+    
+    if (*regA == 0)
+        setZeroFlag(flags);
+    else
+        clearZeroFlag(flags);
+    
+    clearHalfCarryFlag(flags);
+    clearSubtractionFlag(flags);
+    
+    *regA = (*regA >> 1) | (*regA << 7);
+}
+
+void RR(byte* regA, byte *flags) {
+    byte tempCarry = *flags & CarryFlag(flags);
+    if((*regA & BIT0) != 0)
+        setCarryFlag(flags);
+    else
+        clearCarryFlag(flags);
+    
+    if (*regA == 0)
+        setZeroFlag(flags);
+    else
+        clearZeroFlag(flags);
+    
+    clearHalfCarryFlag(flags);
+    clearSubtractionFlag(flags);
+    
+    *regA = (*regA >> 1) | (tempCarry << 3);
 }
 
