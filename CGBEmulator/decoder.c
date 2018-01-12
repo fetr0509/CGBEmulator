@@ -300,11 +300,12 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
                 mainRegs->cycles += 8;
                 break;
             case 0x33:
-                //assignInstruction(instruction,opcode,INC,REG_SP,REG_SP,1,8);
+                increment_16BitRegister(&(mainRegs->stackPointer));
 				mainRegs->cycles += 8;
                 break;
             case 0x34:
-                //assignInstruction(instruction,opcode,INC,REG_HL,REG_HL,1,12);
+                data_byte = readByteWithAddress(RegisterPair(mainRegs->reg_H, mainRegs->reg_L), mainMemory);
+                writeByte(RegisterPair(mainRegs->reg_H, mainRegs->reg_L), data_byte+1, mainMemory);
 				mainRegs->cycles += 12;
                 break;
             case 0x35:

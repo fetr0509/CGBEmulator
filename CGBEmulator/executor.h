@@ -22,6 +22,7 @@ void jump_address(word *programCounter, word data);
 
 void increment_Register(byte *reg);
 void increment_RegisterPair(byte  *mostSigByte, byte  *leastSigByte);
+void increment_16BitRegister(word  *reg);
 void decrement_Register(byte *reg);
 void decrement_RegisterPair(byte  *mostSigByte, byte  *leastSigByte);
 void decrement_16BitRegister(word  *reg);

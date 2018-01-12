@@ -40,6 +40,10 @@ void increment_RegisterPair(byte  *mostSigByte, byte  *leastSigByte) {
     }
 }
 
+void increment_16BitRegister(word  *reg) {
+    (*reg)++;
+}
+
 void decrement_Register(byte *reg) {
     (*reg)--;
 }
