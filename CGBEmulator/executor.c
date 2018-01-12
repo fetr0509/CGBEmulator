@@ -223,3 +223,20 @@ void RR(byte* regA, byte *flags) {
     *regA = (*regA >> 1) | (tempCarry << 3);
 }
 
+void DAA(byte *regA, byte *flags) {
+    
+    if (SubtractionFlag(flags) != 0) {  
+        if (CarryFlag(flags) || *regA > 0x99) { *regA += 0x60; setCarryFlag(flags); }
+        if (HalfCarryFlag(flags) || (*regA & 0x0f) > 0x09) { *regA += 0x6; }
+    } else {
+        if (CarryFlag(flags)) { *regA -= 0x60; }
+        if (HalfCarryFlag(flags)) { *regA -= 0x6; }
+    }
+    
+    if (*regA == 0)
+        setZeroFlag(flags);
+    else
+        clearZeroFlag(flags);
+    
+    clearHalfCarryFlag(flags);
+}

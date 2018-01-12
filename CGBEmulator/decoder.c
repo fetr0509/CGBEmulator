@@ -243,7 +243,7 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 8;
                 break;
             case 0x27:
-                //assignInstruction(instruction,opcode,DAA,NOREG,NOREG,1,4);
+                DAA(&(mainRegs->reg_A), &(mainRegs->reg_F));
 				mainRegs->cycles += 4;
                 break;
             case 0x28:
@@ -313,7 +313,8 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 12;
                 break;
             case 0x36:
-                //assignInstruction(instruction,opcode,LD,REG_HL,DATA_8,2,12);
+                data_byte = fetchByte(&(mainRegs->programCounter), mainMemory);
+                writeByte(RegisterPair(&(mainRegs->reg_H), &(mainRegs->reg_L)), data_byte, mainMemory);
 				mainRegs->cycles += 12;
                 break;
             case 0x37:
