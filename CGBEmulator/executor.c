@@ -82,6 +82,19 @@ void ADD_16BIT_data(byte  *mostSigByte_dest, byte  *leastSigByte_dest, word data
     *leastSigByte_dest = destination & 0xFF;
 }
 
+void ADD_SP(word *sp_reg, signed_byte data, byte *flags) {
+    clearZeroFlag(flags);
+    clearSubtractionFlag(flags);
+    if (data >= 0) {
+        setADD16BitHalfCarryFlag(*sp_reg, (word)data, flags);
+        setADD16BitCarryFlag(*sp_reg, (word)data, flags);
+    } else {
+        setSUB16BitHalfCarryFlag(*sp_reg, (word)data, flags);
+        setSUB16BitCarryFlag(*sp_reg, (word)data, flags);
+    }
+    *sp_reg += data;
+}
+
 void handleADDFlags(byte* regA, byte* sourceReg, byte *flags) {
     setADDZeroFlag(*regA, *sourceReg, flags);
     clearSubtractionFlag(flags);

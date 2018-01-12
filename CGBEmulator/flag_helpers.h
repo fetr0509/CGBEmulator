@@ -26,11 +26,14 @@ void setADDZeroFlag(byte reg_1, byte reg_2, byte *flags);
 void setSUBZeroFlag(byte reg_1, byte reg_2, byte *flags);
 
 void setADD8BitHalfCarryFlag(byte reg_1, byte reg_2, byte *flags);
-void setSUB8BitHalfCarryFlag(byte reg_1, byte reg_2, byte *flags);
 void setADD16BitHalfCarryFlag(word reg_1, word reg_2, byte *flags);
+void setSUB8BitHalfCarryFlag(byte reg_1, byte reg_2, byte *flags);
+void setSUB16BitHalfCarryFlag(word reg_1, word reg_2, byte *flags);
+
 
 void setADD8BitCarryFlag(byte reg_1, byte reg_2, byte *flags);
-void setSUB8BitCarryFlag(byte reg_1, byte reg_2, byte *flags);
 void setADD16BitCarryFlag(word reg_1, word reg_2, byte *flags);
+void setSUB8BitCarryFlag(byte reg_1, byte reg_2, byte *flags);
+void setSUB16BitCarryFlag(word reg_1, word reg_2, byte *flags);
 
 #endif /* flag_helpers_h */

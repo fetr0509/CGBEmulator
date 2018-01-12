@@ -29,6 +29,7 @@ void decrement_16BitRegister(word  *reg);
 
 void ADD_16BIT(byte  *mostSigByte_dest, byte  *leastSigByte_dest, byte  *mostSigByte_operand, byte  *leastSigByte_operand, byte *flags);
 void ADD_16BIT_data(byte  *mostSigByte_dest, byte  *leastSigByte_dest, word data, byte *flags);
+void ADD_SP(word *sp_reg, signed_byte data, byte *flags);
 
 void complementA(byte *regA);
 

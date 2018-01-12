@@ -531,7 +531,7 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 12;
                 break;
             case 0xE2:
-                //assignInstruction(instruction,opcode,LD,REG_C,REG_A,2,8);
+                writeByte((word)(mainRegs->reg_C), mainRegs->reg_A, mainMemory);
 				mainRegs->cycles += 8;
                 break;
             case 0xE3: // NOT USED
@@ -555,7 +555,8 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 16;
                 break;
             case 0xE8:
-                //assignInstruction(instruction,opcode,ADD_A,REG_SP,DATA_8,2,16);
+                data_byte = fetchByte(&(mainRegs->programCounter), mainMemory);
+                ADD_SP(&(mainRegs->stackPointer), (signed_byte)data_byte, &(mainRegs->reg_F));
 				mainRegs->cycles += 16;
                 break;
             case 0xE9:
