@@ -221,8 +221,9 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 12;
                 break;
             case 0x22:
-                //assignInstruction(instruction,opcode,LDI,REG_HL,REG_A,1,8);
-				mainRegs->cycles += 8;
+                writeByte(RegisterPair(mainRegs->reg_H, mainRegs->reg_L), mainRegs->reg_A, mainMemory);
+                increment_RegisterPair(&(mainRegs->reg_H), &(mainRegs->reg_L));
+                mainRegs->cycles += 8;
                 break;
             case 0x23:
                 increment_RegisterPair(&(mainRegs->reg_H),&(mainRegs->reg_L));
@@ -256,7 +257,9 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 8;
                 break;
             case 0x2A:
-                //assignInstruction(instruction,opcode,LDI,REG_A,REG_HL,1,8);
+                data_byte = readByteWithAddress(RegisterPair(mainRegs->reg_H, mainRegs->reg_L), mainMemory);
+                load_8BitRegister_With8BitData(&(mainRegs->reg_A), data_byte);
+                increment_RegisterPair(&(mainRegs->reg_H), &(mainRegs->reg_L));
 				mainRegs->cycles += 8;
                 break;
             case 0x2B:
@@ -291,8 +294,9 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 12;
                 break;
             case 0x32:
-                //assignInstruction(instruction,opcode,LDD,REG_HL,REG_A,1,8);
-				mainRegs->cycles += 8;
+                writeByte(RegisterPair(mainRegs->reg_H, mainRegs->reg_L), mainRegs->reg_A, mainMemory);
+                decrement_RegisterPair(&(mainRegs->reg_H), &(mainRegs->reg_L));
+                mainRegs->cycles += 8;
                 break;
             case 0x33:
                 //assignInstruction(instruction,opcode,INC,REG_SP,REG_SP,1,8);
@@ -325,7 +329,9 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 8;
                 break;
             case 0x3A:
-                //assignInstruction(instruction,opcode,LDD,REG_A,REG_HL,1,8);
+                data_byte = readByteWithAddress(RegisterPair(mainRegs->reg_H, mainRegs->reg_L), mainMemory);
+                load_8BitRegister_With8BitData(&(mainRegs->reg_A), data_byte);
+                decrement_RegisterPair(&(mainRegs->reg_H), &(mainRegs->reg_L));
 				mainRegs->cycles += 8;
                 break;
             case 0x3B:
