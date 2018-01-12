@@ -38,7 +38,7 @@ void push(byte  *mostSigByte, byte  *leastSigByte, word *stackPointer, MainMemor
     (*stackPointer)-=2;
 }
 
-byte readByte(word address, MainMemory *mainMemory) {
+byte readByteWithAddress(word address, MainMemory *mainMemory) {
     return mainMemory->memory[address];
 }
 
@@ -48,11 +48,11 @@ byte readByteWithRegs(byte  *mostSigByte, byte  *leastSigByte, MainMemory *mainM
     return mainMemory->memory[address];
 }
 
-void writeByte(word *address, byte data, MainMemory *mainMemory) {
-    mainMemory->memory[*address] = data;
+void writeByte(word address, byte data, MainMemory *mainMemory) {
+    mainMemory->memory[address] = data;
 }
 
-void writeWord(word *address, word data, MainMemory *mainMemory) {
-    mainMemory->memory[*address] = ((byte)data);
-    mainMemory->memory[(*address)+1] = ((byte)((data) >> 8));
+void writeWord(word address, word data, MainMemory *mainMemory) {
+    mainMemory->memory[address] = ((byte)data);
+    mainMemory->memory[address+1] = ((byte)((data) >> 8));
 }

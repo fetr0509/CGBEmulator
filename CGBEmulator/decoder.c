@@ -81,8 +81,7 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
                 mainRegs->cycles += 12;
                 break;
             case 0x02:
-                data_byte = readByteWithRegs(&(mainRegs->reg_B),&(mainRegs->reg_C),mainMemory);
-                load_8BitRegister_With8BitData(&(mainRegs->reg_A),data_byte);
+                writeByte(RegisterPair(mainRegs->reg_B, mainRegs->reg_C), mainRegs->reg_A, mainMemory);
                 mainRegs->cycles += 8;
                 break;
             case 0x03:
@@ -108,7 +107,7 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
                 break;
             case 0x08:
                 data_word = fetchWord(&(mainRegs->programCounter),mainMemory);
-                writeWord(&data_word,(mainRegs->stackPointer), mainMemory);
+                writeWord(data_word,(mainRegs->stackPointer), mainMemory);
 				mainRegs->cycles += 20;
                 break;
             case 0x09:
@@ -151,7 +150,7 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 12;
                 break;
             case 0x12:
-                //assignInstruction(instruction,opcode,LD,REG_DE,REG_A,1,8);
+                writeByte(RegisterPair(mainRegs->reg_D, mainRegs->reg_E), mainRegs->reg_A, mainMemory);
 				mainRegs->cycles += 8;
                 break;
             case 0x13:
@@ -527,7 +526,8 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 4;
                 break;
             case 0xEA:
-                //assignInstruction(instruction,opcode,LD,DATA_16,REG_A,3,16);
+                data_word = fetchWord(&(mainRegs->programCounter), mainMemory);
+                writeByte(data_word, mainRegs->reg_A, mainMemory);
 				mainRegs->cycles += 16;
                 break;
             case 0xEB: // NOT USED

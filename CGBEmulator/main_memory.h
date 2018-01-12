@@ -28,7 +28,7 @@ void push(byte  *mostSigByte, byte  *leastSigByte, word *stackPointer, MainMemor
 byte readByteWithAddress(word address, MainMemory *mainMemory);
 byte readByteWithRegs(byte  *mostSigByte, byte  *leastSigByte, MainMemory *mainMemory);
 
-void writeByte(word *address, byte data, MainMemory *mainMemory);
-void writeWord(word *address, word word, MainMemory *mainMemory);
+void writeByte(word address, byte data, MainMemory *mainMemory);
+void writeWord(word address, word word, MainMemory *mainMemory);
 
 #endif /* main_memory_h */
