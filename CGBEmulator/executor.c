@@ -223,6 +223,21 @@ void RR(byte* regA, byte *flags) {
     *regA = (*regA >> 1) | (tempCarry << 3);
 }
 
+void SCF(byte *flags) {
+    clearSubtractionFlag(flags);
+    clearHalfCarryFlag(flags);
+    setCarryFlag(flags);
+}
+
+void CCF(byte *flags) {
+    clearSubtractionFlag(flags);
+    clearHalfCarryFlag(flags);
+    if (CarryFlag(flags))
+        clearCarryFlag(flags);
+    else
+        setCarryFlag(flags);
+}
+
 void DAA(byte *regA, byte *flags) {
     
     if (SubtractionFlag(flags) != 0) {  

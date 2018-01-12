@@ -318,7 +318,7 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 12;
                 break;
             case 0x37:
-                //assignInstruction(instruction,opcode,SCF,NOREG,NOREG,1,4);
+                SCF(&(mainRegs->reg_F));
 				mainRegs->cycles += 4;
                 break;
             case 0x38:
@@ -355,7 +355,7 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 8;
                 break;
             case 0x3F:
-                //assignInstruction(instruction,opcode,CCF,NOREG,NOREG,1,4);
+                CCF(&(mainRegs->reg_F));
 				mainRegs->cycles += 4;
                 break;
             case 0x76: // HALT
