@@ -389,7 +389,8 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 16;
                 break;
             case 0xC6:
-                //assignInstruction(instruction,opcode,ADD_A,REG_A,DATA_8,2,8);
+                data_byte = fetchByte(&(mainRegs->programCounter), mainMemory);
+                ADD_8BIT(&(mainRegs->reg_A), &data_byte, &(mainRegs->reg_F));
 				mainRegs->cycles += 8;
                 break;
             case 0xC7:
@@ -454,7 +455,8 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 16;
                 break;
             case 0xD6:
-                //assignInstruction(instruction,opcode,SUB,REG_A,DATA_8,2,8);
+                data_byte = fetchByte(&(mainRegs->programCounter), mainMemory);
+                SUB(&(mainRegs->reg_A), &data_byte, &(mainRegs->reg_F));
 				mainRegs->cycles += 8;
                 break;
             case 0xD7:
@@ -516,7 +518,8 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 16;
                 break;
             case 0xE6:
-                //assignInstruction(instruction,opcode,AND,REG_A,DATA_8,2,8);
+                data_byte = fetchByte(&(mainRegs->programCounter), mainMemory);
+                AND(&(mainRegs->reg_A), &data_byte, &(mainRegs->reg_F));
 				mainRegs->cycles += 8;
                 break;
             case 0xE7:
@@ -548,7 +551,8 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
                 // Do not Execute
                 break;
             case 0xEE:
-                //assignInstruction(instruction,opcode,XOR,REG_A,DATA_8,2,8);
+                data_byte = fetchByte(&(mainRegs->programCounter), mainMemory);
+                XOR(&(mainRegs->reg_A), &data_byte, &(mainRegs->reg_F));
 				mainRegs->cycles += 8;
                 break;
             case 0xEF:
@@ -579,7 +583,8 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 16;
                 break;
             case 0xF6:
-                //assignInstruction(instruction,opcode,OR,REG_A,DATA_8,2,8);
+                data_byte = fetchByte(&(mainRegs->programCounter), mainMemory);
+                OR(&(mainRegs->reg_A), &data_byte, &(mainRegs->reg_F));
 				mainRegs->cycles += 8;
                 break;
             case 0xF7:
