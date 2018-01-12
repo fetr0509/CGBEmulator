@@ -363,7 +363,8 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 4;
                 break;
             case 0xC0:
-                //assignInstruction(instruction,opcode,RET,NOREG,NOREG,1,20);wa
+                if (ZeroFlag(&(mainRegs->reg_F)) == 0)
+                    popWord(&(mainRegs->programCounter), &(mainRegs->stackPointer), mainMemory);
 				mainRegs->cycles += 20;
                 break;
             case 0xC1:
@@ -382,8 +383,12 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 16;
                 break;
             case 0xC4:
-                //assignInstruction(instruction,opcode,CALL,NOREG,DATA_16,3,24);
-				mainRegs->cycles += 24;
+                data_word = fetchWord(&(mainRegs->programCounter),mainMemory);
+                if (ZeroFlag(&(mainRegs->reg_F)) == 0) {
+                    push_16bit_address(mainRegs->programCounter, &(mainRegs->stackPointer), mainMemory);
+                    load_16BitRegister_With16BitData(&(mainRegs->programCounter), data_word);
+                }
+				mainRegs->cycles += 12;
                 break;
             case 0xC5:
                 push(&(mainRegs->reg_B), &(mainRegs->reg_C), &(mainRegs->stackPointer), mainMemory);
@@ -400,11 +405,12 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 16;
                 break;
             case 0xC8:
-                //assignInstruction(instruction,opcode,RET,NOREG,NOREG,1,20);
+                if (ZeroFlag(&(mainRegs->reg_F)) != 0)
+                    popWord(&(mainRegs->programCounter), &(mainRegs->stackPointer), mainMemory);
 				mainRegs->cycles += 20;
                 break;
             case 0xC9:
-                //assignInstruction(instruction,opcode,RET,NOREG,NOREG,1,16);
+                popWord(&(mainRegs->programCounter), &(mainRegs->stackPointer), mainMemory);
 				mainRegs->cycles += 16;
                 break;
             case 0xCA:
@@ -416,12 +422,18 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
             case 0xCB: // Prefix used fo CB table
                 break;
             case 0xCC:
-                //assignInstruction(instruction,opcode,CALL,NOREG,DATA_16,3,24);
+                data_word = fetchWord(&(mainRegs->programCounter),mainMemory);
+                if (ZeroFlag(&(mainRegs->reg_F)) != 0) {
+                    push_16bit_address(mainRegs->programCounter, &(mainRegs->stackPointer), mainMemory);
+                    load_16BitRegister_With16BitData(&(mainRegs->programCounter), data_word);
+                }
 				mainRegs->cycles += 4;
                 break;
             case 0xCD:
-                //assignInstruction(instruction,opcode,CALL,NOREG,DATA_16,3,24);
-				mainRegs->cycles += 4;
+                data_word = fetchWord(&(mainRegs->programCounter),mainMemory);
+                push_16bit_address(mainRegs->programCounter, &(mainRegs->stackPointer), mainMemory);
+                load_16BitRegister_With16BitData(&(mainRegs->programCounter), data_word);
+				mainRegs->cycles += 12;
                 break;
             case 0xCE:
                 //assignInstruction(instruction,opcode,ADC_A,REG_A,DATA_8,2,8);
@@ -433,8 +445,9 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 16;
                 break;
             case 0xD0:
-                //assignInstruction(instruction,opcode,RET,NOREG,NOREG,1,20);
-				mainRegs->cycles += 20;
+                if (CarryFlag(&(mainRegs->reg_F)) == 0)
+                    popWord(&(mainRegs->programCounter), &(mainRegs->stackPointer), mainMemory);
+				mainRegs->cycles += 8;
                 break;
             case 0xD1:
                 pop(&(mainRegs->reg_D), &(mainRegs->reg_E), &(mainRegs->stackPointer), mainMemory);
@@ -450,8 +463,12 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
                 // Do not Execute
                 break;
             case 0xD4:
-                //assignInstruction(instruction,opcode,CALL,NOREG,DATA_16,3,24);
-				mainRegs->cycles += 24;
+                data_word = fetchWord(&(mainRegs->programCounter),mainMemory);
+                if (CarryFlag(&(mainRegs->reg_F)) == 0) {
+                    push_16bit_address(mainRegs->programCounter, &(mainRegs->stackPointer), mainMemory);
+                    load_16BitRegister_With16BitData(&(mainRegs->programCounter), data_word);
+                }
+				mainRegs->cycles += 12;
                 break;
             case 0xD5:
                 push(&(mainRegs->reg_D), &(mainRegs->reg_E), &(mainRegs->stackPointer), mainMemory);
@@ -468,8 +485,9 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 16;
                 break;
             case 0xD8:
-                //assignInstruction(instruction,opcode,RET,NOREG,NOREG,1,20);
-				mainRegs->cycles += 20;
+                if (CarryFlag(&(mainRegs->reg_F)) != 0)
+                    popWord(&(mainRegs->programCounter), &(mainRegs->stackPointer), mainMemory);
+				mainRegs->cycles += 8;
                 break;
             case 0xD9:
                 //assignInstruction(instruction,opcode,RETI,NOREG,NOREG,1,16);
@@ -485,8 +503,12 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
                 // Do not Execute
                 break;
             case 0xDC:
-                //assignInstruction(instruction,opcode,CALL,REG_C,DATA_16,3,24);
-				mainRegs->cycles += 24;
+                data_word = fetchWord(&(mainRegs->programCounter),mainMemory);
+                if (CarryFlag(&(mainRegs->reg_F)) != 0) {
+                    push_16bit_address(mainRegs->programCounter, &(mainRegs->stackPointer), mainMemory);
+                    load_16BitRegister_With16BitData(&(mainRegs->programCounter), data_word);
+                }
+				mainRegs->cycles += 12;
                 break;
             case 0xDD: // NOT USED
                 // Do not Execute

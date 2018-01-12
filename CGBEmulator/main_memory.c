@@ -32,6 +32,12 @@ void pop(byte  *mostSigByte, byte  *leastSigByte, word *stackPointer, MainMemory
     (*stackPointer)+=2;
 }
 
+void popWord(word *value, word *stackPointer, MainMemory *mainMemory){
+    *value = (word)(mainMemory->memory[(*stackPointer)]);
+    *value = (word)(mainMemory->memory[(*stackPointer)+1]) << 8;
+    (*stackPointer)+=2;
+}
+
 void push(byte  *mostSigByte, byte  *leastSigByte, word *stackPointer, MainMemory *mainMemory) {
     mainMemory->memory[(*stackPointer)-2] = *leastSigByte;
     mainMemory->memory[(*stackPointer)-1] = *mostSigByte;

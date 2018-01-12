@@ -23,6 +23,8 @@ byte fetchByte(word *programCounter, MainMemory *mainMemory);
 word fetchWord(word *programCounter, MainMemory *mainMemory);
 
 void pop(byte  *mostSigByte, byte  *leastSigByte, word *stackPointer, MainMemory *mainMemory);
+void popWord(word *value, word *stackPointer, MainMemory *mainMemory);
+
 void push(byte  *mostSigByte, byte  *leastSigByte, word *stackPointer, MainMemory *mainMemory);
 void push_16bit_address(word address, word *stackPointer, MainMemory *mainMemory);
 
