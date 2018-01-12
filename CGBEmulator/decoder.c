@@ -77,7 +77,7 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
                 break;
             case 0x01:
                 data_word = fetchWord(&(mainRegs->programCounter),mainMemory);
-                load_16BitRegister_With16BitData(&(mainRegs->reg_B),&(mainRegs->reg_C),data_word);
+                load_RegisterPair_With16BitData(&(mainRegs->reg_B),&(mainRegs->reg_C),data_word);
                 mainRegs->cycles += 12;
                 break;
             case 0x02:
@@ -146,7 +146,7 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
                 break;
             case 0x11:
                 data_word = fetchWord(&(mainRegs->programCounter),mainMemory);
-                load_16BitRegister_With16BitData(&(mainRegs->reg_D), &(mainRegs->reg_E), data_word);
+                load_RegisterPair_With16BitData(&(mainRegs->reg_D), &(mainRegs->reg_E), data_word);
 				mainRegs->cycles += 12;
                 break;
             case 0x12:
@@ -217,7 +217,7 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
                 break;
             case 0x21:
                 data_word = fetchWord(&(mainRegs->programCounter),mainMemory);
-                load_16BitRegister_With16BitData(&(mainRegs->reg_H), &(mainRegs->reg_L), data_word);
+                load_RegisterPair_With16BitData(&(mainRegs->reg_H), &(mainRegs->reg_L), data_word);
 				mainRegs->cycles += 12;
                 break;
             case 0x22:
@@ -280,7 +280,7 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 8;
                 break;
             case 0x2F:
-                //assignInstruction(instruction,opcode,CPL,NOREG,NOREG,1,4);
+                complementA(&(mainRegs->reg_A));
 				mainRegs->cycles += 4;
                 break;
             case 0x30:
@@ -290,7 +290,8 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 12;
                 break;
             case 0x31:
-                //assignInstruction(instruction,opcode,LD,REG_SP,DATA_16,3,12);
+                data_word = fetchWord(&(mainRegs->programCounter), mainMemory);
+                load_16BitRegister_With16BitData(&(mainRegs->programCounter) , data_word);
 				mainRegs->cycles += 12;
                 break;
             case 0x32:

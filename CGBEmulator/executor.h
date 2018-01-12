@@ -15,7 +15,8 @@
 #define load_8BitRegister_WithRegister(destination, source) ({*destination = *source;})
 
 void load_8BitRegister_With8BitData(byte *destination, byte data);
-void load_16BitRegister_With16BitData(byte  *mostSigByte, byte  *leastSigByte, word data);
+void load_RegisterPair_With16BitData(byte  *mostSigByte, byte  *leastSigByte, word data);
+void load_16BitRegister_With16BitData(word *reg, word data) ;
 
 void jump_address(word *programCounter, word data);
 
@@ -27,6 +28,8 @@ void decrement_16BitRegister(word  *reg);
 
 void ADD_16BIT(byte  *mostSigByte_dest, byte  *leastSigByte_dest, byte  *mostSigByte_operand, byte  *leastSigByte_operand, byte *flags);
 void ADD_16BIT_data(byte  *mostSigByte_dest, byte  *leastSigByte_dest, word data, byte *flags);
+
+void complementA(byte *regA);
 
 void ADD_8BIT(byte* regA, byte* sourceReg, byte *flags);
 void ADC(byte* regA, byte* sourceReg, byte *flags);

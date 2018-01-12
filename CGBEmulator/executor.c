@@ -14,9 +14,13 @@ void load_8BitRegister_With8BitData(byte *destination, byte data) {
     *destination = data;
 }
 
-void load_16BitRegister_With16BitData(byte  *mostSigByte, byte  *leastSigByte, word data) {
+void load_RegisterPair_With16BitData(byte  *mostSigByte, byte  *leastSigByte, word data) {
     *mostSigByte = (byte)(data >> 8);
     *leastSigByte = (byte)(data & 0xFF);
+}
+
+void load_16BitRegister_With16BitData(word *reg, word data) {
+    *reg = data;
 }
 
 void jump_address(word  *programCounter, word data) {
@@ -86,6 +90,10 @@ void handleSUBFlags(byte* regA, byte* sourceReg, byte *flags) {
     setSubtractionFlag(flags);
     setSUB8BitHalfCarryFlag(*regA, *sourceReg, flags);
     setSUB8BitCarryFlag(*regA, *sourceReg, flags);
+}
+
+void complementA(byte *regA) {
+    *regA = ~(*regA);
 }
 
 void ADD_8BIT(byte* regA, byte* sourceReg, byte *flags) {
