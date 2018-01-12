@@ -10,6 +10,7 @@
 #define constants_h
 
 typedef unsigned char byte;
+typedef signed char signed_byte;
 typedef unsigned short word;
 
 #define NUMREGS 8
