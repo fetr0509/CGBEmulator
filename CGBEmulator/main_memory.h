@@ -24,6 +24,7 @@ word fetchWord(word *programCounter, MainMemory *mainMemory);
 
 void pop(byte  *mostSigByte, byte  *leastSigByte, word *stackPointer, MainMemory *mainMemory);
 void push(byte  *mostSigByte, byte  *leastSigByte, word *stackPointer, MainMemory *mainMemory);
+void push_16bit_address(word address, word *stackPointer, MainMemory *mainMemory);
 
 byte readByteWithAddress(word address, MainMemory *mainMemory);
 byte readByteWithRegs(byte  *mostSigByte, byte  *leastSigByte, MainMemory *mainMemory);

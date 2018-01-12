@@ -395,7 +395,8 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 8;
                 break;
             case 0xC7:
-                //assignInstruction(instruction,opcode,RST,NOREG,NOREG,1,16);
+                push_16bit_address(mainRegs->programCounter, &(mainRegs->stackPointer), mainMemory);
+                load_16BitRegister_With16BitData(&(mainRegs->programCounter), (word)(0));
 				mainRegs->cycles += 16;
                 break;
             case 0xC8:
@@ -427,7 +428,8 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 8;
                 break;
             case 0xCF:
-                //assignInstruction(instruction,opcode,RST,NOREG,NOREG,1,16);
+                push_16bit_address(mainRegs->programCounter, &(mainRegs->stackPointer), mainMemory);
+                load_16BitRegister_With16BitData(&(mainRegs->programCounter), (word)(0x08));
 				mainRegs->cycles += 16;
                 break;
             case 0xD0:
@@ -461,7 +463,8 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 8;
                 break;
             case 0xD7:
-                //assignInstruction(instruction,opcode,RST,NOREG,NOREG,1,16);
+                push_16bit_address(mainRegs->programCounter, &(mainRegs->stackPointer), mainMemory);
+                load_16BitRegister_With16BitData(&(mainRegs->programCounter), (word)(0x10));
 				mainRegs->cycles += 16;
                 break;
             case 0xD8:
@@ -493,7 +496,8 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 8;
                 break;
             case 0xDF:
-                //assignInstruction(instruction,opcode,RST,NOREG,NOREG,1,16);
+                push_16bit_address(mainRegs->programCounter, &(mainRegs->stackPointer), mainMemory);
+                load_16BitRegister_With16BitData(&(mainRegs->programCounter), (word)(0x18));
 				mainRegs->cycles += 16;
                 break;
             case 0xE0:
@@ -524,7 +528,8 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 8;
                 break;
             case 0xE7:
-                //assignInstruction(instruction,opcode,RST,NOREG,NOREG,1,16);
+                push_16bit_address(mainRegs->programCounter, &(mainRegs->stackPointer), mainMemory);
+                load_16BitRegister_With16BitData(&(mainRegs->programCounter), (word)(0x20));
 				mainRegs->cycles += 16;
                 break;
             case 0xE8:
@@ -557,7 +562,8 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 8;
                 break;
             case 0xEF:
-                //assignInstruction(instruction,opcode,RST,NOREG,NOREG,1,16);
+                push_16bit_address(mainRegs->programCounter, &(mainRegs->stackPointer), mainMemory);
+                load_16BitRegister_With16BitData(&(mainRegs->programCounter), (word)(0x28));
 				mainRegs->cycles += 16;
                 break;
             case 0xF0:
@@ -589,7 +595,8 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 8;
                 break;
             case 0xF7:
-                //assignInstruction(instruction,opcode,RST,NOREG,NOREG,1,16);
+                push_16bit_address(mainRegs->programCounter, &(mainRegs->stackPointer), mainMemory);
+                load_16BitRegister_With16BitData(&(mainRegs->programCounter), (word)(0x30));
 				mainRegs->cycles += 16;
                 break;
             case 0xF8:
@@ -621,7 +628,8 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				mainRegs->cycles += 8;
                 break;
             case 0xFF:
-                //assignInstruction(instruction,opcode,RST,NOREG,NOREG,1,16);
+                push_16bit_address(mainRegs->programCounter, &(mainRegs->stackPointer), mainMemory);
+                load_16BitRegister_With16BitData(&(mainRegs->programCounter), (word)(0x38));
 				mainRegs->cycles += 16;
                 break;
             default:

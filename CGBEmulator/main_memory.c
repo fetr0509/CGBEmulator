@@ -33,8 +33,14 @@ void pop(byte  *mostSigByte, byte  *leastSigByte, word *stackPointer, MainMemory
 }
 
 void push(byte  *mostSigByte, byte  *leastSigByte, word *stackPointer, MainMemory *mainMemory) {
-    *leastSigByte = mainMemory->memory[(*stackPointer)-2];
-    *mostSigByte = mainMemory->memory[(*stackPointer)-1];
+    mainMemory->memory[(*stackPointer)-2] = *leastSigByte;
+    mainMemory->memory[(*stackPointer)-1] = *mostSigByte;
+    (*stackPointer)-=2;
+}
+
+void push_16bit_address(word address, word *stackPointer, MainMemory *mainMemory) {
+    mainMemory->memory[(*stackPointer)-2] = (byte)(address & 0xFF);
+    mainMemory->memory[(*stackPointer)-1] = (byte)(address >> 8);
     (*stackPointer)-=2;
 }
 
