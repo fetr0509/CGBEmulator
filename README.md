@@ -10,6 +10,11 @@ Thes specific features that this Gameboy emulator will have are:
 *  Memory Viewer - Allows the user to see the gameboys memory and register status such as current instruction as well as step through the memory
 *  Memory Editor - Edit the gameboys memory on the fly and search for values within memory.
 
+## Testing
+
+*  Using OCLint for linting while developing on Linux. (cMake integration but not execution).
+*  Unity for Unit testing.
+
 ## Resources
 Below is a list of resources that were/are being referenced during the design and implimentation
 *  [Gameboy Manual](http://marc.rawer.de/Gameboy/Docs/GBCPUman.pdf)
