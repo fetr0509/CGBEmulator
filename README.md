@@ -22,3 +22,4 @@ Below is a list of resources that were/are being referenced during the design an
 *  [Misc info](http://bgb.bircd.org/pandocs.htm#gameboytechnicaldata)
 *  [Z80 Reference **(SIMILAR PROCESSOR, NOT IDENTICAL)**](http://www.z80.info/z80syntx.htm#RET)
 *  [Opcode Summary](http://www.devrs.com/gb/files/opcodes.html)
+*  [Blargg's tests](http://gbdev.gg8.se/files/roms/blargg-gb-tests/)
