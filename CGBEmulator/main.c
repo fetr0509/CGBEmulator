@@ -10,6 +10,9 @@
 #include "decoder.h"
 #include "constants.h"
 
+byte isStopped;
+word cycles;
+
 int main(int argc, const char * argv[]) {
 
 }

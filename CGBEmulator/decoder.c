@@ -9,6 +9,9 @@
 #include "decoder.h"
 #include "executor.h"
 
+extern byte isStopped;
+extern word cycles;
+
 void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMemory) {
     static byte data_byte = 0;
     static word data_word = 0;
@@ -73,314 +76,315 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
     else {
         switch (opcode) {
             case 0x00: // NOP
-                // Do literally nothing
+                // Do nothing
+                cycles += 4;
                 break;
             case 0x01:
                 data_word = fetchWord(&(mainRegs->programCounter),mainMemory);
                 load_RegisterPair_With16BitData(&(mainRegs->reg_B),&(mainRegs->reg_C),data_word);
-                mainRegs->cycles += 12;
+                cycles += 12;
                 break;
             case 0x02:
                 writeByte(RegisterPair(mainRegs->reg_B, mainRegs->reg_C), mainRegs->reg_A, mainMemory);
-                mainRegs->cycles += 8;
+                cycles += 8;
                 break;
             case 0x03:
                 increment_RegisterPair(&(mainRegs->reg_B),&(mainRegs->reg_C));
-				mainRegs->cycles += 8;
+				cycles += 8;
                 break;
             case 0x04:
                 increment_Register(&(mainRegs->reg_B));
-				mainRegs->cycles += 4;
+				cycles += 4;
                 break;
             case 0x05:
                 decrement_Register(&(mainRegs->reg_B));
-				mainRegs->cycles += 4;
+				cycles += 4;
                 break;
             case 0x06: // LD 8 bit val
                 data_byte = fetchByte(&(mainRegs->programCounter),mainMemory);
                 load_8BitRegister_With8BitData(&(mainRegs->reg_B),data_byte);
-				mainRegs->cycles += 8;
+				cycles += 8;
                 break;
             case 0x07:
                 RLC(&(mainRegs->reg_A),&(mainRegs->reg_F));
-				mainRegs->cycles += 4;
+				cycles += 4;
                 break;
             case 0x08:
                 data_word = fetchWord(&(mainRegs->programCounter),mainMemory);
                 writeWord(data_word,(mainRegs->stackPointer), mainMemory);
-				mainRegs->cycles += 20;
+				cycles += 20;
                 break;
             case 0x09:
                 ADD_16BIT(&(mainRegs->reg_H), &(mainRegs->reg_L), &(mainRegs->reg_B), &(mainRegs->reg_C), &(mainRegs->reg_F));
-				mainRegs->cycles += 8;
+				cycles += 8;
                 break;
             case 0x0A:
                 data_byte = readByteWithRegs(&(mainRegs->reg_B), &(mainRegs->reg_C), mainMemory);
                 load_8BitRegister_With8BitData(&(mainRegs->reg_A), data_byte);
-				mainRegs->cycles += 8;
+				cycles += 8;
                 break;
             case 0x0B:
                 decrement_RegisterPair(&(mainRegs->reg_B),&(mainRegs->reg_C));
-				mainRegs->cycles += 8;
+				cycles += 8;
                 break;
             case 0x0C:
                 increment_Register(&(mainRegs->reg_C));
-				mainRegs->cycles += 4;
+				cycles += 4;
                 break;
             case 0x0D:
                 decrement_Register(&(mainRegs->reg_C));
-				mainRegs->cycles += 4;
+				cycles += 4;
                 break;
             case 0x0E:
                 data_byte = fetchByte(&(mainRegs->programCounter),mainMemory);
                 load_8BitRegister_With8BitData(&(mainRegs->reg_C),data_byte);
-				mainRegs->cycles += 8;
+				cycles += 8;
                 break;
             case 0x0F:
                 RRC(&(mainRegs->reg_A), &(mainRegs->reg_F));
-				mainRegs->cycles += 4;
+				cycles += 4;
                 break;
             case 0x10:
-                //assignInstruction(instruction,opcode,STOP,NOREG,NOREG,2,4);
-				mainRegs->cycles += 4;
+                isStopped = 1;
+				cycles += 4;
                 break;
             case 0x11:
                 data_word = fetchWord(&(mainRegs->programCounter),mainMemory);
                 load_RegisterPair_With16BitData(&(mainRegs->reg_D), &(mainRegs->reg_E), data_word);
-				mainRegs->cycles += 12;
+				cycles += 12;
                 break;
             case 0x12:
                 writeByte(RegisterPair(mainRegs->reg_D, mainRegs->reg_E), mainRegs->reg_A, mainMemory);
-				mainRegs->cycles += 8;
+				cycles += 8;
                 break;
             case 0x13:
                 increment_RegisterPair(&(mainRegs->reg_D),&(mainRegs->reg_E));
-				mainRegs->cycles += 8;
+				cycles += 8;
                 break;
             case 0x14:
                 increment_Register(&(mainRegs->reg_D));
-				mainRegs->cycles += 4;
+				cycles += 4;
                 break;
             case 0x15:
                 decrement_Register(&(mainRegs->reg_D));
-				mainRegs->cycles += 4;
+				cycles += 4;
                 break;
             case 0x16:
                 data_byte = fetchByte(&(mainRegs->programCounter),mainMemory);
                 load_8BitRegister_With8BitData(&(mainRegs->reg_D),data_byte);
-				mainRegs->cycles += 8;
+				cycles += 8;
                 break;
             case 0x17:
                 RL(&(mainRegs->reg_A), &(mainRegs->reg_F));
-				mainRegs->cycles += 4;
+				cycles += 4;
                 break;
             case 0x18:
                 data_byte = fetchByte(&(mainRegs->programCounter),mainMemory);
                 jump_address(&(mainRegs->programCounter),mainRegs->programCounter + data_byte);
-				mainRegs->cycles += 8;
+				cycles += 8;
                 break;
             case 0x19:
                 ADD_16BIT(&(mainRegs->reg_H), &(mainRegs->reg_L), &(mainRegs->reg_D), &(mainRegs->reg_E), &(mainRegs->reg_F));
-				mainRegs->cycles += 8;
+				cycles += 8;
                 break;
             case 0x1A:
                 data_byte = readByteWithRegs(&(mainRegs->reg_D), &(mainRegs->reg_E), mainMemory);
                 load_8BitRegister_With8BitData(&(mainRegs->reg_A), data_byte);
-				mainRegs->cycles += 8;
+				cycles += 8;
                 break;
             case 0x1B:
                 decrement_RegisterPair(&(mainRegs->reg_D),&(mainRegs->reg_E));
-				mainRegs->cycles += 8;
+				cycles += 8;
                 break;
             case 0x1C:
                 increment_Register(&(mainRegs->reg_E));
-				mainRegs->cycles += 4;
+				cycles += 4;
                 break;
             case 0x1D:
                 decrement_Register(&(mainRegs->reg_E));
-				mainRegs->cycles += 4;
+				cycles += 4;
                 break;
             case 0x1E:
                 data_byte = fetchByte(&(mainRegs->programCounter),mainMemory);
                 load_8BitRegister_With8BitData(&(mainRegs->reg_E),data_byte);
-				mainRegs->cycles += 8;
+				cycles += 8;
                 break;
             case 0x1F:
                 RR(&(mainRegs->reg_A), &(mainRegs->reg_F));
-				mainRegs->cycles += 4;
+				cycles += 4;
                 break;
             case 0x20:
                 data_byte = fetchByte(&(mainRegs->programCounter),mainMemory);
                 if(ZeroFlag(&(mainRegs->reg_F)) == 0)
                     jump_address(&(mainRegs->programCounter),mainRegs->programCounter + data_byte);
-				mainRegs->cycles += 12;
+				cycles += 12;
                 break;
             case 0x21:
                 data_word = fetchWord(&(mainRegs->programCounter),mainMemory);
                 load_RegisterPair_With16BitData(&(mainRegs->reg_H), &(mainRegs->reg_L), data_word);
-				mainRegs->cycles += 12;
+				cycles += 12;
                 break;
             case 0x22:
                 writeByte(RegisterPair(mainRegs->reg_H, mainRegs->reg_L), mainRegs->reg_A, mainMemory);
                 increment_RegisterPair(&(mainRegs->reg_H), &(mainRegs->reg_L));
-                mainRegs->cycles += 8;
+                cycles += 8;
                 break;
             case 0x23:
                 increment_RegisterPair(&(mainRegs->reg_H),&(mainRegs->reg_L));
-				mainRegs->cycles += 8;
+				cycles += 8;
                 break;
             case 0x24:
                 increment_Register(&(mainRegs->reg_H));
-				mainRegs->cycles += 4;
+				cycles += 4;
                 break;
             case 0x25:
                 decrement_Register(&(mainRegs->reg_H));
-				mainRegs->cycles += 4;
+				cycles += 4;
                 break;
             case 0x26:
                 data_byte = fetchByte(&(mainRegs->programCounter),mainMemory);
                 load_8BitRegister_With8BitData(&(mainRegs->reg_H),data_byte);
-				mainRegs->cycles += 8;
+				cycles += 8;
                 break;
             case 0x27:
                 DAA(&(mainRegs->reg_A), &(mainRegs->reg_F));
-				mainRegs->cycles += 4;
+				cycles += 4;
                 break;
             case 0x28:
                 data_byte = fetchByte(&(mainRegs->programCounter),mainMemory);
                 if(ZeroFlag(&(mainRegs->reg_F)) != 0)
                     jump_address(&(mainRegs->programCounter),mainRegs->programCounter + data_byte);
-				mainRegs->cycles += 12;
+				cycles += 12;
                 break;
             case 0x29:
                 ADD_16BIT(&(mainRegs->reg_H), &(mainRegs->reg_L), &(mainRegs->reg_H), &(mainRegs->reg_L), &(mainRegs->reg_F));
-				mainRegs->cycles += 8;
+				cycles += 8;
                 break;
             case 0x2A:
                 data_byte = readByteWithAddress(RegisterPair(mainRegs->reg_H, mainRegs->reg_L), mainMemory);
                 load_8BitRegister_With8BitData(&(mainRegs->reg_A), data_byte);
                 increment_RegisterPair(&(mainRegs->reg_H), &(mainRegs->reg_L));
-				mainRegs->cycles += 8;
+				cycles += 8;
                 break;
             case 0x2B:
                 decrement_RegisterPair(&(mainRegs->reg_H),&(mainRegs->reg_L));
-				mainRegs->cycles += 8;
+				cycles += 8;
                 break;
             case 0x2C:
                 increment_Register(&(mainRegs->reg_L));
-				mainRegs->cycles += 4;
+				cycles += 4;
                 break;
             case 0x2D:
                 decrement_Register(&(mainRegs->reg_L));
-				mainRegs->cycles += 4;
+				cycles += 4;
                 break;
             case 0x2E:
                 data_byte = fetchByte(&(mainRegs->programCounter),mainMemory);
                 load_8BitRegister_With8BitData(&(mainRegs->reg_L),data_byte);
-				mainRegs->cycles += 8;
+				cycles += 8;
                 break;
             case 0x2F:
                 complementA(&(mainRegs->reg_A));
-				mainRegs->cycles += 4;
+				cycles += 4;
                 break;
             case 0x30:
                 data_byte = fetchByte(&(mainRegs->programCounter),mainMemory);
                 if(CarryFlag(&(mainRegs->reg_F)) == 0)
                     jump_address(&(mainRegs->programCounter),mainRegs->programCounter + data_byte);
-				mainRegs->cycles += 12;
+				cycles += 12;
                 break;
             case 0x31:
                 data_word = fetchWord(&(mainRegs->programCounter), mainMemory);
                 load_16BitRegister_With16BitData(&(mainRegs->programCounter) , data_word);
-				mainRegs->cycles += 12;
+				cycles += 12;
                 break;
             case 0x32:
                 writeByte(RegisterPair(mainRegs->reg_H, mainRegs->reg_L), mainRegs->reg_A, mainMemory);
                 decrement_RegisterPair(&(mainRegs->reg_H), &(mainRegs->reg_L));
-                mainRegs->cycles += 8;
+                cycles += 8;
                 break;
             case 0x33:
                 increment_16BitRegister(&(mainRegs->stackPointer));
-				mainRegs->cycles += 8;
+				cycles += 8;
                 break;
             case 0x34:
                 data_byte = readByteWithAddress(RegisterPair(mainRegs->reg_H, mainRegs->reg_L), mainMemory);
                 writeByte(RegisterPair(mainRegs->reg_H, mainRegs->reg_L), data_byte+1, mainMemory);
-				mainRegs->cycles += 12;
+				cycles += 12;
                 break;
             case 0x35:
                 decrement_RegisterPair(&(mainRegs->reg_H),&(mainRegs->reg_L));
-				mainRegs->cycles += 12;
+				cycles += 12;
                 break;
             case 0x36:
                 data_byte = fetchByte(&(mainRegs->programCounter), mainMemory);
                 writeByte(RegisterPair(&(mainRegs->reg_H), &(mainRegs->reg_L)), data_byte, mainMemory);
-				mainRegs->cycles += 12;
+				cycles += 12;
                 break;
             case 0x37:
                 SCF(&(mainRegs->reg_F));
-				mainRegs->cycles += 4;
+				cycles += 4;
                 break;
             case 0x38:
                 data_byte = fetchByte(&(mainRegs->programCounter),mainMemory);
                 if(ZeroFlag(&(mainRegs->reg_F)) != 0)
                     jump_address(&(mainRegs->programCounter),mainRegs->programCounter + data_byte);
-				mainRegs->cycles += 12;
+				cycles += 12;
                 break;
             case 0x39:
                 ADD_16BIT_data(&(mainRegs->reg_H), &(mainRegs->reg_L), mainRegs->stackPointer, &(mainRegs->reg_F));
-				mainRegs->cycles += 8;
+				cycles += 8;
                 break;
             case 0x3A:
                 data_byte = readByteWithAddress(RegisterPair(mainRegs->reg_H, mainRegs->reg_L), mainMemory);
                 load_8BitRegister_With8BitData(&(mainRegs->reg_A), data_byte);
                 decrement_RegisterPair(&(mainRegs->reg_H), &(mainRegs->reg_L));
-				mainRegs->cycles += 8;
+				cycles += 8;
                 break;
             case 0x3B:
                 decrement_16BitRegister(&(mainRegs->stackPointer));
-				mainRegs->cycles += 8;
+				cycles += 8;
                 break;
             case 0x3C:
                 increment_Register(&(mainRegs->reg_A));
-				mainRegs->cycles += 4;
+				cycles += 4;
                 break;
             case 0x3D:
                 decrement_Register(&(mainRegs->reg_A));
-				mainRegs->cycles += 4;
+				cycles += 4;
                 break;
             case 0x3E:
                 data_byte = fetchByte(&(mainRegs->programCounter),mainMemory);
                 load_8BitRegister_With8BitData(&(mainRegs->reg_A),data_byte);
-				mainRegs->cycles += 8;
+				cycles += 8;
                 break;
             case 0x3F:
                 CCF(&(mainRegs->reg_F));
-				mainRegs->cycles += 4;
+				cycles += 4;
                 break;
             case 0x76: // HALT
                 //assignInstruction(instruction,opcode,HALT,NOREG,NOREG,1,4);
-				mainRegs->cycles += 4;
+				cycles += 4;
                 break;
             case 0xC0:
                 if (ZeroFlag(&(mainRegs->reg_F)) == 0)
                     popWord(&(mainRegs->programCounter), &(mainRegs->stackPointer), mainMemory);
-				mainRegs->cycles += 20;
+				cycles += 20;
                 break;
             case 0xC1:
                 pop(&(mainRegs->reg_B), &(mainRegs->reg_C), &(mainRegs->stackPointer), mainMemory);
-				mainRegs->cycles += 12;
+				cycles += 12;
                 break;
             case 0xC2:
                 data_word = fetchWord(&(mainRegs->programCounter),mainMemory);
                 if(ZeroFlag(&(mainRegs->reg_F)) == 0)
                     jump_address(&(mainRegs->programCounter),data_word);
-				mainRegs->cycles += 16;
+				cycles += 16;
                 break;
             case 0xC3:
                 data_word = fetchWord(&(mainRegs->programCounter),mainMemory);
                 jump_address(&(mainRegs->programCounter),data_word);
-				mainRegs->cycles += 16;
+				cycles += 16;
                 break;
             case 0xC4:
                 data_word = fetchWord(&(mainRegs->programCounter),mainMemory);
@@ -388,36 +392,36 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
                     push_16bit_address(mainRegs->programCounter, &(mainRegs->stackPointer), mainMemory);
                     load_16BitRegister_With16BitData(&(mainRegs->programCounter), data_word);
                 }
-				mainRegs->cycles += 12;
+				cycles += 12;
                 break;
             case 0xC5:
                 push(&(mainRegs->reg_B), &(mainRegs->reg_C), &(mainRegs->stackPointer), mainMemory);
-				mainRegs->cycles += 16;
+				cycles += 16;
                 break;
             case 0xC6:
                 data_byte = fetchByte(&(mainRegs->programCounter), mainMemory);
                 ADD_8BIT(&(mainRegs->reg_A), &data_byte, &(mainRegs->reg_F));
-				mainRegs->cycles += 8;
+				cycles += 8;
                 break;
             case 0xC7:
                 push_16bit_address(mainRegs->programCounter, &(mainRegs->stackPointer), mainMemory);
                 load_16BitRegister_With16BitData(&(mainRegs->programCounter), (word)(0));
-				mainRegs->cycles += 16;
+				cycles += 16;
                 break;
             case 0xC8:
                 if (ZeroFlag(&(mainRegs->reg_F)) != 0)
                     popWord(&(mainRegs->programCounter), &(mainRegs->stackPointer), mainMemory);
-				mainRegs->cycles += 20;
+				cycles += 20;
                 break;
             case 0xC9:
                 popWord(&(mainRegs->programCounter), &(mainRegs->stackPointer), mainMemory);
-				mainRegs->cycles += 16;
+				cycles += 16;
                 break;
             case 0xCA:
                 data_word = fetchWord(&(mainRegs->programCounter),mainMemory);
                 if(ZeroFlag(&(mainRegs->reg_F)) != 0)
                     jump_address(&(mainRegs->programCounter),data_word);
-				mainRegs->cycles += 16;
+				cycles += 16;
                 break;
             case 0xCB: // Prefix used fo CB table
                 break;
@@ -427,37 +431,37 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
                     push_16bit_address(mainRegs->programCounter, &(mainRegs->stackPointer), mainMemory);
                     load_16BitRegister_With16BitData(&(mainRegs->programCounter), data_word);
                 }
-				mainRegs->cycles += 4;
+				cycles += 4;
                 break;
             case 0xCD:
                 data_word = fetchWord(&(mainRegs->programCounter),mainMemory);
                 push_16bit_address(mainRegs->programCounter, &(mainRegs->stackPointer), mainMemory);
                 load_16BitRegister_With16BitData(&(mainRegs->programCounter), data_word);
-				mainRegs->cycles += 12;
+				cycles += 12;
                 break;
             case 0xCE:
                 //assignInstruction(instruction,opcode,ADC_A,REG_A,DATA_8,2,8);
-				mainRegs->cycles += 8;
+				cycles += 8;
                 break;
             case 0xCF:
                 push_16bit_address(mainRegs->programCounter, &(mainRegs->stackPointer), mainMemory);
                 load_16BitRegister_With16BitData(&(mainRegs->programCounter), (word)(0x08));
-				mainRegs->cycles += 16;
+				cycles += 16;
                 break;
             case 0xD0:
                 if (CarryFlag(&(mainRegs->reg_F)) == 0)
                     popWord(&(mainRegs->programCounter), &(mainRegs->stackPointer), mainMemory);
-				mainRegs->cycles += 8;
+				cycles += 8;
                 break;
             case 0xD1:
                 pop(&(mainRegs->reg_D), &(mainRegs->reg_E), &(mainRegs->stackPointer), mainMemory);
-				mainRegs->cycles += 12;
+				cycles += 12;
                 break;
             case 0xD2:
                 data_word = fetchWord(&(mainRegs->programCounter),mainMemory);
                 if(CarryFlag(&(mainRegs->reg_F)) == 0)
                     jump_address(&(mainRegs->programCounter),data_word);
-				mainRegs->cycles += 16;
+				cycles += 16;
                 break;
             case 0xD3: // NOT USED
                 // Do not Execute
@@ -468,36 +472,36 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
                     push_16bit_address(mainRegs->programCounter, &(mainRegs->stackPointer), mainMemory);
                     load_16BitRegister_With16BitData(&(mainRegs->programCounter), data_word);
                 }
-				mainRegs->cycles += 12;
+				cycles += 12;
                 break;
             case 0xD5:
                 push(&(mainRegs->reg_D), &(mainRegs->reg_E), &(mainRegs->stackPointer), mainMemory);
-				mainRegs->cycles += 16;
+				cycles += 16;
                 break;
             case 0xD6:
                 data_byte = fetchByte(&(mainRegs->programCounter), mainMemory);
                 SUB(&(mainRegs->reg_A), &data_byte, &(mainRegs->reg_F));
-				mainRegs->cycles += 8;
+				cycles += 8;
                 break;
             case 0xD7:
                 push_16bit_address(mainRegs->programCounter, &(mainRegs->stackPointer), mainMemory);
                 load_16BitRegister_With16BitData(&(mainRegs->programCounter), (word)(0x10));
-				mainRegs->cycles += 16;
+				cycles += 16;
                 break;
             case 0xD8:
                 if (CarryFlag(&(mainRegs->reg_F)) != 0)
                     popWord(&(mainRegs->programCounter), &(mainRegs->stackPointer), mainMemory);
-				mainRegs->cycles += 8;
+				cycles += 8;
                 break;
             case 0xD9:
                 //assignInstruction(instruction,opcode,RETI,NOREG,NOREG,1,16);
-				mainRegs->cycles += 16;
+				cycles += 16;
                 break;
             case 0xDA:
                 data_word = fetchWord(&(mainRegs->programCounter),mainMemory);
                 if(CarryFlag(&(mainRegs->reg_F)) != 0)
                     jump_address(&(mainRegs->programCounter),data_word);
-				mainRegs->cycles += 16;
+				cycles += 16;
                 break;
             case 0xDB: // NOT USED
                 // Do not Execute
@@ -508,31 +512,32 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
                     push_16bit_address(mainRegs->programCounter, &(mainRegs->stackPointer), mainMemory);
                     load_16BitRegister_With16BitData(&(mainRegs->programCounter), data_word);
                 }
-				mainRegs->cycles += 12;
+				cycles += 12;
                 break;
             case 0xDD: // NOT USED
                 // Do not Execute
                 break;
             case 0xDE:
                 //assignInstruction(instruction,opcode,SBC_A,REG_A,DATA_8,2,8);
-				mainRegs->cycles += 8;
+				cycles += 8;
                 break;
             case 0xDF:
                 push_16bit_address(mainRegs->programCounter, &(mainRegs->stackPointer), mainMemory);
                 load_16BitRegister_With16BitData(&(mainRegs->programCounter), (word)(0x18));
-				mainRegs->cycles += 16;
+				cycles += 16;
                 break;
             case 0xE0:
-                //assignInstruction(instruction,opcode,LDH,DATA_8,REG_A,2,12);
-				mainRegs->cycles += 12;
+                data_byte = fetchByte(&(mainRegs->programCounter), mainMemory);
+                writeByte(0xFF00 + data_byte, mainRegs->reg_A, mainMemory);
+				cycles += 12;
                 break;
             case 0xE1:
                 pop(&(mainRegs->reg_H), &(mainRegs->reg_L), &(mainRegs->stackPointer), mainMemory);
-				mainRegs->cycles += 12;
+				cycles += 12;
                 break;
             case 0xE2:
                 writeByte((word)(mainRegs->reg_C), mainRegs->reg_A, mainMemory);
-				mainRegs->cycles += 8;
+				cycles += 8;
                 break;
             case 0xE3: // NOT USED
                 // Do not Execute
@@ -542,33 +547,33 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
                 break;
             case 0xE5:
                 push(&(mainRegs->reg_H), &(mainRegs->reg_L), &(mainRegs->stackPointer), mainMemory);
-				mainRegs->cycles += 16;
+				cycles += 16;
                 break;
             case 0xE6:
                 data_byte = fetchByte(&(mainRegs->programCounter), mainMemory);
                 AND(&(mainRegs->reg_A), &data_byte, &(mainRegs->reg_F));
-				mainRegs->cycles += 8;
+				cycles += 8;
                 break;
             case 0xE7:
                 push_16bit_address(mainRegs->programCounter, &(mainRegs->stackPointer), mainMemory);
                 load_16BitRegister_With16BitData(&(mainRegs->programCounter), (word)(0x20));
-				mainRegs->cycles += 16;
+				cycles += 16;
                 break;
             case 0xE8:
                 data_byte = fetchByte(&(mainRegs->programCounter), mainMemory);
                 ADD_SP(&(mainRegs->stackPointer), (signed_byte)data_byte, &(mainRegs->reg_F));
-				mainRegs->cycles += 16;
+				cycles += 16;
                 break;
             case 0xE9:
                 data_word = ((word)mainRegs->reg_H) << 8;
                 data_word = data_word & ((word)mainRegs->reg_L);
                 jump_address(&(mainRegs->programCounter),data_word);
-				mainRegs->cycles += 4;
+				cycles += 4;
                 break;
             case 0xEA:
                 data_word = fetchWord(&(mainRegs->programCounter), mainMemory);
                 writeByte(data_word, mainRegs->reg_A, mainMemory);
-				mainRegs->cycles += 16;
+				cycles += 16;
                 break;
             case 0xEB: // NOT USED
                 // Do not Execute
@@ -582,63 +587,64 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
             case 0xEE:
                 data_byte = fetchByte(&(mainRegs->programCounter), mainMemory);
                 XOR(&(mainRegs->reg_A), &data_byte, &(mainRegs->reg_F));
-				mainRegs->cycles += 8;
+				cycles += 8;
                 break;
             case 0xEF:
                 push_16bit_address(mainRegs->programCounter, &(mainRegs->stackPointer), mainMemory);
                 load_16BitRegister_With16BitData(&(mainRegs->programCounter), (word)(0x28));
-				mainRegs->cycles += 16;
+				cycles += 16;
                 break;
             case 0xF0:
                 //assignInstruction(instruction,opcode,LDH,REG_A,DATA_8,2,12);
-				mainRegs->cycles += 12;
+				cycles += 12;
                 break;
             case 0xF1:
                 pop(&(mainRegs->reg_A), &(mainRegs->reg_F), &(mainRegs->stackPointer), mainMemory);
-				mainRegs->cycles += 12;
+				cycles += 12;
                 break;
             case 0xF2:
-                //assignInstruction(instruction,opcode,LD,REG_A,REG_C,2,8);
-				mainRegs->cycles += 8;
+                data_byte = readByteWithAddress((word)(mainRegs->reg_C), mainMemory);
+                load_8BitRegister_With8BitData(&(mainRegs->reg_A), data_byte);
+				cycles += 8;
                 break;
             case 0xF3:
                 //assignInstruction(instruction,opcode,DI,NOREG,NOREG,1,4);
-				mainRegs->cycles += 4;
+				cycles += 4;
                 break;
             case 0xF4: // NOT USED
                 // Do not Execute
                 break;
             case 0xF5:
                 push(&(mainRegs->reg_A), &(mainRegs->reg_F), &(mainRegs->stackPointer), mainMemory);
-				mainRegs->cycles += 16;
+				cycles += 16;
                 break;
             case 0xF6:
                 data_byte = fetchByte(&(mainRegs->programCounter), mainMemory);
                 OR(&(mainRegs->reg_A), &data_byte, &(mainRegs->reg_F));
-				mainRegs->cycles += 8;
+				cycles += 8;
                 break;
             case 0xF7:
                 push_16bit_address(mainRegs->programCounter, &(mainRegs->stackPointer), mainMemory);
                 load_16BitRegister_With16BitData(&(mainRegs->programCounter), (word)(0x30));
-				mainRegs->cycles += 16;
+				cycles += 16;
                 break;
             case 0xF8:
                 //assignInstruction(instruction,opcode,LDHL,REG_SP,DATA_8,2,16);
-				mainRegs->cycles += 16;
+				cycles += 16;
                 break;
             case 0xF9:
-                //assignInstruction(instruction,opcode,LD,REG_SP,REG_HL,1,4);
-				mainRegs->cycles += 4;
+                load_16BitRegister_With16BitData(&(mainRegs->stackPointer), RegisterPair(&(mainRegs->reg_H), &(mainRegs->reg_L)));
+				cycles += 4;
                 break;
             case 0xFA:
                 data_word = fetchWord(&(mainRegs->programCounter), mainMemory);
                 data_byte = readByteWithAddress(data_word, mainMemory);
                 load_8BitRegister_With8BitData(&(mainRegs->reg_A), data_byte);
-				mainRegs->cycles += 16;
+				cycles += 16;
                 break;
             case 0xFB:
                 //assignInstruction(instruction,opcode,EI,NOREG,NOREG,1,4);
-				mainRegs->cycles += 4;
+				cycles += 4;
                 break;
             case 0xFC: // NOT USED
                 // Do not Execute
@@ -647,13 +653,14 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
                 // Do not Execute
                 break;
             case 0xFE:
-                //assignInstruction(instruction,opcode,CP,REG_A,DATA_8,2,8);
-				mainRegs->cycles += 8;
+                data_byte = fetchByte(&(mainRegs->programCounter), mainMemory);
+                CP(&(mainRegs->reg_A), &data_byte, &(mainRegs->reg_F));
+				cycles += 8;
                 break;
             case 0xFF:
                 push_16bit_address(mainRegs->programCounter, &(mainRegs->stackPointer), mainMemory);
                 load_16BitRegister_With16BitData(&(mainRegs->programCounter), (word)(0x38));
-				mainRegs->cycles += 16;
+				cycles += 16;
                 break;
             default:
                 // Do not Execute
