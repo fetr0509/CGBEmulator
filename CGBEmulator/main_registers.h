@@ -28,9 +28,6 @@ typedef struct MainRegisters {
 
     word programCounter;
     word stackPointer;
-
-    byte intEnabled;
-    //byte
     
 } MainRegisters;
 

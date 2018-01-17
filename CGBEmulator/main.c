@@ -11,6 +11,8 @@
 #include "constants.h"
 
 byte isStopped;
+byte isHalted;
+byte intEnabled;
 word cycles;
 
 int main(int argc, const char * argv[]) {

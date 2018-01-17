@@ -10,7 +10,10 @@
 #include "executor.h"
 
 extern byte isStopped;
+extern byte isHalted;
+extern byte intEnabled;
 extern word cycles;
+
 
 void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMemory) {
     static byte data_byte = 0;
@@ -363,7 +366,7 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				cycles += 4;
                 break;
             case 0x76: // HALT
-                //assignInstruction(instruction,opcode,HALT,NOREG,NOREG,1,4);
+                isHalted = 1;
 				cycles += 4;
                 break;
             case 0xC0:
@@ -440,7 +443,8 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				cycles += 12;
                 break;
             case 0xCE:
-                //assignInstruction(instruction,opcode,ADC_A,REG_A,DATA_8,2,8);
+                data_byte = fetchByte(&(mainRegs->programCounter), mainMemory);
+                ADC(&(mainRegs->reg_A), &(data_byte), &(mainRegs->reg_F));
 				cycles += 8;
                 break;
             case 0xCF:
@@ -494,7 +498,8 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				cycles += 8;
                 break;
             case 0xD9:
-                //assignInstruction(instruction,opcode,RETI,NOREG,NOREG,1,16);
+                popWord(&(mainRegs->programCounter), &(mainRegs->stackPointer), mainMemory);
+                intEnabled = 1;
 				cycles += 16;
                 break;
             case 0xDA:
@@ -518,7 +523,8 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
                 // Do not Execute
                 break;
             case 0xDE:
-                //assignInstruction(instruction,opcode,SBC_A,REG_A,DATA_8,2,8);
+                data_byte = fetchByte(&(mainRegs->programCounter), mainMemory);
+                SBC(&(mainRegs->reg_A), &(data_byte), &(mainRegs->reg_F));
 				cycles += 8;
                 break;
             case 0xDF:
@@ -595,7 +601,9 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				cycles += 16;
                 break;
             case 0xF0:
-                //assignInstruction(instruction,opcode,LDH,REG_A,DATA_8,2,12);
+                data_byte = fetchByte(&(mainRegs->programCounter), mainMemory);
+                data_byte = readByteWithAddress(data_byte + 0xFF00, mainMemory);
+                load_8BitRegister_With8BitData(&(mainRegs->reg_A), data_byte);
 				cycles += 12;
                 break;
             case 0xF1:
@@ -608,7 +616,7 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				cycles += 8;
                 break;
             case 0xF3:
-                //assignInstruction(instruction,opcode,DI,NOREG,NOREG,1,4);
+                intEnabled = 0;
 				cycles += 4;
                 break;
             case 0xF4: // NOT USED
@@ -629,7 +637,8 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				cycles += 16;
                 break;
             case 0xF8:
-                //assignInstruction(instruction,opcode,LDHL,REG_SP,DATA_8,2,16);
+                data_byte = fetchByte(&(mainRegs->programCounter), mainMemory);
+                load_RegisterPair_With16BitData(&(mainRegs->reg_H), &(mainRegs->reg_L), mainRegs->stackPointer + data_byte);
 				cycles += 16;
                 break;
             case 0xF9:
@@ -643,7 +652,7 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				cycles += 16;
                 break;
             case 0xFB:
-                //assignInstruction(instruction,opcode,EI,NOREG,NOREG,1,4);
+                intEnabled = 1;
 				cycles += 4;
                 break;
             case 0xFC: // NOT USED
