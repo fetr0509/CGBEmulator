@@ -9,7 +9,31 @@
 #include <stdlib.h>
 #include "main_memory.h"
 
+#define ROMSIZE 0x07FFF
+
 void initializeMemory(MainMemory *mainMemory) {
+
+}
+
+void loadROMFromFile(MainMemory *memory, char* filePath) {
+
+    word ROMAddress = 0x0000;
+    FILE *ROM;
+    word currentByte = 0;
+    byte  buffer[256];
+    ROM = fopen(filePath,"rb");  // r for read, b for binary
+
+    while (currentByte < ROMSIZE) {
+        if (currentByte % 256 == 0) {
+            fread(buffer, 256, 1, ROM); // read 256 bytes to our buffer
+            currentByte = 0;
+        }
+
+        memory->memory[ROMAddress] = buffer[currentByte];
+        ROMAddress++; currentByte++;
+    }
+
+
 }
 
 byte fetchByte(word *programCounter, MainMemory *mainMemory) {
