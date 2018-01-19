@@ -19,21 +19,13 @@ void loadROMFromFile(MainMemory *memory, char* filePath) {
 
     word ROMAddress = 0x0000;
     FILE *ROM;
-    word currentByte = 0;
-    byte  buffer[256];
+    byte  buffer;
+    
     ROM = fopen(filePath,"rb");  // r for read, b for binary
-
-    while (currentByte < ROMSIZE) {
-        if (currentByte % 256 == 0) {
-            fread(buffer, 256, 1, ROM); // read 256 bytes to our buffer
-            currentByte = 0;
-        }
-
-        memory->memory[ROMAddress] = buffer[currentByte];
-        ROMAddress++; currentByte++;
+    
+    while (fread(&buffer, sizeof(byte), 1, ROM)) {
+        memory->memory[ROMAddress++] = buffer;
     }
-
-
 }
 
 byte fetchByte(word *programCounter, MainMemory *mainMemory) {
