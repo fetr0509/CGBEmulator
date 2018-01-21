@@ -9,5 +9,14 @@
 #include "main_registers.h"
 
 void initializeMainRegisters(MainRegisters *mainRegisters) {
+    mainRegisters->reg_A = 0;
+    mainRegisters->reg_F = 0;
+    mainRegisters->reg_B = 0;
+    mainRegisters->reg_C = 0;
+    mainRegisters->reg_D = 0;
+    mainRegisters->reg_E = 0;
+    mainRegisters->reg_H = 0;
+    mainRegisters->reg_L = 0;
+    mainRegisters->programCounter = 0;
     mainRegisters->stackPointer = 0xFFFE;
 }
