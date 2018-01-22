@@ -57,6 +57,7 @@ include CMakeFiles/CGBEmulator.dir/progress.make
 include CMakeFiles/CGBEmulator.dir/flags.make
 
 CMakeFiles/CGBEmulator.dir/CGBEmulator/decoder.c.obj: CMakeFiles/CGBEmulator.dir/flags.make
+CMakeFiles/CGBEmulator.dir/CGBEmulator/decoder.c.obj: CMakeFiles/CGBEmulator.dir/includes_C.rsp
 CMakeFiles/CGBEmulator.dir/CGBEmulator/decoder.c.obj: ../CGBEmulator/decoder.c
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Peter\Documents\GitHub\CGBEmulator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/CGBEmulator.dir/CGBEmulator/decoder.c.obj"
 	C:\PROGRA~2\MINGW-~1\I686-7~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\CGBEmulator.dir\CGBEmulator\decoder.c.obj   -c C:\Users\Peter\Documents\GitHub\CGBEmulator\CGBEmulator\decoder.c
@@ -81,6 +82,7 @@ CMakeFiles/CGBEmulator.dir/CGBEmulator/decoder.c.obj.provides.build: CMakeFiles/
 
 
 CMakeFiles/CGBEmulator.dir/CGBEmulator/executor.c.obj: CMakeFiles/CGBEmulator.dir/flags.make
+CMakeFiles/CGBEmulator.dir/CGBEmulator/executor.c.obj: CMakeFiles/CGBEmulator.dir/includes_C.rsp
 CMakeFiles/CGBEmulator.dir/CGBEmulator/executor.c.obj: ../CGBEmulator/executor.c
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Peter\Documents\GitHub\CGBEmulator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/CGBEmulator.dir/CGBEmulator/executor.c.obj"
 	C:\PROGRA~2\MINGW-~1\I686-7~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\CGBEmulator.dir\CGBEmulator\executor.c.obj   -c C:\Users\Peter\Documents\GitHub\CGBEmulator\CGBEmulator\executor.c
@@ -105,6 +107,7 @@ CMakeFiles/CGBEmulator.dir/CGBEmulator/executor.c.obj.provides.build: CMakeFiles
 
 
 CMakeFiles/CGBEmulator.dir/CGBEmulator/flag_helpers.c.obj: CMakeFiles/CGBEmulator.dir/flags.make
+CMakeFiles/CGBEmulator.dir/CGBEmulator/flag_helpers.c.obj: CMakeFiles/CGBEmulator.dir/includes_C.rsp
 CMakeFiles/CGBEmulator.dir/CGBEmulator/flag_helpers.c.obj: ../CGBEmulator/flag_helpers.c
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Peter\Documents\GitHub\CGBEmulator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/CGBEmulator.dir/CGBEmulator/flag_helpers.c.obj"
 	C:\PROGRA~2\MINGW-~1\I686-7~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\CGBEmulator.dir\CGBEmulator\flag_helpers.c.obj   -c C:\Users\Peter\Documents\GitHub\CGBEmulator\CGBEmulator\flag_helpers.c
@@ -129,6 +132,7 @@ CMakeFiles/CGBEmulator.dir/CGBEmulator/flag_helpers.c.obj.provides.build: CMakeF
 
 
 CMakeFiles/CGBEmulator.dir/CGBEmulator/main.c.obj: CMakeFiles/CGBEmulator.dir/flags.make
+CMakeFiles/CGBEmulator.dir/CGBEmulator/main.c.obj: CMakeFiles/CGBEmulator.dir/includes_C.rsp
 CMakeFiles/CGBEmulator.dir/CGBEmulator/main.c.obj: ../CGBEmulator/main.c
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Peter\Documents\GitHub\CGBEmulator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/CGBEmulator.dir/CGBEmulator/main.c.obj"
 	C:\PROGRA~2\MINGW-~1\I686-7~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\CGBEmulator.dir\CGBEmulator\main.c.obj   -c C:\Users\Peter\Documents\GitHub\CGBEmulator\CGBEmulator\main.c
@@ -153,6 +157,7 @@ CMakeFiles/CGBEmulator.dir/CGBEmulator/main.c.obj.provides.build: CMakeFiles/CGB
 
 
 CMakeFiles/CGBEmulator.dir/CGBEmulator/main_memory.c.obj: CMakeFiles/CGBEmulator.dir/flags.make
+CMakeFiles/CGBEmulator.dir/CGBEmulator/main_memory.c.obj: CMakeFiles/CGBEmulator.dir/includes_C.rsp
 CMakeFiles/CGBEmulator.dir/CGBEmulator/main_memory.c.obj: ../CGBEmulator/main_memory.c
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Peter\Documents\GitHub\CGBEmulator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/CGBEmulator.dir/CGBEmulator/main_memory.c.obj"
 	C:\PROGRA~2\MINGW-~1\I686-7~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\CGBEmulator.dir\CGBEmulator\main_memory.c.obj   -c C:\Users\Peter\Documents\GitHub\CGBEmulator\CGBEmulator\main_memory.c
@@ -177,6 +182,7 @@ CMakeFiles/CGBEmulator.dir/CGBEmulator/main_memory.c.obj.provides.build: CMakeFi
 
 
 CMakeFiles/CGBEmulator.dir/CGBEmulator/main_registers.c.obj: CMakeFiles/CGBEmulator.dir/flags.make
+CMakeFiles/CGBEmulator.dir/CGBEmulator/main_registers.c.obj: CMakeFiles/CGBEmulator.dir/includes_C.rsp
 CMakeFiles/CGBEmulator.dir/CGBEmulator/main_registers.c.obj: ../CGBEmulator/main_registers.c
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Peter\Documents\GitHub\CGBEmulator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/CGBEmulator.dir/CGBEmulator/main_registers.c.obj"
 	C:\PROGRA~2\MINGW-~1\I686-7~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\CGBEmulator.dir\CGBEmulator\main_registers.c.obj   -c C:\Users\Peter\Documents\GitHub\CGBEmulator\CGBEmulator\main_registers.c

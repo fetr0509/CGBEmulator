@@ -2,6 +2,11 @@ cmake_minimum_required(VERSION 3.9)
 project(CGBEmulator)
 
 set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lmingw32 -lSDLmain -lSDL")
+set(CMAKE_EXE_LINKER_FLAGS "-static-libgcc")
+
+include_directories(${PROJECT_SOURCE_DIR}/include)
+link_directories(${PROJECT_SOURCE_DIR}/lib)
 
 add_executable(CGBEmulator
         .idea/codeStyles/Project.xml
@@ -22,3 +27,5 @@ add_executable(CGBEmulator
         CGBEmulator/main_memory.h
         CGBEmulator/main_registers.c
         CGBEmulator/main_registers.h)
+
+target_link_libraries(CGBEmulator mingw32 SDL2main SDL2)

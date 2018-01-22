@@ -321,7 +321,7 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
                 break;
             case 0x36:
                 data_byte = fetchByte(&(mainRegs->programCounter), mainMemory);
-                writeByte(RegisterPair(&(mainRegs->reg_H), &(mainRegs->reg_L)), data_byte, mainMemory);
+                writeByte(RegisterPair(mainRegs->reg_H, mainRegs->reg_L), data_byte, mainMemory);
 				cycles += 12;
                 break;
             case 0x37:
@@ -642,7 +642,7 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
 				cycles += 16;
                 break;
             case 0xF9:
-                load_16BitRegister_With16BitData(&(mainRegs->stackPointer), RegisterPair(&(mainRegs->reg_H), &(mainRegs->reg_L)));
+                load_16BitRegister_With16BitData(&(mainRegs->stackPointer), RegisterPair(mainRegs->reg_H, mainRegs->reg_L));
 				cycles += 4;
                 break;
             case 0xFA:
