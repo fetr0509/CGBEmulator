@@ -27,8 +27,8 @@ General Reference for memory locations, opcodes, and technical details for the G
 #### [Game Boy CPU (LR35902) instruction set](http://www.pastraiser.com/cpu/gameboy/gameboy_opcodes.html)
 Reference table for opcodes. These tables describe the type of operation and orders them by opcode. This lists the type on instruction, the inputs as well as the instruction length and number of instruction cycles for execution.
 
-#### [Misc info](http://bgb.bircd.org/pandocs.htm#gameboytechnicaldata)
-This is another reference manual for the Game Boy. However this manual contains more specific information on the hardware aspects of the Game Boy compared to the Game Boy manual referenced above.
+#### [Pan Docs](http://gbdev.gg8.se/wiki/articles/Pan_Docs)
+Complete technical documents outlining the inner working of the Game Boy and Color Game Boy. This is a very good complete source but it a technical reference as opposed to an explanation of how or why certain things work the way they do. This is a good reference for checking completeness and proper functionality.
 
 #### [Z80 Reference **(SIMILAR PROCESSOR, NOT IDENTICAL)**](http://www.z80.info/z80syntx.htm#RET)
 This is an opcode reference for the Z80 processor which is what the Game Boy's processor was designed after. There are several operations that work differently for the Game Boys processor however most are identical and the operations and side effects are described in much greater detail compared to the resources above.
