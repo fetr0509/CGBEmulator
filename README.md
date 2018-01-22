@@ -14,8 +14,8 @@ These specific features that this Game boy emulator will have are:
 ____
 ## Testing
 
-*  Using OCLint for linting while developing on Linux. (cMake integration but not execution).
-*  Unity for Unit testing.
+*  cmocka for unit testing.
+*  SDL2 for cross-platform front end.
 
 ____
 ## Resources
