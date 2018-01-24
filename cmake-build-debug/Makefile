@@ -203,6 +203,33 @@ CGBEmulator/flag_helpers.c.s:
 	$(MAKE) -f CMakeFiles\CGBEmulator.dir\build.make CMakeFiles/CGBEmulator.dir/CGBEmulator/flag_helpers.c.s
 .PHONY : CGBEmulator/flag_helpers.c.s
 
+CGBEmulator/game_loop.obj: CGBEmulator/game_loop.c.obj
+
+.PHONY : CGBEmulator/game_loop.obj
+
+# target to build an object file
+CGBEmulator/game_loop.c.obj:
+	$(MAKE) -f CMakeFiles\CGBEmulator.dir\build.make CMakeFiles/CGBEmulator.dir/CGBEmulator/game_loop.c.obj
+.PHONY : CGBEmulator/game_loop.c.obj
+
+CGBEmulator/game_loop.i: CGBEmulator/game_loop.c.i
+
+.PHONY : CGBEmulator/game_loop.i
+
+# target to preprocess a source file
+CGBEmulator/game_loop.c.i:
+	$(MAKE) -f CMakeFiles\CGBEmulator.dir\build.make CMakeFiles/CGBEmulator.dir/CGBEmulator/game_loop.c.i
+.PHONY : CGBEmulator/game_loop.c.i
+
+CGBEmulator/game_loop.s: CGBEmulator/game_loop.c.s
+
+.PHONY : CGBEmulator/game_loop.s
+
+# target to generate assembly for a file
+CGBEmulator/game_loop.c.s:
+	$(MAKE) -f CMakeFiles\CGBEmulator.dir\build.make CMakeFiles/CGBEmulator.dir/CGBEmulator/game_loop.c.s
+.PHONY : CGBEmulator/game_loop.c.s
+
 CGBEmulator/main.obj: CGBEmulator/main.c.obj
 
 .PHONY : CGBEmulator/main.obj
@@ -302,6 +329,9 @@ help:
 	@echo ... CGBEmulator/flag_helpers.obj
 	@echo ... CGBEmulator/flag_helpers.i
 	@echo ... CGBEmulator/flag_helpers.s
+	@echo ... CGBEmulator/game_loop.obj
+	@echo ... CGBEmulator/game_loop.i
+	@echo ... CGBEmulator/game_loop.s
 	@echo ... CGBEmulator/main.obj
 	@echo ... CGBEmulator/main.i
 	@echo ... CGBEmulator/main.s

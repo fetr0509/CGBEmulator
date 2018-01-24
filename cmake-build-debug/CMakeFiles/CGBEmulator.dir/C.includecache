@@ -50,6 +50,22 @@ stdio.h
 constants.h
 C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/constants.h
 
+C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/game_loop.c
+game_loop.h
+C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/game_loop.h
+main_memory.h
+C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/main_memory.h
+main_registers.h
+C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/main_registers.h
+decoder.h
+C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/decoder.h
+constants.h
+C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/constants.h
+
+C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/game_loop.h
+../include/SDL2/SDL.h
+C:/Users/Peter/Documents/GitHub/CGBEmulator/include/SDL2/SDL.h
+
 C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/main.c
 stdio.h
 -
@@ -57,6 +73,8 @@ decoder.h
 C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/decoder.h
 constants.h
 C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/constants.h
+game_loop.h
+C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/game_loop.h
 ../include/SDL2/SDL.h
 C:/Users/Peter/Documents/GitHub/CGBEmulator/include/SDL2/SDL.h
 

@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include "decoder.h"
 #include "constants.h"
+#include "game_loop.h"
 #include "../include/SDL2/SDL.h"
 
 byte isStopped;
@@ -17,17 +18,26 @@ byte intEnabled;
 word cycles;
 
 int main(int argc, char * argv[]) {
-    if(SDL_Init(SDL_INIT_EVERYTHING) == -1){
-        //cout << "Something went wrong! " << SDL_GetError() << endl;
-    }
+    SDL_Window* window = NULL;
+    window = SDL_CreateWindow
+            (
+                    "CGBEmulator", SDL_WINDOWPOS_UNDEFINED,
+                    SDL_WINDOWPOS_UNDEFINED,
+                    640,
+                    480,
+                    SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE
+            );
 
-    SDL_Window* window = SDL_CreateWindow("SDL_Demo", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-                                          1280, 720, SDL_WINDOW_OPENGL);
-    if(window == 0){
-        //cout << "Something also went wrong here" << endl;
-    }
+    // Setup renderer
+    SDL_Renderer* renderer =  SDL_CreateRenderer( window, -1, SDL_RENDERER_ACCELERATED);
+    // Clear winow
+    SDL_RenderClear( renderer );
 
-    SDL_Delay(2000);
+    // Start the main game loop.
+    startGameLoop(window,renderer);
+
+    SDL_DestroyWindow(window);
     SDL_Quit();
-    return 0;
+
+    return EXIT_SUCCESS;
 }
