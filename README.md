@@ -12,10 +12,11 @@ These specific features that this Game boy emulator will have are:
 *  Memory Editor - Edit the Game Boy's memory on the fly and search for values within memory.
 
 ____
-## Testing
+## Libraries and tool chains
 
-*  cmocka for unit testing.
-*  SDL2 for cross-platform front end.
+*  [cmocka](https://cmocka.org/) is used for unit testing.
+*  [SDL2](https://www.libsdl.org) is used to create a cross platform grapgical interface.
+*  [CLion](https://www.jetbrains.com/clion/) IDE used for this project created by JetBrains. Though this IDE is used while implimenting the system, Any system with cmake should be able to compile the project.
 
 ____
 ## Resources
