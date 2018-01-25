@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/executor.c" "C:/Users/Peter/Documents/GitHub/CGBEmulator/cmake-build-debug/CMakeFiles/CGBEmulator.dir/CGBEmulator/executor.c.obj"
   "C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/flag_helpers.c" "C:/Users/Peter/Documents/GitHub/CGBEmulator/cmake-build-debug/CMakeFiles/CGBEmulator.dir/CGBEmulator/flag_helpers.c.obj"
   "C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/game_loop.c" "C:/Users/Peter/Documents/GitHub/CGBEmulator/cmake-build-debug/CMakeFiles/CGBEmulator.dir/CGBEmulator/game_loop.c.obj"
+  "C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/lcd.c" "C:/Users/Peter/Documents/GitHub/CGBEmulator/cmake-build-debug/CMakeFiles/CGBEmulator.dir/CGBEmulator/lcd.c.obj"
   "C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/main.c" "C:/Users/Peter/Documents/GitHub/CGBEmulator/cmake-build-debug/CMakeFiles/CGBEmulator.dir/CGBEmulator/main.c.obj"
   "C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/main_memory.c" "C:/Users/Peter/Documents/GitHub/CGBEmulator/cmake-build-debug/CMakeFiles/CGBEmulator.dir/CGBEmulator/main_memory.c.obj"
   "C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/main_registers.c" "C:/Users/Peter/Documents/GitHub/CGBEmulator/cmake-build-debug/CMakeFiles/CGBEmulator.dir/CGBEmulator/main_registers.c.obj"

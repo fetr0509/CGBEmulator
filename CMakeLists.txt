@@ -26,6 +26,6 @@ add_executable(CGBEmulator
         CGBEmulator/main_memory.c
         CGBEmulator/main_memory.h
         CGBEmulator/main_registers.c
-        CGBEmulator/main_registers.h CGBEmulator/game_loop.c CGBEmulator/game_loop.h)
+        CGBEmulator/main_registers.h CGBEmulator/game_loop.c CGBEmulator/game_loop.h CGBEmulator/lcd.c CGBEmulator/lcd.h)
 
 target_link_libraries(CGBEmulator mingw32 SDL2main SDL2)

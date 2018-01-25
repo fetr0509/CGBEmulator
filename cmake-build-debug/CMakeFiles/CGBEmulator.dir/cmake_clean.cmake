@@ -6,6 +6,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/CGBEmulator.dir/CGBEmulator/main_memory.c.obj"
   "CMakeFiles/CGBEmulator.dir/CGBEmulator/main_registers.c.obj"
   "CMakeFiles/CGBEmulator.dir/CGBEmulator/game_loop.c.obj"
+  "CMakeFiles/CGBEmulator.dir/CGBEmulator/lcd.c.obj"
   "CGBEmulator.pdb"
   "CGBEmulator.exe"
   "CGBEmulator.exe.manifest"

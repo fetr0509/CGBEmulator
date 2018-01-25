@@ -127,6 +127,12 @@
 		<Unit filename="C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/game_loop.h">
 			<Option target="CGBEmulator"/>
 		</Unit>
+		<Unit filename="C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/lcd.c">
+			<Option target="CGBEmulator"/>
+		</Unit>
+		<Unit filename="C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/lcd.h">
+			<Option target="CGBEmulator"/>
+		</Unit>
 		<Unit filename="C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/main.c">
 			<Option target="CGBEmulator"/>
 		</Unit>
