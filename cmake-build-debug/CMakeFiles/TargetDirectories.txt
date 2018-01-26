@@ -1,3 +1,3 @@
-C:/Users/Peter/Documents/GitHub/CGBEmulator/cmake-build-debug/CMakeFiles/CGBEmulator.dir
-C:/Users/Peter/Documents/GitHub/CGBEmulator/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Peter/Documents/GitHub/CGBEmulator/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/peterfetros/Desktop/CGBEmulator/CGBEmulator/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/peterfetros/Desktop/CGBEmulator/CGBEmulator/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/peterfetros/Desktop/CGBEmulator/CGBEmulator/cmake-build-debug/CMakeFiles/CGBEmulator.dir
