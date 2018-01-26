@@ -34,7 +34,7 @@ add_executable(CGBEmulator
         CGBEmulator/main_memory.c
         CGBEmulator/main_memory.h
         CGBEmulator/main_registers.c
-        CGBEmulator/main_registers.h CGBEmulator/game_loop.c CGBEmulator/game_loop.h CGBEmulator/lcd.c CGBEmulator/lcd.h)
+        CGBEmulator/main_registers.h CGBEmulator/game_loop.c CGBEmulator/game_loop.h)
 
 if(APPLE)
     target_link_libraries(CGBEmulator -L/usr/local/lib -lSDL2)

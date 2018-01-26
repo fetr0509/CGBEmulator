@@ -225,34 +225,8 @@ CMakeFiles/CGBEmulator.dir/CGBEmulator/game_loop.c.o.provides: CMakeFiles/CGBEmu
 CMakeFiles/CGBEmulator.dir/CGBEmulator/game_loop.c.o.provides.build: CMakeFiles/CGBEmulator.dir/CGBEmulator/game_loop.c.o
 
 
-CMakeFiles/CGBEmulator.dir/CGBEmulator/lcd.c.obj: CMakeFiles/CGBEmulator.dir/flags.make
-CMakeFiles/CGBEmulator.dir/CGBEmulator/lcd.c.obj: CMakeFiles/CGBEmulator.dir/includes_C.rsp
-CMakeFiles/CGBEmulator.dir/CGBEmulator/lcd.c.obj: ../CGBEmulator/lcd.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Peter\Documents\GitHub\CGBEmulator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/CGBEmulator.dir/CGBEmulator/lcd.c.obj"
-	C:\PROGRA~2\MINGW-~1\I686-7~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\CGBEmulator.dir\CGBEmulator\lcd.c.obj   -c C:\Users\Peter\Documents\GitHub\CGBEmulator\CGBEmulator\lcd.c
-
-CMakeFiles/CGBEmulator.dir/CGBEmulator/lcd.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/CGBEmulator.dir/CGBEmulator/lcd.c.i"
-	C:\PROGRA~2\MINGW-~1\I686-7~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\Peter\Documents\GitHub\CGBEmulator\CGBEmulator\lcd.c > CMakeFiles\CGBEmulator.dir\CGBEmulator\lcd.c.i
-
-CMakeFiles/CGBEmulator.dir/CGBEmulator/lcd.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/CGBEmulator.dir/CGBEmulator/lcd.c.s"
-	C:\PROGRA~2\MINGW-~1\I686-7~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\Peter\Documents\GitHub\CGBEmulator\CGBEmulator\lcd.c -o CMakeFiles\CGBEmulator.dir\CGBEmulator\lcd.c.s
-
-CMakeFiles/CGBEmulator.dir/CGBEmulator/lcd.c.obj.requires:
-
-.PHONY : CMakeFiles/CGBEmulator.dir/CGBEmulator/lcd.c.obj.requires
-
-CMakeFiles/CGBEmulator.dir/CGBEmulator/lcd.c.obj.provides: CMakeFiles/CGBEmulator.dir/CGBEmulator/lcd.c.obj.requires
-	$(MAKE) -f CMakeFiles\CGBEmulator.dir\build.make CMakeFiles/CGBEmulator.dir/CGBEmulator/lcd.c.obj.provides.build
-.PHONY : CMakeFiles/CGBEmulator.dir/CGBEmulator/lcd.c.obj.provides
-
-CMakeFiles/CGBEmulator.dir/CGBEmulator/lcd.c.obj.provides.build: CMakeFiles/CGBEmulator.dir/CGBEmulator/lcd.c.obj
-
-
 # Object files for target CGBEmulator
 CGBEmulator_OBJECTS = \
-<<<<<<< HEAD
 "CMakeFiles/CGBEmulator.dir/CGBEmulator/decoder.c.o" \
 "CMakeFiles/CGBEmulator.dir/CGBEmulator/executor.c.o" \
 "CMakeFiles/CGBEmulator.dir/CGBEmulator/flag_helpers.c.o" \
@@ -260,21 +234,10 @@ CGBEmulator_OBJECTS = \
 "CMakeFiles/CGBEmulator.dir/CGBEmulator/main_memory.c.o" \
 "CMakeFiles/CGBEmulator.dir/CGBEmulator/main_registers.c.o" \
 "CMakeFiles/CGBEmulator.dir/CGBEmulator/game_loop.c.o"
-=======
-"CMakeFiles/CGBEmulator.dir/CGBEmulator/decoder.c.obj" \
-"CMakeFiles/CGBEmulator.dir/CGBEmulator/executor.c.obj" \
-"CMakeFiles/CGBEmulator.dir/CGBEmulator/flag_helpers.c.obj" \
-"CMakeFiles/CGBEmulator.dir/CGBEmulator/main.c.obj" \
-"CMakeFiles/CGBEmulator.dir/CGBEmulator/main_memory.c.obj" \
-"CMakeFiles/CGBEmulator.dir/CGBEmulator/main_registers.c.obj" \
-"CMakeFiles/CGBEmulator.dir/CGBEmulator/game_loop.c.obj" \
-"CMakeFiles/CGBEmulator.dir/CGBEmulator/lcd.c.obj"
->>>>>>> origin/master
 
 # External object files for target CGBEmulator
 CGBEmulator_EXTERNAL_OBJECTS =
 
-<<<<<<< HEAD
 CGBEmulator: CMakeFiles/CGBEmulator.dir/CGBEmulator/decoder.c.o
 CGBEmulator: CMakeFiles/CGBEmulator.dir/CGBEmulator/executor.c.o
 CGBEmulator: CMakeFiles/CGBEmulator.dir/CGBEmulator/flag_helpers.c.o
@@ -286,29 +249,12 @@ CGBEmulator: CMakeFiles/CGBEmulator.dir/build.make
 CGBEmulator: CMakeFiles/CGBEmulator.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/peterfetros/Desktop/CGBEmulator/CGBEmulator/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking C executable CGBEmulator"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/CGBEmulator.dir/link.txt --verbose=$(VERBOSE)
-=======
-CGBEmulator.exe: CMakeFiles/CGBEmulator.dir/CGBEmulator/decoder.c.obj
-CGBEmulator.exe: CMakeFiles/CGBEmulator.dir/CGBEmulator/executor.c.obj
-CGBEmulator.exe: CMakeFiles/CGBEmulator.dir/CGBEmulator/flag_helpers.c.obj
-CGBEmulator.exe: CMakeFiles/CGBEmulator.dir/CGBEmulator/main.c.obj
-CGBEmulator.exe: CMakeFiles/CGBEmulator.dir/CGBEmulator/main_memory.c.obj
-CGBEmulator.exe: CMakeFiles/CGBEmulator.dir/CGBEmulator/main_registers.c.obj
-CGBEmulator.exe: CMakeFiles/CGBEmulator.dir/CGBEmulator/game_loop.c.obj
-CGBEmulator.exe: CMakeFiles/CGBEmulator.dir/CGBEmulator/lcd.c.obj
-CGBEmulator.exe: CMakeFiles/CGBEmulator.dir/build.make
-CGBEmulator.exe: CMakeFiles/CGBEmulator.dir/linklibs.rsp
-CGBEmulator.exe: CMakeFiles/CGBEmulator.dir/objects1.rsp
-CGBEmulator.exe: CMakeFiles/CGBEmulator.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\Peter\Documents\GitHub\CGBEmulator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking C executable CGBEmulator.exe"
-	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\CGBEmulator.dir\link.txt --verbose=$(VERBOSE)
->>>>>>> origin/master
 
 # Rule to build all files generated by this target.
 CMakeFiles/CGBEmulator.dir/build: CGBEmulator
 
 .PHONY : CMakeFiles/CGBEmulator.dir/build
 
-<<<<<<< HEAD
 CMakeFiles/CGBEmulator.dir/requires: CMakeFiles/CGBEmulator.dir/CGBEmulator/decoder.c.o.requires
 CMakeFiles/CGBEmulator.dir/requires: CMakeFiles/CGBEmulator.dir/CGBEmulator/executor.c.o.requires
 CMakeFiles/CGBEmulator.dir/requires: CMakeFiles/CGBEmulator.dir/CGBEmulator/flag_helpers.c.o.requires
@@ -316,16 +262,6 @@ CMakeFiles/CGBEmulator.dir/requires: CMakeFiles/CGBEmulator.dir/CGBEmulator/main
 CMakeFiles/CGBEmulator.dir/requires: CMakeFiles/CGBEmulator.dir/CGBEmulator/main_memory.c.o.requires
 CMakeFiles/CGBEmulator.dir/requires: CMakeFiles/CGBEmulator.dir/CGBEmulator/main_registers.c.o.requires
 CMakeFiles/CGBEmulator.dir/requires: CMakeFiles/CGBEmulator.dir/CGBEmulator/game_loop.c.o.requires
-=======
-CMakeFiles/CGBEmulator.dir/requires: CMakeFiles/CGBEmulator.dir/CGBEmulator/decoder.c.obj.requires
-CMakeFiles/CGBEmulator.dir/requires: CMakeFiles/CGBEmulator.dir/CGBEmulator/executor.c.obj.requires
-CMakeFiles/CGBEmulator.dir/requires: CMakeFiles/CGBEmulator.dir/CGBEmulator/flag_helpers.c.obj.requires
-CMakeFiles/CGBEmulator.dir/requires: CMakeFiles/CGBEmulator.dir/CGBEmulator/main.c.obj.requires
-CMakeFiles/CGBEmulator.dir/requires: CMakeFiles/CGBEmulator.dir/CGBEmulator/main_memory.c.obj.requires
-CMakeFiles/CGBEmulator.dir/requires: CMakeFiles/CGBEmulator.dir/CGBEmulator/main_registers.c.obj.requires
-CMakeFiles/CGBEmulator.dir/requires: CMakeFiles/CGBEmulator.dir/CGBEmulator/game_loop.c.obj.requires
-CMakeFiles/CGBEmulator.dir/requires: CMakeFiles/CGBEmulator.dir/CGBEmulator/lcd.c.obj.requires
->>>>>>> origin/master
 
 .PHONY : CMakeFiles/CGBEmulator.dir/requires
 

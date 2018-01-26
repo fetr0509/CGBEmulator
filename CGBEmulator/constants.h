@@ -72,8 +72,4 @@ enum CONDITIONALS {
     P,
     M
 };
-
-struct LCD_TILE {
-    byte tile_data[16];
-};
 #endif /* constants_h */

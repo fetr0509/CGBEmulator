@@ -129,17 +129,7 @@
 		<Unit filename="/Users/peterfetros/Desktop/CGBEmulator/CGBEmulator/CGBEmulator/game_loop.h">
 			<Option target="CGBEmulator"/>
 		</Unit>
-<<<<<<< HEAD
 		<Unit filename="/Users/peterfetros/Desktop/CGBEmulator/CGBEmulator/CGBEmulator/main.c">
-=======
-		<Unit filename="C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/lcd.c">
-			<Option target="CGBEmulator"/>
-		</Unit>
-		<Unit filename="C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/lcd.h">
-			<Option target="CGBEmulator"/>
-		</Unit>
-		<Unit filename="C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/main.c">
->>>>>>> origin/master
 			<Option target="CGBEmulator"/>
 		</Unit>
 		<Unit filename="/Users/peterfetros/Desktop/CGBEmulator/CGBEmulator/CGBEmulator/main_memory.c">
