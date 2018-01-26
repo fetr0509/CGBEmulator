@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
+<<<<<<< HEAD
   "/Users/peterfetros/Desktop/CGBEmulator/CGBEmulator/CGBEmulator/decoder.c" "/Users/peterfetros/Desktop/CGBEmulator/CGBEmulator/cmake-build-debug/CMakeFiles/CGBEmulator.dir/CGBEmulator/decoder.c.o"
   "/Users/peterfetros/Desktop/CGBEmulator/CGBEmulator/CGBEmulator/executor.c" "/Users/peterfetros/Desktop/CGBEmulator/CGBEmulator/cmake-build-debug/CMakeFiles/CGBEmulator.dir/CGBEmulator/executor.c.o"
   "/Users/peterfetros/Desktop/CGBEmulator/CGBEmulator/CGBEmulator/flag_helpers.c" "/Users/peterfetros/Desktop/CGBEmulator/CGBEmulator/cmake-build-debug/CMakeFiles/CGBEmulator.dir/CGBEmulator/flag_helpers.c.o"
@@ -11,6 +12,16 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/peterfetros/Desktop/CGBEmulator/CGBEmulator/CGBEmulator/main.c" "/Users/peterfetros/Desktop/CGBEmulator/CGBEmulator/cmake-build-debug/CMakeFiles/CGBEmulator.dir/CGBEmulator/main.c.o"
   "/Users/peterfetros/Desktop/CGBEmulator/CGBEmulator/CGBEmulator/main_memory.c" "/Users/peterfetros/Desktop/CGBEmulator/CGBEmulator/cmake-build-debug/CMakeFiles/CGBEmulator.dir/CGBEmulator/main_memory.c.o"
   "/Users/peterfetros/Desktop/CGBEmulator/CGBEmulator/CGBEmulator/main_registers.c" "/Users/peterfetros/Desktop/CGBEmulator/CGBEmulator/cmake-build-debug/CMakeFiles/CGBEmulator.dir/CGBEmulator/main_registers.c.o"
+=======
+  "C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/decoder.c" "C:/Users/Peter/Documents/GitHub/CGBEmulator/cmake-build-debug/CMakeFiles/CGBEmulator.dir/CGBEmulator/decoder.c.obj"
+  "C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/executor.c" "C:/Users/Peter/Documents/GitHub/CGBEmulator/cmake-build-debug/CMakeFiles/CGBEmulator.dir/CGBEmulator/executor.c.obj"
+  "C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/flag_helpers.c" "C:/Users/Peter/Documents/GitHub/CGBEmulator/cmake-build-debug/CMakeFiles/CGBEmulator.dir/CGBEmulator/flag_helpers.c.obj"
+  "C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/game_loop.c" "C:/Users/Peter/Documents/GitHub/CGBEmulator/cmake-build-debug/CMakeFiles/CGBEmulator.dir/CGBEmulator/game_loop.c.obj"
+  "C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/lcd.c" "C:/Users/Peter/Documents/GitHub/CGBEmulator/cmake-build-debug/CMakeFiles/CGBEmulator.dir/CGBEmulator/lcd.c.obj"
+  "C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/main.c" "C:/Users/Peter/Documents/GitHub/CGBEmulator/cmake-build-debug/CMakeFiles/CGBEmulator.dir/CGBEmulator/main.c.obj"
+  "C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/main_memory.c" "C:/Users/Peter/Documents/GitHub/CGBEmulator/cmake-build-debug/CMakeFiles/CGBEmulator.dir/CGBEmulator/main_memory.c.obj"
+  "C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/main_registers.c" "C:/Users/Peter/Documents/GitHub/CGBEmulator/cmake-build-debug/CMakeFiles/CGBEmulator.dir/CGBEmulator/main_registers.c.obj"
+>>>>>>> origin/master
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 

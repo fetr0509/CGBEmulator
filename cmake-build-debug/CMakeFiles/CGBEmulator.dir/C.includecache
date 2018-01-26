@@ -66,7 +66,19 @@ constants.h
 ../include/SDL2/SDL.h
 /Users/peterfetros/Desktop/CGBEmulator/CGBEmulator/include/SDL2/SDL.h
 
+<<<<<<< HEAD
 /Users/peterfetros/Desktop/CGBEmulator/CGBEmulator/CGBEmulator/main.c
+=======
+C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/lcd.c
+lcd.h
+C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/lcd.h
+
+C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/lcd.h
+../include/SDL2/SDL.h
+C:/Users/Peter/Documents/GitHub/CGBEmulator/include/SDL2/SDL.h
+
+C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/main.c
+>>>>>>> origin/master
 stdio.h
 -
 decoder.h

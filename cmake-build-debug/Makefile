@@ -231,7 +231,38 @@ CGBEmulator/game_loop.c.s:
 	$(MAKE) -f CMakeFiles/CGBEmulator.dir/build.make CMakeFiles/CGBEmulator.dir/CGBEmulator/game_loop.c.s
 .PHONY : CGBEmulator/game_loop.c.s
 
+<<<<<<< HEAD
 CGBEmulator/main.o: CGBEmulator/main.c.o
+=======
+CGBEmulator/lcd.obj: CGBEmulator/lcd.c.obj
+
+.PHONY : CGBEmulator/lcd.obj
+
+# target to build an object file
+CGBEmulator/lcd.c.obj:
+	$(MAKE) -f CMakeFiles\CGBEmulator.dir\build.make CMakeFiles/CGBEmulator.dir/CGBEmulator/lcd.c.obj
+.PHONY : CGBEmulator/lcd.c.obj
+
+CGBEmulator/lcd.i: CGBEmulator/lcd.c.i
+
+.PHONY : CGBEmulator/lcd.i
+
+# target to preprocess a source file
+CGBEmulator/lcd.c.i:
+	$(MAKE) -f CMakeFiles\CGBEmulator.dir\build.make CMakeFiles/CGBEmulator.dir/CGBEmulator/lcd.c.i
+.PHONY : CGBEmulator/lcd.c.i
+
+CGBEmulator/lcd.s: CGBEmulator/lcd.c.s
+
+.PHONY : CGBEmulator/lcd.s
+
+# target to generate assembly for a file
+CGBEmulator/lcd.c.s:
+	$(MAKE) -f CMakeFiles\CGBEmulator.dir\build.make CMakeFiles/CGBEmulator.dir/CGBEmulator/lcd.c.s
+.PHONY : CGBEmulator/lcd.c.s
+
+CGBEmulator/main.obj: CGBEmulator/main.c.obj
+>>>>>>> origin/master
 
 .PHONY : CGBEmulator/main.o
 
@@ -314,6 +345,7 @@ CGBEmulator/main_registers.c.s:
 
 # Help Target
 help:
+<<<<<<< HEAD
 	@echo "The following are some of the valid targets for this Makefile:"
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
@@ -342,6 +374,39 @@ help:
 	@echo "... CGBEmulator/main_registers.o"
 	@echo "... CGBEmulator/main_registers.i"
 	@echo "... CGBEmulator/main_registers.s"
+=======
+	@echo The following are some of the valid targets for this Makefile:
+	@echo ... all (the default if no target is provided)
+	@echo ... clean
+	@echo ... depend
+	@echo ... CGBEmulator
+	@echo ... edit_cache
+	@echo ... rebuild_cache
+	@echo ... CGBEmulator/decoder.obj
+	@echo ... CGBEmulator/decoder.i
+	@echo ... CGBEmulator/decoder.s
+	@echo ... CGBEmulator/executor.obj
+	@echo ... CGBEmulator/executor.i
+	@echo ... CGBEmulator/executor.s
+	@echo ... CGBEmulator/flag_helpers.obj
+	@echo ... CGBEmulator/flag_helpers.i
+	@echo ... CGBEmulator/flag_helpers.s
+	@echo ... CGBEmulator/game_loop.obj
+	@echo ... CGBEmulator/game_loop.i
+	@echo ... CGBEmulator/game_loop.s
+	@echo ... CGBEmulator/lcd.obj
+	@echo ... CGBEmulator/lcd.i
+	@echo ... CGBEmulator/lcd.s
+	@echo ... CGBEmulator/main.obj
+	@echo ... CGBEmulator/main.i
+	@echo ... CGBEmulator/main.s
+	@echo ... CGBEmulator/main_memory.obj
+	@echo ... CGBEmulator/main_memory.i
+	@echo ... CGBEmulator/main_memory.s
+	@echo ... CGBEmulator/main_registers.obj
+	@echo ... CGBEmulator/main_registers.i
+	@echo ... CGBEmulator/main_registers.s
+>>>>>>> origin/master
 .PHONY : help
 
 
