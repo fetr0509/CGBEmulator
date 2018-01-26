@@ -66,6 +66,14 @@ C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/game_loop.h
 ../include/SDL2/SDL.h
 C:/Users/Peter/Documents/GitHub/CGBEmulator/include/SDL2/SDL.h
 
+C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/lcd.c
+lcd.h
+C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/lcd.h
+
+C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/lcd.h
+../include/SDL2/SDL.h
+C:/Users/Peter/Documents/GitHub/CGBEmulator/include/SDL2/SDL.h
+
 C:/Users/Peter/Documents/GitHub/CGBEmulator/CGBEmulator/main.c
 stdio.h
 -
