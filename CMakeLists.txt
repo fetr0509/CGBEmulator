@@ -17,12 +17,6 @@ if(NOT APPLE)
 endif()
 
 add_executable(CGBEmulator
-        .idea/codeStyles/Project.xml
-        .idea/CGBEmulator.iml
-        .idea/misc.xml
-        .idea/modules.xml
-        .idea/vcs.xml
-        .idea/workspace.xml
         CGBEmulator/constants.h
         CGBEmulator/decoder.c
         CGBEmulator/decoder.h
@@ -34,7 +28,11 @@ add_executable(CGBEmulator
         CGBEmulator/main_memory.c
         CGBEmulator/main_memory.h
         CGBEmulator/main_registers.c
-        CGBEmulator/main_registers.h CGBEmulator/game_loop.c CGBEmulator/game_loop.h)
+        CGBEmulator/main_registers.h
+        CGBEmulator/game_loop.c
+        CGBEmulator/game_loop.h
+        CGBEmulator/lcd.c
+        CGBEmulator/lcd.h)
 
 if(APPLE)
     target_link_libraries(CGBEmulator -L/usr/local/lib -lSDL2)
