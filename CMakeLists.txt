@@ -36,11 +36,11 @@ add_executable(CGBEmulator
 
 if(APPLE)
     target_link_libraries(CGBEmulator -L/usr/local/lib -lSDL2)
+    configure_file(${PROJECT_SOURCE_DIR}/lib/windows/dll_include/SDL2.dll ${PROJECT_SOURCE_DIR}/cmake-build-debug/SDL2.dll COPYONLY)
+    configure_file(${PROJECT_SOURCE_DIR}/lib/windows/dll_include/sdl2-config ${PROJECT_SOURCE_DIR}/cmake-build-debug/sdl2-config COPYONLY)
 endif()
 
 if(NOT APPLE)
     target_link_libraries(CGBEmulator mingw32 SDL2main SDL2)
 endif()
 
-configure_file(${PROJECT_SOURCE_DIR}/lib/windows/dll_include/SDL2.dll ${PROJECT_SOURCE_DIR}/cmake-build-debug/SDL2.dll COPYONLY)
-configure_file(${PROJECT_SOURCE_DIR}/lib/windows/dll_include/sdl2-config ${PROJECT_SOURCE_DIR}/cmake-build-debug/sdl2-config COPYONLY)
