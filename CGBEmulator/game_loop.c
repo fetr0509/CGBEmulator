@@ -26,6 +26,8 @@ void gameLoop() {
     int EXIT = 0;
     while(!EXIT) {
 
+        drawScreen(gameRenderer,screen);
+
         SDL_Event event;
         while(SDL_PollEvent(&event))
         {
