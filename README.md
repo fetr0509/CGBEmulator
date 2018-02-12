@@ -5,11 +5,12 @@ The focus of this emulator will be to incorporate a wide variety of debugging fa
 To examine the code execution in multiple ways.
 
 ____
-## Features
+## Future Features
 
 These specific features that this Game boy emulator will have are: 
 *  Memory Viewer - Allows the user to see the Game Boy's memory and register status such as current instruction as well as step through the memory
 *  Memory Editor - Edit the Game Boy's memory on the fly and search for values within memory.
+* Seperate window for graphics debugging that displays all of the VRAM memory related to graphics.
 
 ____
 ## Libraries and tool chains
