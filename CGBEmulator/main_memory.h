@@ -9,8 +9,8 @@
 #ifndef main_memory_h
 #define main_memory_h
 
-#include <stdio.h>
 #include "constants.h"
+#include "lcd.h"
 
 typedef struct MainMemory {
     byte memory[0xFFFF];
@@ -33,5 +33,7 @@ byte readByteWithRegs(byte  *mostSigByte, byte  *leastSigByte, MainMemory *mainM
 
 void writeByte(word address, byte data, MainMemory *mainMemory);
 void writeWord(word address, word word, MainMemory *mainMemory);
+
+void dumpVRAMTiles(MainMemory *memory, struct Pixel_Color ***pixleColors);
 
 #endif /* main_memory_h */

@@ -3,38 +3,49 @@
 //
 
 #include "lcd.h"
-
+#include "constants.h"
 
 void initLCD_Screen(struct LCD_Screen *screen) {
     screen->screenDebugEnabled = 0;
 
-    screen->pixles = malloc(sizeof(SDL_Rect**) * 256);
-    screen->pixleColors = malloc(sizeof(struct Pixel_Color**) * 256);
+    screen->pixleColors = malloc(sizeof(struct Pixel_Color **));
+    screen->pixles = malloc(sizeof(SDL_Rect **));
 
-    for (int y = 0; y < 256; ++y) {
-        screen->pixles[y] = malloc(sizeof(SDL_Rect*) * 256);
-        screen->pixleColors[y] = malloc(sizeof(struct Pixel_Color*) * 256);
+    (*(screen->pixleColors)) = malloc(sizeof(struct Pixel_Color *) * SCREENSIZE);
+    (*(screen->pixles)) = malloc(sizeof(SDL_Rect *) * SCREENSIZE);
 
-        for (int x = 0; x < 256; ++x) {
-            screen->pixleColors[y][x] = malloc(sizeof(struct Pixel_Color*));
-            SDL_Rect *pixel = malloc(sizeof(SDL_Rect));
-            pixel->x = x;
-            pixel->y = y;
-            pixel->w = 1;
-            pixel->h = 1;
-            screen->pixles[y][x] = pixel;
+    for(int y = 0; y < SCREENSIZE; ++y) {
+
+        (*(screen->pixleColors))[y] = malloc(sizeof(struct Pixel_Color) * SCREENSIZE);
+        (*(screen->pixles))[y] = malloc(sizeof(SDL_Rect) * SCREENSIZE);
+
+        for(int x = 0; x < SCREENSIZE; ++x) {
+            (*(screen->pixleColors))[y][x].red = 0;
+            (*(screen->pixleColors))[y][x].green = 0;
+            (*(screen->pixleColors))[y][x].blue = 0;
+
+            (*(screen->pixles))[y][x].x = x*PIXELWIDTH;
+            (*(screen->pixles))[y][x].y = y*PIXELWIDTH;
+            (*(screen->pixles))[y][x].w = PIXELWIDTH;
+            (*(screen->pixles))[y][x].h = PIXELWIDTH;
         }
     }
+
+    return;
 }
 
 void drawScreen(SDL_Renderer *gameRenderer, struct LCD_Screen *screen) {
-    for (int y = 0; y < 256; ++y) {
-        for (int x = 0; x < 256; ++x) {
-            SDL_SetRenderDrawColor(gameRenderer,
-                                   screen->pixleColors[y][x]->red,
-                                   screen->pixleColors[y][x]->green,
-                                   screen->pixleColors[y][x]->blue, 1);
-            SDL_RenderFillRect( gameRenderer, screen->pixles[y][x]);
+    for (int y = 0; y < SCREENSIZE; ++y) {
+        for (int x = 0; x < SCREENSIZE; ++x) {
+
+            byte red = (*(screen->pixleColors))[y][x].red;
+            byte green = (*(screen->pixleColors))[y][x].green;
+            byte blue = (*(screen->pixleColors))[y][x].blue;
+
+            const SDL_Rect *tempPixel = &(*screen->pixles)[y][x];
+
+            SDL_SetRenderDrawColor(gameRenderer, red, green, blue, 1);
+            SDL_RenderFillRect( gameRenderer, tempPixel);
         }
     }
     SDL_RenderPresent(gameRenderer);
