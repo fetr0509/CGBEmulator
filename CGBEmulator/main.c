@@ -23,8 +23,8 @@ int main(int argc, char * argv[]) {
             (
                     "CGBEmulator", SDL_WINDOWPOS_UNDEFINED,
                     SDL_WINDOWPOS_UNDEFINED,
-                    256,
-                    256,
+                    256*PIXELWIDTH,
+                    256*PIXELWIDTH,
                     SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE
             );
 

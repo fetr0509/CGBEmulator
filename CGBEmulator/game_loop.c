@@ -24,9 +24,22 @@ void startGameLoop(SDL_Window* window, SDL_Renderer* renderer){
 
 void gameLoop() {
     int EXIT = 0;
+
+    MainMemory memory;
+    MainRegisters registers;
+
+    initializeMemory(&memory);
+    initializeMainRegisters(&registers);
+
+    loadROMFromFile(&memory,"Tetris (World).gb");
+    dumpVRAMTiles(&memory,screen->pixleColors);
+
     while(!EXIT) {
 
         drawScreen(gameRenderer,screen);
+
+        byte opcode = fetchByte(&registers.programCounter,&memory);
+        decodeInstruction(opcode,&registers,&memory);
 
         SDL_Event event;
         while(SDL_PollEvent(&event))

@@ -9,12 +9,16 @@
 #ifndef constants_h
 #define constants_h
 
-typedef unsigned char byte;
-typedef signed char signed_byte;
-typedef unsigned short word;
+#include <stdint.h>
+
+typedef uint8_t byte;
+typedef int8_t signed_byte;
+typedef uint16_t word;
 
 #define NUMREGS 8
 #define LOWERBITS (0x0F)
+#define SCREENSIZE 256
+#define PIXELWIDTH 5
 
 #define ZeroFlag(flags) ({*flags & BIT7;})
 #define SubtractionFlag(flags) ({*flags & BIT6;})
