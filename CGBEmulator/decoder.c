@@ -22,30 +22,102 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
     if (opcode >= 0x40 && opcode < 0x80 && opcode != 0x76) {
         byte lowNibble = opcode & LOWERBITS;
 
-        void *source = &mainRegs;
-        void *destination = &mainRegs;
+        byte *source;
+        byte *destination;
 
-        if (lowNibble % 8 == 6)
-            printf("load HL\t");
+        switch (lowNibble % 8) {
+            case 0:
+                source = &(mainRegs->reg_B);
+                break;
+            case 1:
+                source = &(mainRegs->reg_C);
+                break;
+            case 2:
+                source = &(mainRegs->reg_D);
+                break;
+            case 3:
+                source = &(mainRegs->reg_E);
+                break;
+            case 4:
+                source = &(mainRegs->reg_H);
+                break;
+            case 5:
+                source = &(mainRegs->reg_L);
+                break;
+            case 6:
+                data_byte = readByteWithRegs(&(mainRegs->reg_H),&(mainRegs->reg_L),mainMemory);
+                source = &data_byte;
+                break;
+            case 7:
+                source = &(mainRegs->reg_A);
+                break;
+        };
+
+        switch ((opcode - 0x40)/8) {
+            case 0:
+                destination = &(mainRegs->reg_B);
+                break;
+            case 1:
+                destination = &(mainRegs->reg_C);
+                break;
+            case 2:
+                destination = &(mainRegs->reg_D);
+                break;
+            case 3:
+                destination = &(mainRegs->reg_E);
+                break;
+            case 4:
+                destination = &(mainRegs->reg_H);
+                break;
+            case 5:
+                destination = &(mainRegs->reg_L);
+                break;
+            case 6:
+                source = 0;
+                break;
+            case 7:
+                destination = &(mainRegs->reg_A);
+                break;
+        };
+
+        if((opcode - 0x40)/8 == 6)
+            writeByte(RegisterPair(mainRegs->reg_H, mainRegs->reg_L),*source,mainMemory);
         else
-            source = ((byte*) source + (sizeof(byte) * (lowNibble%8)));
-
-        if ((opcode - 0x40)/8 == 7)
-            printf("load HL\t");
-        else
-            destination = ((byte*) destination + (sizeof(byte) * ((opcode - 0x40)/8)));
-
-        load_8BitRegister_WithRegister((byte*)destination, (byte*)source);
+            load_8BitRegister_WithRegister((byte*)destination, (byte*)source);
     }
     else if (opcode >= 0x80 && opcode < 0xC0 && opcode != 0x76) {
+
         byte lowNibble = opcode & LOWERBITS;
         void *source = &mainRegs;
         enum ALUTYPE arithmeticType = (opcode - 0x80) / 8;
 
-        if (lowNibble%8 == 6)
-            printf("load HL\t");
-        else
-            source = ((byte*) source + (sizeof(byte) * (lowNibble%8)));
+        switch (lowNibble % 8) {
+            case 0:
+                source = &(mainRegs->reg_B);
+                break;
+            case 1:
+                source = &(mainRegs->reg_C);
+                break;
+            case 2:
+                source = &(mainRegs->reg_D);
+                break;
+            case 3:
+                source = &(mainRegs->reg_E);
+                break;
+            case 4:
+                source = &(mainRegs->reg_H);
+                break;
+            case 5:
+                source = &(mainRegs->reg_L);
+                break;
+            case 6:
+                data_byte = readByteWithRegs(&(mainRegs->reg_H),&(mainRegs->reg_L),mainMemory);
+                source = &data_byte;
+                break;
+            case 7:
+                source = &(mainRegs->reg_A);
+                break;
+        };
 
         switch (arithmeticType) {
             case ADD_T:
@@ -181,7 +253,7 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
                 RL(&(mainRegs->reg_A), &(mainRegs->reg_F));
 				cycles += 4;
                 break;
-            case 0x18:
+            case 0x18: //
                 data_byte = fetchByte(&(mainRegs->programCounter),mainMemory);
                 jump_address(&(mainRegs->programCounter),mainRegs->programCounter + data_byte);
 				cycles += 8;
@@ -296,7 +368,7 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
                     jump_address(&(mainRegs->programCounter),mainRegs->programCounter + data_byte);
 				cycles += 12;
                 break;
-            case 0x31:
+            case 0x31: // Put value nn into register SP register.
                 data_word = fetchWord(&(mainRegs->programCounter), mainMemory);
                 load_16BitRegister_With16BitData(&(mainRegs->stackPointer) , data_word);
 				cycles += 12;
@@ -416,7 +488,7 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
                     popWord(&(mainRegs->programCounter), &(mainRegs->stackPointer), mainMemory);
 				cycles += 20;
                 break;
-            case 0xC9:
+            case 0xC9: // Pop two bytes from stack & jump to that address.
                 popWord(&(mainRegs->programCounter), &(mainRegs->stackPointer), mainMemory);
 				cycles += 16;
                 break;
@@ -436,7 +508,7 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
                 }
 				cycles += 4;
                 break;
-            case 0xCD:
+            case 0xCD: // Push address of next instuction and then jump
                 data_word = fetchWord(&(mainRegs->programCounter),mainMemory);
                 push_16bit_address(mainRegs->programCounter, &(mainRegs->stackPointer), mainMemory);
                 load_16BitRegister_With16BitData(&(mainRegs->programCounter), data_word);
@@ -536,7 +608,7 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
                 data_byte = fetchByte(&(mainRegs->programCounter), mainMemory);
                 writeByte(0xFF00 + data_byte, mainRegs->reg_A, mainMemory);
 				cycles += 12;
-                break;
+                break; // Pop two bytes off stack into register pair HL
             case 0xE1:
                 pop(&(mainRegs->reg_H), &(mainRegs->reg_L), &(mainRegs->stackPointer), mainMemory);
 				cycles += 12;
@@ -551,7 +623,7 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
             case 0xE4: // NOT USED
                 // Do not Execute
                 break;
-            case 0xE5:
+            case 0xE5: // Push register pair nn onto stack. and Decrement Stack Pointer (SP) twice.
                 push(&(mainRegs->reg_H), &(mainRegs->reg_L), &(mainRegs->stackPointer), mainMemory);
 				cycles += 16;
                 break;
@@ -576,7 +648,7 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
                 jump_address(&(mainRegs->programCounter),data_word);
 				cycles += 4;
                 break;
-            case 0xEA:
+            case 0xEA: // write register A into memory location nn
                 data_word = fetchWord(&(mainRegs->programCounter), mainMemory);
                 writeByte(data_word, mainRegs->reg_A, mainMemory);
 				cycles += 16;
@@ -622,7 +694,7 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
             case 0xF4: // NOT USED
                 // Do not Execute
                 break;
-            case 0xF5:
+            case 0xF5: //
                 push(&(mainRegs->reg_A), &(mainRegs->reg_F), &(mainRegs->stackPointer), mainMemory);
 				cycles += 16;
                 break;

@@ -51,7 +51,7 @@ void pop(byte  *mostSigByte, byte  *leastSigByte, word *stackPointer, MainMemory
 
 void popWord(word *value, word *stackPointer, MainMemory *mainMemory){
     *value = (word)(mainMemory->memory[(*stackPointer)]);
-    *value = (word)(mainMemory->memory[(*stackPointer)+1]) << 8;
+    *value = *value | (word)(mainMemory->memory[(*stackPointer)+1]) << 8;
     (*stackPointer)+=2;
 }
 
@@ -128,7 +128,7 @@ void dumpVRAMTiles(MainMemory *memory, struct Pixel_Color ***pixleColors) {
 
     byte tile[16];
 
-    while (currentAddress <= 0x8FFF) {
+    while (currentAddress < 0xA000) {
 
         for(int byteNumber = 0; byteNumber < 16; ++byteNumber) {
             tile[byteNumber] = readByteWithAddress(currentAddress++,memory);
