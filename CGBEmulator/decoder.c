@@ -298,7 +298,7 @@ void decodeInstruction(byte opcode, MainRegisters *mainRegs, MainMemory *mainMem
                 break;
             case 0x31:
                 data_word = fetchWord(&(mainRegs->programCounter), mainMemory);
-                load_16BitRegister_With16BitData(&(mainRegs->programCounter) , data_word);
+                load_16BitRegister_With16BitData(&(mainRegs->stackPointer) , data_word);
 				cycles += 12;
                 break;
             case 0x32:

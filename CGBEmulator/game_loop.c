@@ -31,7 +31,7 @@ void gameLoop() {
     initializeMemory(&memory);
     initializeMainRegisters(&registers);
 
-    loadROMFromFile(&memory,"Tetris (World).gb");
+    loadROMFromFile(&memory,"cpu_instrs.gb");
     dumpVRAMTiles(&memory,screen->pixleColors);
 
     while(!EXIT) {

@@ -7,6 +7,7 @@
 //
 
 #include <stdlib.h>
+#include <stdio.h>
 #include "main_memory.h"
 
 #define ROMSIZE 0x07FFF
