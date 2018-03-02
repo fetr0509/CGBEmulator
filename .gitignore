@@ -49,3 +49,7 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
+
+CGBEmulator/cpu_instrs.gb
+
+.lldbinit
